@@ -110,16 +110,19 @@ namespace argos {
 		cNewBehaviour->SetIdentifier(unBehaviourIdentifier);
 
 		// Checking for parameters
-		std::string vecPossibleParameters[] = {"rwm", "att", "rep"};
+		std::string vecPossibleParameters[] = {"rwm", "att", "rep", "gen"};
 		UInt8 unNumberPossibleParameters = sizeof(vecPossibleParameters) / sizeof(vecPossibleParameters[0]);
 		for (UInt8 i = 0; i < unNumberPossibleParameters; i++) {
 			std::string strCurrentParameter = vecPossibleParameters[i];
 			std::ostringstream oss;
 			oss << "--" <<strCurrentParameter << unBehaviourIndex;
 			it = std::find(vec_fsm_state_config.begin(), vec_fsm_state_config.end(), oss.str());
-			if (it != vec_fsm_state_config.end()) {
+			if (it != vec_fsm_state_config.end() && strCurrentParameter!="gen") {
 				Real fCurrentParameterValue = strtod((*(it+1)).c_str(), NULL);
 				cNewBehaviour->AddParameter(strCurrentParameter, fCurrentParameterValue);
+			}
+			if (unBehaviourIndex==6 && strCurrentParameter=="gen") {
+				cNewBehaviour->SetParameterPath((*(it+1)).c_str());
 			}
 		}
 		cNewBehaviour->Init();

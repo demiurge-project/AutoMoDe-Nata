@@ -42,6 +42,8 @@ namespace argos {
 			 * Contains the parameters of the behaviours.
 			 */
 			std::map<std::string, Real> m_mapParameters;
+			
+			std::string m_parameterPath;
 
 			/*
 			 * The name of the behaviour.
@@ -105,10 +107,14 @@ namespace argos {
 			 */
 			void AddParameter(const std::string& str_identifier, const Real& f_value);
 
+			void SetParameterPath(const std::string& f_value);
+
 			/*
 			 * Returns the value of a given parameter from the parameters map.
 			 */
 			const Real& GetParameter(const std::string& str_identifier);
+
+			const std::string GetParameterPath();
 
 			/*
 			 * Returns the whole parameters map.

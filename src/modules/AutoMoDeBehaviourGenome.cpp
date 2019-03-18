@@ -55,7 +55,9 @@ namespace argos {
 	/****************************************/
 	/****************************************/
 
-	void AutoMoDeBehaviourGenome::Init() {}
+	void AutoMoDeBehaviourGenome::Init() {
+		std::cout << GetParameterPath() << std::endl;
+	}
 
 	/****************************************/
 	/****************************************/
