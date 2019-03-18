@@ -15,6 +15,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/automode.dir/modules/AutoMoDeBehaviourAttraction.cpp.o"
   "CMakeFiles/automode.dir/modules/AutoMoDeBehaviourRepulsion.cpp.o"
   "CMakeFiles/automode.dir/modules/AutoMoDeBehaviourStop.cpp.o"
+  "CMakeFiles/automode.dir/modules/AutoMoDeBehaviourGenome.cpp.o"
   "CMakeFiles/automode.dir/modules/AutoMoDeBehaviourExploration.cpp.o"
   "CMakeFiles/automode.dir/modules/AutoMoDeCondition.cpp.o"
   "CMakeFiles/automode.dir/modules/AutoMoDeConditionBlackFloor.cpp.o"

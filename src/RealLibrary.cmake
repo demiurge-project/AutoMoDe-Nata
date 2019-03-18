@@ -15,6 +15,7 @@ set(AUTOMODE_HEADERS
 	modules/AutoMoDeBehaviourAttraction.h
 	modules/AutoMoDeBehaviourRepulsion.h
 	modules/AutoMoDeBehaviourStop.h
+	modules/AutoMoDeBehaviourGenome.h
 	modules/AutoMoDeBehaviourExploration.h
 	# Conditions
 	modules/AutoMoDeCondition.h
@@ -38,6 +39,7 @@ set(AUTOMODE_SOURCES
 	modules/AutoMoDeBehaviourAttraction.cpp
 	modules/AutoMoDeBehaviourRepulsion.cpp
 	modules/AutoMoDeBehaviourStop.cpp
+	modules/AutoMoDeBehaviourGenome.cpp
 	modules/AutoMoDeBehaviourExploration.cpp
 	# Conditions
 	modules/AutoMoDeCondition.cpp

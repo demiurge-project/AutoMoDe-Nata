@@ -27,6 +27,8 @@ AutoMoDeFsmHistory.h
 /home/cedric/GitDir/NEAT-AutoMoDe/src/./core/modules/AutoMoDeBehaviourRepulsion.h
 ../modules/AutoMoDeBehaviourStop.h
 /home/cedric/GitDir/NEAT-AutoMoDe/src/./core/modules/AutoMoDeBehaviourStop.h
+../modules/AutoMoDeBehaviourGenome.h
+/home/cedric/GitDir/NEAT-AutoMoDe/src/./core/modules/AutoMoDeBehaviourGenome.h
 ../modules/AutoMoDeCondition.h
 /home/cedric/GitDir/NEAT-AutoMoDe/src/./core/modules/AutoMoDeCondition.h
 ../modules/AutoMoDeConditionBlackFloor.h
@@ -115,6 +117,8 @@ AutoMoDeFsmHistory.h
 /home/cedric/GitDir/NEAT-AutoMoDe/src/./modules/AutoMoDeBehaviourRepulsion.h
 ../modules/AutoMoDeBehaviourStop.h
 /home/cedric/GitDir/NEAT-AutoMoDe/src/./modules/AutoMoDeBehaviourStop.h
+../modules/AutoMoDeBehaviourGenome.h
+/home/cedric/GitDir/NEAT-AutoMoDe/src/./modules/AutoMoDeBehaviourGenome.h
 ../modules/AutoMoDeCondition.h
 /home/cedric/GitDir/NEAT-AutoMoDe/src/./modules/AutoMoDeCondition.h
 ../modules/AutoMoDeConditionBlackFloor.h
@@ -195,6 +199,10 @@ AutoMoDeBehaviour.h
 /home/cedric/GitDir/NEAT-AutoMoDe/src/./modules/AutoMoDeBehaviour.h
 
 /home/cedric/GitDir/NEAT-AutoMoDe/src/./modules/AutoMoDeBehaviourExploration.h
+AutoMoDeBehaviour.h
+/home/cedric/GitDir/NEAT-AutoMoDe/src/./modules/AutoMoDeBehaviour.h
+
+/home/cedric/GitDir/NEAT-AutoMoDe/src/./modules/AutoMoDeBehaviourGenome.h
 AutoMoDeBehaviour.h
 /home/cedric/GitDir/NEAT-AutoMoDe/src/./modules/AutoMoDeBehaviour.h
 

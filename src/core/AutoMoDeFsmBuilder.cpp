@@ -102,6 +102,9 @@ namespace argos {
 			case 5:
 				cNewBehaviour = new AutoMoDeBehaviourRepulsion();
 				break;
+			case 6:
+				cNewBehaviour = new AutoMoDeBehaviourGenome();
+				break;
 		}
 		cNewBehaviour->SetIndex(unBehaviourIndex);
 		cNewBehaviour->SetIdentifier(unBehaviourIdentifier);

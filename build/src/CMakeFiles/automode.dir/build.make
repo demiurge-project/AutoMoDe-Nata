@@ -297,9 +297,33 @@ src/CMakeFiles/automode.dir/modules/AutoMoDeBehaviourStop.cpp.o.provides: src/CM
 src/CMakeFiles/automode.dir/modules/AutoMoDeBehaviourStop.cpp.o.provides.build: src/CMakeFiles/automode.dir/modules/AutoMoDeBehaviourStop.cpp.o
 
 
+src/CMakeFiles/automode.dir/modules/AutoMoDeBehaviourGenome.cpp.o: src/CMakeFiles/automode.dir/flags.make
+src/CMakeFiles/automode.dir/modules/AutoMoDeBehaviourGenome.cpp.o: ../src/modules/AutoMoDeBehaviourGenome.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cedric/GitDir/NEAT-AutoMoDe/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object src/CMakeFiles/automode.dir/modules/AutoMoDeBehaviourGenome.cpp.o"
+	cd /home/cedric/GitDir/NEAT-AutoMoDe/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/automode.dir/modules/AutoMoDeBehaviourGenome.cpp.o -c /home/cedric/GitDir/NEAT-AutoMoDe/src/modules/AutoMoDeBehaviourGenome.cpp
+
+src/CMakeFiles/automode.dir/modules/AutoMoDeBehaviourGenome.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/automode.dir/modules/AutoMoDeBehaviourGenome.cpp.i"
+	cd /home/cedric/GitDir/NEAT-AutoMoDe/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cedric/GitDir/NEAT-AutoMoDe/src/modules/AutoMoDeBehaviourGenome.cpp > CMakeFiles/automode.dir/modules/AutoMoDeBehaviourGenome.cpp.i
+
+src/CMakeFiles/automode.dir/modules/AutoMoDeBehaviourGenome.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/automode.dir/modules/AutoMoDeBehaviourGenome.cpp.s"
+	cd /home/cedric/GitDir/NEAT-AutoMoDe/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cedric/GitDir/NEAT-AutoMoDe/src/modules/AutoMoDeBehaviourGenome.cpp -o CMakeFiles/automode.dir/modules/AutoMoDeBehaviourGenome.cpp.s
+
+src/CMakeFiles/automode.dir/modules/AutoMoDeBehaviourGenome.cpp.o.requires:
+
+.PHONY : src/CMakeFiles/automode.dir/modules/AutoMoDeBehaviourGenome.cpp.o.requires
+
+src/CMakeFiles/automode.dir/modules/AutoMoDeBehaviourGenome.cpp.o.provides: src/CMakeFiles/automode.dir/modules/AutoMoDeBehaviourGenome.cpp.o.requires
+	$(MAKE) -f src/CMakeFiles/automode.dir/build.make src/CMakeFiles/automode.dir/modules/AutoMoDeBehaviourGenome.cpp.o.provides.build
+.PHONY : src/CMakeFiles/automode.dir/modules/AutoMoDeBehaviourGenome.cpp.o.provides
+
+src/CMakeFiles/automode.dir/modules/AutoMoDeBehaviourGenome.cpp.o.provides.build: src/CMakeFiles/automode.dir/modules/AutoMoDeBehaviourGenome.cpp.o
+
+
 src/CMakeFiles/automode.dir/modules/AutoMoDeBehaviourExploration.cpp.o: src/CMakeFiles/automode.dir/flags.make
 src/CMakeFiles/automode.dir/modules/AutoMoDeBehaviourExploration.cpp.o: ../src/modules/AutoMoDeBehaviourExploration.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cedric/GitDir/NEAT-AutoMoDe/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object src/CMakeFiles/automode.dir/modules/AutoMoDeBehaviourExploration.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cedric/GitDir/NEAT-AutoMoDe/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object src/CMakeFiles/automode.dir/modules/AutoMoDeBehaviourExploration.cpp.o"
 	cd /home/cedric/GitDir/NEAT-AutoMoDe/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/automode.dir/modules/AutoMoDeBehaviourExploration.cpp.o -c /home/cedric/GitDir/NEAT-AutoMoDe/src/modules/AutoMoDeBehaviourExploration.cpp
 
 src/CMakeFiles/automode.dir/modules/AutoMoDeBehaviourExploration.cpp.i: cmake_force
@@ -323,7 +347,7 @@ src/CMakeFiles/automode.dir/modules/AutoMoDeBehaviourExploration.cpp.o.provides.
 
 src/CMakeFiles/automode.dir/modules/AutoMoDeCondition.cpp.o: src/CMakeFiles/automode.dir/flags.make
 src/CMakeFiles/automode.dir/modules/AutoMoDeCondition.cpp.o: ../src/modules/AutoMoDeCondition.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cedric/GitDir/NEAT-AutoMoDe/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object src/CMakeFiles/automode.dir/modules/AutoMoDeCondition.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cedric/GitDir/NEAT-AutoMoDe/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object src/CMakeFiles/automode.dir/modules/AutoMoDeCondition.cpp.o"
 	cd /home/cedric/GitDir/NEAT-AutoMoDe/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/automode.dir/modules/AutoMoDeCondition.cpp.o -c /home/cedric/GitDir/NEAT-AutoMoDe/src/modules/AutoMoDeCondition.cpp
 
 src/CMakeFiles/automode.dir/modules/AutoMoDeCondition.cpp.i: cmake_force
@@ -347,7 +371,7 @@ src/CMakeFiles/automode.dir/modules/AutoMoDeCondition.cpp.o.provides.build: src/
 
 src/CMakeFiles/automode.dir/modules/AutoMoDeConditionBlackFloor.cpp.o: src/CMakeFiles/automode.dir/flags.make
 src/CMakeFiles/automode.dir/modules/AutoMoDeConditionBlackFloor.cpp.o: ../src/modules/AutoMoDeConditionBlackFloor.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cedric/GitDir/NEAT-AutoMoDe/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object src/CMakeFiles/automode.dir/modules/AutoMoDeConditionBlackFloor.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cedric/GitDir/NEAT-AutoMoDe/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object src/CMakeFiles/automode.dir/modules/AutoMoDeConditionBlackFloor.cpp.o"
 	cd /home/cedric/GitDir/NEAT-AutoMoDe/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/automode.dir/modules/AutoMoDeConditionBlackFloor.cpp.o -c /home/cedric/GitDir/NEAT-AutoMoDe/src/modules/AutoMoDeConditionBlackFloor.cpp
 
 src/CMakeFiles/automode.dir/modules/AutoMoDeConditionBlackFloor.cpp.i: cmake_force
@@ -371,7 +395,7 @@ src/CMakeFiles/automode.dir/modules/AutoMoDeConditionBlackFloor.cpp.o.provides.b
 
 src/CMakeFiles/automode.dir/modules/AutoMoDeConditionWhiteFloor.cpp.o: src/CMakeFiles/automode.dir/flags.make
 src/CMakeFiles/automode.dir/modules/AutoMoDeConditionWhiteFloor.cpp.o: ../src/modules/AutoMoDeConditionWhiteFloor.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cedric/GitDir/NEAT-AutoMoDe/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object src/CMakeFiles/automode.dir/modules/AutoMoDeConditionWhiteFloor.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cedric/GitDir/NEAT-AutoMoDe/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object src/CMakeFiles/automode.dir/modules/AutoMoDeConditionWhiteFloor.cpp.o"
 	cd /home/cedric/GitDir/NEAT-AutoMoDe/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/automode.dir/modules/AutoMoDeConditionWhiteFloor.cpp.o -c /home/cedric/GitDir/NEAT-AutoMoDe/src/modules/AutoMoDeConditionWhiteFloor.cpp
 
 src/CMakeFiles/automode.dir/modules/AutoMoDeConditionWhiteFloor.cpp.i: cmake_force
@@ -395,7 +419,7 @@ src/CMakeFiles/automode.dir/modules/AutoMoDeConditionWhiteFloor.cpp.o.provides.b
 
 src/CMakeFiles/automode.dir/modules/AutoMoDeConditionGrayFloor.cpp.o: src/CMakeFiles/automode.dir/flags.make
 src/CMakeFiles/automode.dir/modules/AutoMoDeConditionGrayFloor.cpp.o: ../src/modules/AutoMoDeConditionGrayFloor.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cedric/GitDir/NEAT-AutoMoDe/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object src/CMakeFiles/automode.dir/modules/AutoMoDeConditionGrayFloor.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cedric/GitDir/NEAT-AutoMoDe/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object src/CMakeFiles/automode.dir/modules/AutoMoDeConditionGrayFloor.cpp.o"
 	cd /home/cedric/GitDir/NEAT-AutoMoDe/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/automode.dir/modules/AutoMoDeConditionGrayFloor.cpp.o -c /home/cedric/GitDir/NEAT-AutoMoDe/src/modules/AutoMoDeConditionGrayFloor.cpp
 
 src/CMakeFiles/automode.dir/modules/AutoMoDeConditionGrayFloor.cpp.i: cmake_force
@@ -419,7 +443,7 @@ src/CMakeFiles/automode.dir/modules/AutoMoDeConditionGrayFloor.cpp.o.provides.bu
 
 src/CMakeFiles/automode.dir/modules/AutoMoDeConditionNeighborsCount.cpp.o: src/CMakeFiles/automode.dir/flags.make
 src/CMakeFiles/automode.dir/modules/AutoMoDeConditionNeighborsCount.cpp.o: ../src/modules/AutoMoDeConditionNeighborsCount.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cedric/GitDir/NEAT-AutoMoDe/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object src/CMakeFiles/automode.dir/modules/AutoMoDeConditionNeighborsCount.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cedric/GitDir/NEAT-AutoMoDe/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object src/CMakeFiles/automode.dir/modules/AutoMoDeConditionNeighborsCount.cpp.o"
 	cd /home/cedric/GitDir/NEAT-AutoMoDe/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/automode.dir/modules/AutoMoDeConditionNeighborsCount.cpp.o -c /home/cedric/GitDir/NEAT-AutoMoDe/src/modules/AutoMoDeConditionNeighborsCount.cpp
 
 src/CMakeFiles/automode.dir/modules/AutoMoDeConditionNeighborsCount.cpp.i: cmake_force
@@ -443,7 +467,7 @@ src/CMakeFiles/automode.dir/modules/AutoMoDeConditionNeighborsCount.cpp.o.provid
 
 src/CMakeFiles/automode.dir/modules/AutoMoDeConditionInvertedNeighborsCount.cpp.o: src/CMakeFiles/automode.dir/flags.make
 src/CMakeFiles/automode.dir/modules/AutoMoDeConditionInvertedNeighborsCount.cpp.o: ../src/modules/AutoMoDeConditionInvertedNeighborsCount.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cedric/GitDir/NEAT-AutoMoDe/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object src/CMakeFiles/automode.dir/modules/AutoMoDeConditionInvertedNeighborsCount.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cedric/GitDir/NEAT-AutoMoDe/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object src/CMakeFiles/automode.dir/modules/AutoMoDeConditionInvertedNeighborsCount.cpp.o"
 	cd /home/cedric/GitDir/NEAT-AutoMoDe/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/automode.dir/modules/AutoMoDeConditionInvertedNeighborsCount.cpp.o -c /home/cedric/GitDir/NEAT-AutoMoDe/src/modules/AutoMoDeConditionInvertedNeighborsCount.cpp
 
 src/CMakeFiles/automode.dir/modules/AutoMoDeConditionInvertedNeighborsCount.cpp.i: cmake_force
@@ -467,7 +491,7 @@ src/CMakeFiles/automode.dir/modules/AutoMoDeConditionInvertedNeighborsCount.cpp.
 
 src/CMakeFiles/automode.dir/modules/AutoMoDeConditionFixedProbability.cpp.o: src/CMakeFiles/automode.dir/flags.make
 src/CMakeFiles/automode.dir/modules/AutoMoDeConditionFixedProbability.cpp.o: ../src/modules/AutoMoDeConditionFixedProbability.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cedric/GitDir/NEAT-AutoMoDe/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object src/CMakeFiles/automode.dir/modules/AutoMoDeConditionFixedProbability.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cedric/GitDir/NEAT-AutoMoDe/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object src/CMakeFiles/automode.dir/modules/AutoMoDeConditionFixedProbability.cpp.o"
 	cd /home/cedric/GitDir/NEAT-AutoMoDe/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/automode.dir/modules/AutoMoDeConditionFixedProbability.cpp.o -c /home/cedric/GitDir/NEAT-AutoMoDe/src/modules/AutoMoDeConditionFixedProbability.cpp
 
 src/CMakeFiles/automode.dir/modules/AutoMoDeConditionFixedProbability.cpp.i: cmake_force
@@ -491,7 +515,7 @@ src/CMakeFiles/automode.dir/modules/AutoMoDeConditionFixedProbability.cpp.o.prov
 
 src/CMakeFiles/automode.dir/automode_autogen/mocs_compilation.cpp.o: src/CMakeFiles/automode.dir/flags.make
 src/CMakeFiles/automode.dir/automode_autogen/mocs_compilation.cpp.o: src/automode_autogen/mocs_compilation.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cedric/GitDir/NEAT-AutoMoDe/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object src/CMakeFiles/automode.dir/automode_autogen/mocs_compilation.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cedric/GitDir/NEAT-AutoMoDe/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object src/CMakeFiles/automode.dir/automode_autogen/mocs_compilation.cpp.o"
 	cd /home/cedric/GitDir/NEAT-AutoMoDe/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/automode.dir/automode_autogen/mocs_compilation.cpp.o -c /home/cedric/GitDir/NEAT-AutoMoDe/build/src/automode_autogen/mocs_compilation.cpp
 
 src/CMakeFiles/automode.dir/automode_autogen/mocs_compilation.cpp.i: cmake_force
@@ -525,6 +549,7 @@ automode_OBJECTS = \
 "CMakeFiles/automode.dir/modules/AutoMoDeBehaviourAttraction.cpp.o" \
 "CMakeFiles/automode.dir/modules/AutoMoDeBehaviourRepulsion.cpp.o" \
 "CMakeFiles/automode.dir/modules/AutoMoDeBehaviourStop.cpp.o" \
+"CMakeFiles/automode.dir/modules/AutoMoDeBehaviourGenome.cpp.o" \
 "CMakeFiles/automode.dir/modules/AutoMoDeBehaviourExploration.cpp.o" \
 "CMakeFiles/automode.dir/modules/AutoMoDeCondition.cpp.o" \
 "CMakeFiles/automode.dir/modules/AutoMoDeConditionBlackFloor.cpp.o" \
@@ -548,6 +573,7 @@ src/libautomode.so: src/CMakeFiles/automode.dir/modules/AutoMoDeBehaviourPhotota
 src/libautomode.so: src/CMakeFiles/automode.dir/modules/AutoMoDeBehaviourAttraction.cpp.o
 src/libautomode.so: src/CMakeFiles/automode.dir/modules/AutoMoDeBehaviourRepulsion.cpp.o
 src/libautomode.so: src/CMakeFiles/automode.dir/modules/AutoMoDeBehaviourStop.cpp.o
+src/libautomode.so: src/CMakeFiles/automode.dir/modules/AutoMoDeBehaviourGenome.cpp.o
 src/libautomode.so: src/CMakeFiles/automode.dir/modules/AutoMoDeBehaviourExploration.cpp.o
 src/libautomode.so: src/CMakeFiles/automode.dir/modules/AutoMoDeCondition.cpp.o
 src/libautomode.so: src/CMakeFiles/automode.dir/modules/AutoMoDeConditionBlackFloor.cpp.o
@@ -559,7 +585,7 @@ src/libautomode.so: src/CMakeFiles/automode.dir/modules/AutoMoDeConditionFixedPr
 src/libautomode.so: src/CMakeFiles/automode.dir/automode_autogen/mocs_compilation.cpp.o
 src/libautomode.so: src/CMakeFiles/automode.dir/build.make
 src/libautomode.so: src/CMakeFiles/automode.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/cedric/GitDir/NEAT-AutoMoDe/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Linking CXX shared library libautomode.so"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/cedric/GitDir/NEAT-AutoMoDe/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Linking CXX shared library libautomode.so"
 	cd /home/cedric/GitDir/NEAT-AutoMoDe/build/src && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/automode.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -577,6 +603,7 @@ src/CMakeFiles/automode.dir/requires: src/CMakeFiles/automode.dir/modules/AutoMo
 src/CMakeFiles/automode.dir/requires: src/CMakeFiles/automode.dir/modules/AutoMoDeBehaviourAttraction.cpp.o.requires
 src/CMakeFiles/automode.dir/requires: src/CMakeFiles/automode.dir/modules/AutoMoDeBehaviourRepulsion.cpp.o.requires
 src/CMakeFiles/automode.dir/requires: src/CMakeFiles/automode.dir/modules/AutoMoDeBehaviourStop.cpp.o.requires
+src/CMakeFiles/automode.dir/requires: src/CMakeFiles/automode.dir/modules/AutoMoDeBehaviourGenome.cpp.o.requires
 src/CMakeFiles/automode.dir/requires: src/CMakeFiles/automode.dir/modules/AutoMoDeBehaviourExploration.cpp.o.requires
 src/CMakeFiles/automode.dir/requires: src/CMakeFiles/automode.dir/modules/AutoMoDeCondition.cpp.o.requires
 src/CMakeFiles/automode.dir/requires: src/CMakeFiles/automode.dir/modules/AutoMoDeConditionBlackFloor.cpp.o.requires

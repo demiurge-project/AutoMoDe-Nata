@@ -12,6 +12,7 @@ src/CMakeFiles/automode_main.dir/AutoMoDeMain.cpp.o
  /home/cedric/GitDir/NEAT-AutoMoDe/src/./modules/AutoMoDeBehaviourAntiPhototaxis.h
  /home/cedric/GitDir/NEAT-AutoMoDe/src/./modules/AutoMoDeBehaviourAttraction.h
  /home/cedric/GitDir/NEAT-AutoMoDe/src/./modules/AutoMoDeBehaviourExploration.h
+ /home/cedric/GitDir/NEAT-AutoMoDe/src/./modules/AutoMoDeBehaviourGenome.h
  /home/cedric/GitDir/NEAT-AutoMoDe/src/./modules/AutoMoDeBehaviourPhototaxis.h
  /home/cedric/GitDir/NEAT-AutoMoDe/src/./modules/AutoMoDeBehaviourRepulsion.h
  /home/cedric/GitDir/NEAT-AutoMoDe/src/./modules/AutoMoDeBehaviourStop.h
