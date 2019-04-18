@@ -103,13 +103,14 @@ namespace argos {
 				cNewBehaviour = new AutoMoDeBehaviourRepulsion();
 				break;
 			case 6:
-				cNewBehaviour = new AutoMoDeBehaviourGenome("/home/cedric/GitDir/NEAT-AutoMoDe/gen/exploration");
+				cNewBehaviour = new AutoMoDeBehaviourGenome("../../gen/exploration");
 				break;
 			case 7:
 				cNewBehaviour = new AutoMoDeBehaviourGenome("/home/cedric/GitDir/NEAT-AutoMoDe/gen/stop");
 				break;
 			case 8:
-				cNewBehaviour = new AutoMoDeBehaviourGenome("/home/cedric/GitDir/NEAT-AutoMoDe/gen/phototaxis");
+				std::cout << "Case 8" << std::endl;
+				cNewBehaviour = new AutoMoDeBehaviourGenome("../gen/phototaxis");
 				std::cout << "Constructor" << std::endl;
 				break;
 			case 9:

@@ -13,6 +13,7 @@ namespace argos {
 
 	AutoMoDeBehaviourGenome::AutoMoDeBehaviourGenome(std::string path) {
 		m_strFile = path;
+		std::cout << "H" << std::endl;
 		LoadGen(path);
 		m_net = NULL;
 		m_nId = -1;
@@ -20,8 +21,9 @@ namespace argos {
 		std::cout << "Clearing" << std::endl;
 		m_mapMessages.clear();
 		std::cout << "Clear done" << std::endl;
-		m_pcRNG = argos::CRandom::CreateRNG("argos");
+		//m_pcRNG = argos::CRandom::CreateRNG("argos");
 		m_strLabel = "Genome_";
+		std::cout << "End creation of BehaviorGenome" << std::endl;
 	}
 
 	/****************************************/
@@ -59,20 +61,28 @@ namespace argos {
 	/****************************************/
 
 	void AutoMoDeBehaviourGenome::ControlStep() {
-		std::cout << "ControlStep" << std::endl;
+		std::cout << "ControlStep Genome" << std::endl;
 		for(size_t i=0; i<25; i++) {
 			m_inputs[i] = 0;
 		}
+
 		CCI_EPuckProximitySensor::TReadings cProcessedProxiReadings = m_pcRobotDAO->GetProximityInput();
+		std::cout << "DAO ok" << cProcessedProxiReadings.size() << std::endl;
+
+
 		// Injecting processed readings as input of the NN
 		for(size_t i=0; i<8; i++) {
+			std::cout << cProcessedProxiReadings[i].Value << std::endl;
 			m_inputs[i] = cProcessedProxiReadings[i].Value;
 		}
+		std::cout << "proxi ok" << std::endl;
 
 		CCI_EPuckLightSensor::TReadings cProcessedLightReadings = m_pcRobotDAO->GetLightInput();
 		for(size_t i=8; i<16; i++) {
 			m_inputs[i] = cProcessedLightReadings[i-8].Value;
 		}
+		std::cout << "light ok" << std::endl;
+
 
 		// Get Ground sensory data.
 		CCI_EPuckGroundSensor::SReadings cProcessedGroundReadings = m_pcRobotDAO->GetGroundInput();
@@ -83,7 +93,7 @@ namespace argos {
 			} else if(cProcessedGroundReadings[i-16] >= 0.95){ //white
 				m_inputs[i] = 1;
 			} else { //gray
-				UInt32 index = m_pcRNG->Uniform(CRange<UInt32>(0, 4204));
+				UInt32 index = m_pcRobotDAO->GetRandomNumberGenerator()->Uniform(CRange<UInt32>(0, 4204));
 				if(i == 16)
 					m_inputs[i] = m_GraySamplesLeft[index];
 				else if(i == 17)
@@ -92,6 +102,8 @@ namespace argos {
 					m_inputs[i] = m_GraySamplesRight[index];
 			}
 		}
+		std::cout << "ground ok" << std::endl;
+
 
 		// Get RAB sensory data.
 		CCI_EPuckRangeAndBearingSensor::TPackets sLastPackets = m_pcRobotDAO->GetRangeAndBearingMessages();
@@ -122,6 +134,8 @@ namespace argos {
 
 		// Bias Unit
 		m_inputs[24] = 1;
+
+		std::cout << "Before loading" << std::endl;
 
 		// Feed the network with those inputs
 		m_net->load_sensors((double*)m_inputs);
@@ -185,7 +199,7 @@ namespace argos {
 	/****************************************/
 
 	void AutoMoDeBehaviourGenome::LoadGen(std::string filename) {
-	    std::ifstream iFile(filename.c_str(),std::ios::in);
+		std::ifstream iFile(filename.c_str(),std::ios::in);
 
 		if(iFile) {
 			char curword[20];
@@ -207,6 +221,7 @@ namespace argos {
 			m_cNetworkVector.push_back(m_net);
 			delete g;
 		} else {
+			LOGERR << "Cannot open genome file '" << filename << "' for reading";
 			THROW_ARGOSEXCEPTION("Cannot open genome file '" << filename << "' for reading");
 		}
 
