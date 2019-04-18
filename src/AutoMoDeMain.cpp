@@ -44,7 +44,6 @@ int main(int n_argc, char** ppch_argv) {
 	std::vector<std::string> vecConfigFsm;
 	bool bFsmControllerFound = false;
 	UInt32 unSeed = 0;
-
 	std::vector<AutoMoDeFiniteStateMachine*> vecFsm;
 
 	try {
@@ -87,7 +86,6 @@ int main(int n_argc, char** ppch_argv) {
 				cSimulator.SetExperimentFileName(cACLAP.GetExperimentConfigFile());
 
 				// Creation of the finite state machine.
-
 				AutoMoDeFsmBuilder cBuilder = AutoMoDeFsmBuilder();
 				AutoMoDeFiniteStateMachine* pcFiniteStateMachine = cBuilder.BuildFiniteStateMachine(vecConfigFsm);
 
@@ -97,9 +95,11 @@ int main(int n_argc, char** ppch_argv) {
 					std::cout << pcFiniteStateMachine->GetReadableFormat() << std::endl;
 				}
 
+				std::cout << "Seed" << std::endl;
 				// Setting random seed. Only works with modified version of ARGoS3.
 				cSimulator.SetRandomSeed(unSeed);
 
+				std::cout << "Exp" << std::endl;
 				cSimulator.LoadExperiment();
 
 				// Duplicate the finite state machine and pass it to all robots.

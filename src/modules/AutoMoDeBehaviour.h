@@ -64,7 +64,7 @@ namespace argos {
 			 * Pointer to the state of the robot. Shared with the controller AutoMoDeController
 			 * and the finite state machine AutoMoDeFiniteStateMachine.
 			 */
-      EpuckDAO* m_pcRobotDAO;
+      		EpuckDAO* m_pcRobotDAO;
 
 		public:
 
@@ -174,7 +174,7 @@ namespace argos {
 			/*
 			 * Setter for the shared pointer to the representation of the robot state.
 			 */
-			void SetRobotDAO(EpuckDAO* pc_robot_dao);
+			virtual void SetRobotDAO(EpuckDAO* pc_robot_dao);
 	};
 }
 

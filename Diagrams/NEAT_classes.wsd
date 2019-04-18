@@ -1,0 +1,656 @@
+@startuml NEAT
+package argos {
+	class CCI_Controller
+	class TConfigurationNode
+	class CDynamicLoading
+	class CARGoSCommandLineArgParser
+	class CSimulator
+	class UInt32
+	class CRange
+	class CCI_EPuckWheelsActuator
+	class CCI_EPuckRangeAndBearingActuator
+	class CCI_EPuckProximitySensor
+	class CCI_EPuckLightSensor
+	class CCI_EPuckRangeAndBearingSensor
+	class CControllableEntity
+	class SInt32
+	class UInt8
+	class CVector2
+	class TPackets
+	class CRadians
+	class SReading
+	class CRandom
+	class CRNG
+	class CSpace
+	class TMapPerType
+}
+package loop_functions {
+	class CoreLoopFunctions
+}
+package epuck_dao {
+	class EpuckDAO
+}
+package NEAT {
+	package controllers{
+		class NeuralNetworkRM1Dot1 <<argos>>{
+   			+NeuralNetworkRM1Dot1()
+   			+virtual ~NeuralNetworkRM1Dot1()
+   			+virtual void Init(TConfigurationNode&)
+   			+virtual void ControlStep()
+   			+virtual void Reset()
+   			+virtual void Destroy()
+   			-Real m_inputs[25]
+		}
+		class NeuralNetworkRM1Dot2 <<argos>>{
+			+NeuralNetworkRM1Dot2()
+   			+virtual ~NeuralNetworkRM1Dot2()
+			+virtual void Init(TConfigurationNode&)
+			+virtual void ControlStep()
+		   	+virtual void Reset()
+   			+virtual void Destroy()
+			-Real m_inputs[15]
+		}
+	}
+	package genome_parser{
+		class parserGenome <<std>>{
+			void checkInput(string&)
+			int main(int,char*)
+   		}
+		class parserGenome23 <<std>>{
+			void checkInput(string&)
+			int main(int,char*)
+   		}
+	}
+	package neat{
+		package info{
+			class CartPole <<NEAT,NEAT.Info.experiment>>{
+				+CartPole(bool,bool)
+				+virtual void simplifyTask()
+				+virtual void nextTask()
+				+virtual double evalNet(Network*,int)
+				+double maxFitness
+				+bool MARKOV
+				+bool last_hundred
+				+bool nmarkov_long
+				+bool generalization_test
+				+double state[6]
+				+double jigglestep[1000]
+				#virtual void init(bool)
+				-void performAction(double,int)
+				-void step(double,double*,double*)
+				-void rk4(double,double[],double[],double[])
+				-bool outsideBounds()
+				-const static int NUM_INPUTS = 7
+				-const static double MUP = 0.000002
+				-const static double MUC = 0.0005
+				-const static double GRAVITY = -9.8
+				-const static double MASSCART = 1.0
+				-const static double MASSPOLE_1 = 0.1
+				-const static double LENGTH_1 = 0.5
+				-const static double FORCE_MAG = 10.0
+				-const static double TAU = 0.01
+				-const static double one_degree = 0.0174532
+				-const static double six_degrees = 0.1047192
+				-const static double twelve_degrees = 0.2094384
+				-const static double fifteen_degrees = 0.2617993
+				-const static double thirty_six_degrees = 0.628329
+				-const static double fifty_degrees = 0.87266
+				-double LENGTH_2
+				-double MASSPOLE_2
+				-double MIN_INC
+				-double POLE_INC
+				-double MASS_INC
+				--Gruau's fitness--
+				-int balanced_sum
+				-double cartpos_sum
+				-double cartv_sum
+				-double polepos_sum
+				-double polev_sum
+			}
+		}
+		class Gene <<NEAT>>{
+			+Link* lnk
+			+double innovation_num
+			+double mutation_num
+			+bool enable
+			+bool frozen
+			+Gene(double,NNode*,NNode*,bool,double,double)
+			+Gene(Trait*,double w,NNode*,NNode*,bool,double,double)
+			+Gene(Gene*,Trait*,NNode*,NNode*)
+			+Gene(const char*,vector<Trait*>&,vector<NNode*>&)
+			+Gene(const Gene&)
+			+~Gene()
+			+void print_to_file(ostream&)
+			+void print_to_file(sofstream&)
+		}
+		enum mutator <<NEAT>>{
+			int GAUSSIAN = 0
+			int COLDGAUSSIAN = 1
+		}
+		class Genome <<NEAT>>{
+			+int genome_id
+			+vector<Trait*> traits
+			+vector<NNode*> nodes
+			+vector<Gene*> genes
+			+Network* phenotype
+			+int get_last_node_id()
+			+double get_last_gene_innovnum()
+			+void print_genome()
+			+Genome(int,vector<Trait*>,vector<NNode*>,vector<Gene*>)
+			+Genome(int,vector<Trait*>,vector<NNode*>,vector<Link*>)
+			+Genome(const Genome&)
+			+Genome(int,ifstream&)
+			+Genome(int,int,int,int,int,bool,double)
+			+Genome(int,int,int,int)
+			+static Genome* new_Genome_load(char*)
+			+~Genome()
+			+Network* genesis(int)
+			+void print_to_file(ostream&)
+			+void print_to_file(ofstream&)
+			+void print_to_filename(char*)
+			+Genome* duplicate(int)
+			+bool verify()
+			--Mutators--
+			+void mutate_random_trait()
+			+void mutate_link_trait(int)
+			+void mutate_node_trait(int)
+			+void mutate_link_weights(double,double,mutator)
+			+void mutate_toggle_enable(int)
+			+void mutate_gene_reenable()
+			+bool mutate_add_node(vector<Innovation*>&,int&,double)
+			+bool mutate_add_link(vector<Innovation*>&,double&,int)
+			+void mutate_add_sensor(vector<Innovation>*&,double&)
+			--Mating methods--
+			+Genome* mate_multipoint(Genome*,int,double,double,bool)
+			+Genome* mate_multipoint_avg(Genome*,int,double,double,bool)
+			+Genome* mate_singlepoint(Genome*,int)
+			--Compatibility--
+			+double compatibility(Genome*)
+			+double trait_compare(Trait*,Trait*)
+			+int extrons()
+			+void randomize_traits()
+			#void node_insert(vector<NNode*>&,NNode*)
+			#void add_gene(vector<Gene*>&,Gene*)
+		}
+		enum innovtype <<NEAT>>{
+			int NEWNODE = 0
+			int NEWLINK = 1
+		}
+		enum Innovation_innovtype <<NEAT>>{
+			int NEWNODE = 0
+			int NEWLINK = 1
+		}
+		class Innovation <<NEAT>>{
+			+Innovation.innovtype innovation_type
+			+int node_in_id
+			+int node_out_id
+			+double innovation_num1
+			+double innovation_num2
+			+double new_weight
+			+int new_traitnum
+			+int newnode_id
+			+double old_innov_num
+			+bool recur_flag
+			+Innovation(int,int,double,double,int,double)
+			+Innovation(int,int,double,double,int)
+			+Innovation(int,int,double,double,int,bool)
+		}
+		class Link <<NEAT>>{
+			+double weight
+			+NNode* in_node
+			+NNode* out_node
+			+bool is_recurrent
+			+bool time_delay
+			+Trait* linktrait
+			+int trait_id
+			--LEARNING PARAMETERS-- 
+			+double added_weight
+			+double params[NEAT::num_trait_params]
+			+Link(double,NNode*,NNode*,bool)
+			+Link(Trait*,double,NNode*,NNode*,bool)
+			+Link(double)
+			+Link(const Link&)
+			+void derive_trait(Trait*)
+		}
+		class Network <<NEAT>>{
+			+int numnodes
+			+int numlinks
+			+vector<NNode*> all_nodes
+			+vector<NNode*>::iterator input_iter
+			+void destroy()
+			+void destroy_helper(NNode*,vector<NNode*>&)
+			+void nodecounthelper(NNode*,int&,vector<NNode*>&)
+			+void linkcounthelper(NNode*,int&,vector<NNode*>&)
+			+Genome* genotype
+			+char* name
+			+vector<NNode*> inputs
+			+vector<NNode*> outputs
+			+int net_id
+			+double maxweight
+			+bool adaptable
+			+Network(vector<NNode*>,vector<NNode*>,vector<NNode*>,int)
+			+Network(vector<NNode*>,vector<NNode*>,vector<NNode*>,int,bool)
+			+Network(int)
+			+Network(int,bool)
+			Network(const Network&)
+			+~Network()
+			+void flush()
+			+void flush_check()
+			+bool activate()
+			+void show_activation()
+			+void show_input()
+			+void add_input(NNode*)
+			+void add_output(NNode*)
+			+void load_sensors(double*)
+			+void load_sensors(const vector<float>&)
+			+void load_sensors(const vector<double>&)
+			+void override_outputs(double*)
+			+void give_name(char*)
+			+int nodecount()
+			+int linkcount()
+			+bool is_recur(NNode*,NNode*,int&,int)
+			+int input_start()
+			+int load_in(double)
+			+bool outputsoff()
+			+void print_links_tofile(char*)
+			+int max_depth()
+		}
+		enum nodetype <<NEAT>>{
+			int NEURON = 0
+			int SENSOR = 1
+		}
+		enum nodeplace <<NEAT>>{
+			int HIDDEN = 0
+			int INPUT = 1
+			int OUTPUT = 2
+			int BIAS = 3
+		}
+		enum functype <<NEAT>>{
+			int SIGMOID = 0
+		}
+		class NNode <<NEAT>>{
+			#int activation_count  
+			#double last_activation 
+			#double last_activation2 
+			#Trait* nodetrait 
+			#int trait_id  
+			#NNode* dup       
+			#NNode* analogue  
+			#bool override 
+			#double override_value 
+			+bool frozen 
+			+functype ftype 
+			+nodetype type 
+			+double activesum  
+			+double activation 
+			+bool active_flag  
+			+double output  
+			+double params[NEAT::num_trait_params]
+			+vector<Link*> incoming 
+			+vector<Link*> outgoing  
+			+vector<double> rowlevels  
+			+int row  
+			+int ypos
+			+int xpos
+			+int node_id  
+			+nodeplace gen_node_label  
+			+NNode(nodetype,int)
+			+NNode(nodetype,int,nodeplace)
+			+NNode(NNode*,Trait*)
+			+NNode (const char*,vector<Trait*>&)
+			+NNode (const NNode&)
+			+~NNode()
+			+double get_active_out()
+			+double get_active_out_td()
+			+const nodetype get_type()
+			+nodetype set_type(nodetype)
+			+bool sensor_load(double)
+			+void add_incoming(NNode*,double)
+			+void add_incoming(NNode*,double,bool)
+			+void flushback()
+			+void flushback_check(vector<NNode*>&)
+			+void  print_to_file(ostream&)
+			+void print_to_file(ofstream&)
+			+void derive_trait(Trait*)
+			+NNode* get_analogue()
+			+void override_output(double)
+			+bool overridden()
+			+void activate_override()
+			+void Lamarck()
+			+int depth(int,Network*)
+		}
+		class Organism <<NEAT>>{
+			+double fitness  
+			+double orig_fitness  
+			+double error  
+			+bool winner  
+			+Network* net  
+			+Genome* gnome 
+			+Species* species  
+			+double expected_offspring 
+			+int generation  
+			+bool eliminate  
+			+bool champion 
+			+int super_champ_offspring  
+			+bool pop_champ  
+			+bool pop_champ_child 
+			+double high_fit 
+			+int time_alive
+			+bool mut_struct_baby
+			+bool mate_baby
+			+char metadata[128]
+			+bool modified
+			+void update_phenotype()
+			+bool print_to_file(char*)   
+			+bool write_to_file(ostream&)
+			+Organism(double,Genome*,int,const char* = 0)
+			+Organism(const Organism&)
+			+~Organism()
+		}
+		class Population <<NEAT>>{
+			#bool spawn(Genome*,int)
+			+vector<Organism*> organisms 
+			+vector<Species*> species  
+			+vector<Innovation*> innovations  
+			+int cur_node_id  
+			+double cur_innov_num
+			+int last_species  
+			+double mean_fitness
+			+double variance
+			+double standard_deviation
+			+int winnergen 
+			+double highest_fitness  
+			+int highest_last_changed 
+			+bool speciate()
+			+bool print_to_file(ostream&)
+			+bool print_to_file_by_species(ostream&)
+			+bool print_to_file_by_species(char*)
+			+bool print_champ_to_file(char*)
+			+bool print_species_champs_tofiles(char*,int)
+			+bool verify()
+			+bool epoch(int)
+			+bool rank_within_species()
+			+Population(Genome*,int)
+			+Population(Genome*,int,float)
+			+Population(vector<Genome*>,float)
+			+bool clone(Genome*,int,float)
+			+Population(const char*)
+			+~Population()
+		}
+		class Species <<NEAT>>{
+			+int id
+			+int age 
+			+double ave_fitness 
+			+double max_fitness 
+			+double max_fitness_ever 
+			+int expected_offspring
+			+bool novel
+			+bool checked
+			+bool obliterate  
+			+vector<Organism*> organisms 
+			+int age_of_last_improvement  
+			+double average_est 
+			+bool add_Organism(Organism*)
+			+Organism* first()
+			+bool print_to_file(ostream&)
+			+bool print_to_file(ofstream&)
+			+void adjust_fitness()
+			+double compute_average_fitness() 
+			+double compute_max_fitness()
+			+double count_offspring(double)
+			+int last_improved()
+			+bool remove_org(Organism*)
+			+double size()
+			+Organism* get_champ()
+			+bool reproduce(int,Population*,vector<Species*>&)
+			+bool rank()
+			+Species(int)
+			+Species(int,bool)
+			+~Species()
+		}
+		class Trait <<NEAT>>{
+			+int trait_id 
+			+double params[NEAT::num_trait_params] 
+			+Trait()
+			+Trait(int,double,double,double,double,double,double,double,double,double)
+			+Trait(const Trait&)
+			+Trait(Trait*)
+			+Trait(const char*)
+			+Trait(Trait*,Trait*)
+			+void print_to_file(ostream&)
+			+void print_to_file(ofstream&)
+			+void mutate()
+		}
+	}
+	class CEPuckNEATController{
+   		+virtual ~CEPuckNEATController()
+   		{abstract} +virtual void Init(TConfigurationNode&)
+   		{abstract} +virtual void ControlStep()
+   		{abstract} +virtual void Reset()
+   		{abstract} +virtual void Destroy()
+   		+void LoadNetwork(const string&)
+   		+void Display(int)
+   		+void DisplayNetwork()
+   		+inline void SetNetwork(Network&)
+   		+UInt32 getRobotId()
+   		#EpuckDAO* m_pcRobotState
+   		--Actuators--
+   		#CCI_EPuckWheelsActuator* m_pcWheels
+   		#CCI_EPuckRangeAndBearingActuator* m_pcRABAct
+   		#CRange<Real> m_cWheelActuationRange
+   		--Sensors--
+   		#CCI_EPuckProximitySensor* m_pcProximity
+   		#CCI_EPuckLightSensor* m_pcLight
+   		#CCI_EPuckGroundSensor* m_pcGround
+   		#CCI_EPuckRangeAndBearingSensor* m_pcRAB
+   		--Network--
+   		#NEAT::Network* m_net
+   		#CRange<Real> m_cNeuralNetworkOutputRange
+   		#vector<NEAT::Network*> m_cNetworkVector
+   		#string m_strFile
+   		--Range And Bearing Packet--
+   		#SInt32 m_nId
+   		#map<UInt32,RBPacket> m_mapMessages
+   		#UInt32 m_unTimeStep
+   		#Real m_fLeftSpeed,m_fRightSpeed
+		#argos::CRandom::CRNG* m_pcRNG
+   		--Ground sensor samples--
+   		#static const float m_GraySamplesLeft[4205]
+   		#static const float m_GraySamplesCenter[4205]
+   		#static const float m_GraySamplesRight[4205]
+	}
+	class RBPacket <<struct>>{
+        UInt32 unId
+        UInt32 unTimestamp
+        CCI_EPuckRangeAndBearingSensor::SReceivedPacket cMessage
+        RBPacket()
+        RBPacket(UInt32,UInt32,CCI_EPuckRangeAndBearingSensor::SReceivedPacket)
+   	}
+	class _global_ <<global functions>>{
+		--CEPuckNEATController<<argos>>--
+		const float CEPuckNEATController::m_GraySamplesLeft[4205] = {...}
+		const float CEPuckNEATController::m_GraySamplesCenter[4205] = {...}
+		const float CEPuckNEATController::m_GraySamplesRight[4205] = {...}
+		--NEAT.experiment<<NEAT>>--
+		void launchNEAT(const char*neatParams,const char* ,double (*fctExperiment)(Network&))
+		void launchNEAT(const char*neatParams,const char* ,void (*fctExperiment)(Population&,unsigned int))
+		--NEAT.Info.experiment<<NEAT>>--
+		Population* xor_test(int)
+		bool xor_evaluate(Organism*)
+		int xor_epoch(Population*,int,char*,int&,int&,int&)
+		Population* pole1_test(int)
+		bool pole1_evaluate(Organism*)
+		int pole1_epoch(Population*,int,char*)
+		int go_cart(Network*,int,int)
+		void cart_pole(int,float*,float*,float*,float*)
+		Population* pole2_test(int,int)
+		bool pole2_evaluate(Organism*,bool,CartPole*)
+		int pole2_epoch(Population*,int,char*,bool,CartPole*,int&,int&,int&,ofstream&)
+		--Genome<<NEAT>>--
+		Genome* new_Genome_auto(int,int,int,int,const char*)
+		void print_Genome_tofile(Genome*,const char*)
+		--evolution--
+		MPI::Intercomm g_com
+		int g_nbProcess
+		unsigned int g_unRandomSeed = 1
+		void launchARGoSAndEvaluate(NEAT::Population&,unsigned)
+		void launchARGoSInParallelAndEvaluate(NEAT::Population&,unsigned int)
+		int main(int,char*)
+		--evolution_sequential--
+		void launchARGoSAndEvaluate(NEAT::Population&,unsigned int)
+		int main(int,char*)
+		--launch<<argos>>--
+		int main(int,char**)
+		--scheduler--
+		int main(int,char*[])
+		--neatmain<<std>>--
+		extern double* testdoub
+		int main(int,char*)
+		--neat.neat<<NEAT>>--
+		const int num_trait_params = 8
+		extern double trait_param_mut_prob
+		extern double trait_mutation_power
+		extern double linktrait_mut_sig
+		extern double nodetrait_mut_sig
+		extern double weight_mut_power
+		extern double recur_prob
+		extern double disjoint_coeff
+		extern double excess_coeff
+		extern double mutdiff_coeff
+		extern double compat_threshold
+		extern double age_significance
+		extern double survival_thresh
+		extern double mutate_only_prob
+		extern double mutate_random_trait_prob
+		extern double mutate_link_trait_prob
+		extern double mutate_node_trait_prob
+		extern double mutate_link_weights_prob
+		extern double mutate_toggle_enable_prob
+		extern double mutate_gene_reenable_prob
+		extern double mutate_add_node_prob
+		extern double mutate_add_sensor_prob
+		extern double mutate_add_link_prob
+		extern double interspecies_mate_rate
+		extern double mate_multipoint_prob
+		extern double mate_multipoint_avg_prob
+		extern double mate_singlepoint_prob
+		extern double mate_only_prob
+		extern double recur_only_prob
+		extern int pop_size
+		extern int dropoff_age
+		extern int newlink_tries
+		extern int print_every
+		extern int babies_stolen
+		extern int num_runs
+		extern unsigned int num_gens
+		extern unsigned int num_runs_per_gen
+		extern unsigned int num_runs_post_eval
+		extern double weight_lower_bound
+		extern double weight_upper_bound
+		extern double elitism_percentage
+		extern bool all_inputs_disconnected
+		int getUnitCount(const char*,const char*)
+		extern inline int randposneg()
+		extern inline int randint(int,int)
+    	extern inline double randfloat()
+		extern double fsigmoid(double,double,double)
+		extern double oldhebbian(double,double,double,double,double,double,double)
+		extern double hebbian(double,double,double,double,double,double,double)
+		extern double gaussrand()
+		bool load_neat_params(const char*,bool=false)
+		--organism<<NEAT>>--
+		bool order_orgs(Organism*,Organism*)
+		bool order_orgs_by_adjusted_fit(Organism*,Organism*)
+		--species<<NEAT>>--
+		bool order_species(Species*,Species*)
+		bool order_new_species(Species*,Species*)
+	}
+}
+CCI_Controller <|-- CEPuckNEATController
+CEPuckNEATController <|-- NeuralNetworkRM1Dot1
+CEPuckNEATController <|-- NeuralNetworkRM1Dot2
+CEPuckNEATController +-- RBPacket:protected
+Innovation +-- Innovation_innovtype:private
+Network ..> Genome:friend
+NNode ..> Genome:friend
+NNode ..> Network:friend
+Gene --> Link
+Genome --> Trait
+Genome --> NNode
+Genome --> Gene
+Genome --> Network
+Link --> NNode
+Link --> Trait
+Network --> NNode
+Network --> Genome
+NNode --> Trait
+NNode --> functype
+NNode --> nodetype
+NNode --> Link
+NNode --> nodeplace
+Organism --> Network
+Organism --> Genome
+Organism --> Species
+Population --> Organism
+Population --> Species
+Population --> Innovation
+Species --> Organism
+CEPuckNEATController --> UInt32
+CEPuckNEATController --> EpuckDAO
+CEPuckNEATController --> CCI_EPuckWheelsActuator
+CEPuckNEATController --> CCI_EPuckRangeAndBearingActuator
+CEPuckNEATController --> CRange
+CEPuckNEATController --> CCI_EPuckProximitySensor
+CEPuckNEATController --> CCI_EPuckLightSensor
+CEPuckNEATController --> CCI_EPuckRangeAndBearingSensor
+CEPuckNEATController --> Network
+CEPuckNEATController --> SInt32
+CEPuckNEATController --> CRNG
+CRandom +-- CRNG
+UInt8 <.. NeuralNetworkRM1Dot1
+CVector2 <.. NeuralNetworkRM1Dot1
+UInt32 <.. NeuralNetworkRM1Dot1
+TPackets +-- CCI_EPuckRangeAndBearingSensor
+UInt8 <.. NeuralNetworkRM1Dot2
+CVector2 <.. NeuralNetworkRM1Dot2
+CCI_EPuckProximitySensor +-- SReading
+SReading <.. NeuralNetworkRM1Dot2
+CRadians <.. NeuralNetworkRM1Dot2
+_global_ <.. NeuralNetworkRM1Dot1:<<NEAT>>
+_global_ <.. NeuralNetworkRM1Dot2:<<NEAT>>
+_global_ <.. CEPuckNEATController:<<argos>>
+_global_ <.. Genome:<<NEAT>>
+_global_ <.. CartPole:<<NEAT>>
+_global_ <.. Organism:<<NEAT>>
+_global_ <.. Species:<<NEAT>>
+_global_ ..> MPI:scheduler,evolution
+_global_ ..> CEPuckNEATController:scheduler,launch,evolution,evolution-sequential
+_global_ ..> CSimulator:scheduler,launch,evolution,evolution-sequential
+_global_ ..> CDynamicLoading:scheduler,launch,evolution
+_global_ ..> CoreLoopFunctions:scheduler,launch,evolution,evolution-sequential
+_global_ ..> UInt32:scheduler,launch,evolution
+_global_ ..> Trait:scheduler
+_global_ ..> NNode:scheduler
+_global_ ..> Gene:scheduler
+_global_ ..> Network:scheduler,experiments
+_global_ ..> Genome:scheduler,evolution,info_experiments
+CSpace +-- TMapPerType
+_global_ ..> TMapPerType:scheduler,launch,evolution-sequential
+_global_ ..> CControllableEntity:scheduler,launch,evolution-sequential
+_global_ ..> CARGoSCommandLineArgParser:launch
+_global_ ..> Population:evolution,experiments,info_experiments
+_global_ ..> CRNG:evolution,evolution-sequential
+_global_ ..> Organism:evolution,evolution-sequential,experiments,info_experiments
+_global_ ..> CRandom:evolution
+_global_ ..> Species:info_experiments
+_global_ ..> CartPole:info_experiments
+Species ..> Population
+Population ..> Genome
+Organism ..> Population
+NNode ..> Network
+Innovation ..> innovtype
+Gene ..> NNode
+Gene ..> Trait
+NeuralNetworkRM1Dot2 ..> TConfigurationNode
+NeuralNetworkRM1Dot1 ..> TConfigurationNode
+@enduml

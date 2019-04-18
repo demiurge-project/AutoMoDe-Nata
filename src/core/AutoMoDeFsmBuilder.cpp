@@ -103,11 +103,28 @@ namespace argos {
 				cNewBehaviour = new AutoMoDeBehaviourRepulsion();
 				break;
 			case 6:
-				cNewBehaviour = new AutoMoDeBehaviourGenome();
+				cNewBehaviour = new AutoMoDeBehaviourGenome("/home/cedric/GitDir/NEAT-AutoMoDe/gen/exploration");
+				break;
+			case 7:
+				cNewBehaviour = new AutoMoDeBehaviourGenome("/home/cedric/GitDir/NEAT-AutoMoDe/gen/stop");
+				break;
+			case 8:
+				cNewBehaviour = new AutoMoDeBehaviourGenome("/home/cedric/GitDir/NEAT-AutoMoDe/gen/phototaxis");
+				std::cout << "Constructor" << std::endl;
+				break;
+			case 9:
+				cNewBehaviour = new AutoMoDeBehaviourGenome("/home/cedric/GitDir/NEAT-AutoMoDe/gen/antiphototaxis");
+				break;
+			case 10:
+				cNewBehaviour = new AutoMoDeBehaviourGenome("/home/cedric/GitDir/NEAT-AutoMoDe/gen/attraction");
+				break;
+			case 11:
+				cNewBehaviour = new AutoMoDeBehaviourGenome("/home/cedric/GitDir/NEAT-AutoMoDe/gen/repulsion");
 				break;
 		}
 		cNewBehaviour->SetIndex(unBehaviourIndex);
 		cNewBehaviour->SetIdentifier(unBehaviourIdentifier);
+		std::cout << "Id" << std::endl;
 
 		// Checking for parameters
 		std::string vecPossibleParameters[] = {"rwm", "att", "rep", "gen"};
@@ -125,10 +142,12 @@ namespace argos {
 				cNewBehaviour->SetParameterPath((*(it+1)).c_str());
 			}
 		}
+		std::cout << "Param" << std::endl;
 		cNewBehaviour->Init();
+		std::cout << "Init done" << std::endl;
 		// Add the constructed Behaviour to the FSM
 		c_fsm->AddBehaviour(cNewBehaviour);
-
+		std::cout << "Add done" << std::endl;
 		/*
 		 * Extract the transitions starting from the state and
 		 * pass them to the transition handler, if they exist.

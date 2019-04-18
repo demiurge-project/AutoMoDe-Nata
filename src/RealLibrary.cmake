@@ -24,7 +24,16 @@ set(AUTOMODE_HEADERS
 	modules/AutoMoDeConditionGrayFloor.h
 	modules/AutoMoDeConditionNeighborsCount.h
 	modules/AutoMoDeConditionInvertedNeighborsCount.h
-	modules/AutoMoDeConditionFixedProbability.h)
+	modules/AutoMoDeConditionFixedProbability.h
+	# NEAT
+	NEAT/gene.h
+	NEAT/genome.h
+	NEAT/innovation.h
+	NEAT/link.h
+	NEAT/neat.h
+	NEAT/network.h
+	NEAT/nnode.h
+	NEAT/trait.h)
 
 # Sources
 set(AUTOMODE_SOURCES
@@ -48,7 +57,17 @@ set(AUTOMODE_SOURCES
 	modules/AutoMoDeConditionGrayFloor.cpp
 	modules/AutoMoDeConditionNeighborsCount.cpp
 	modules/AutoMoDeConditionInvertedNeighborsCount.cpp
-	modules/AutoMoDeConditionFixedProbability.cpp)
+	modules/AutoMoDeConditionFixedProbability.cpp
+	# NEAT
+	NEAT/gene.cpp
+	NEAT/genome.cpp
+	NEAT/innovation.cpp
+	NEAT/link.cpp
+	NEAT/neat.cpp
+	NEAT/network.cpp
+	NEAT/nnode.cpp
+	NEAT/trait.cpp)
+
 
 add_executable(automode ${AUTOMODE_HEADERS} ${AUTOMODE_SOURCES})
 target_link_libraries(automode argos3plugin_${ARGOS_BUILD_FOR}_epuck)

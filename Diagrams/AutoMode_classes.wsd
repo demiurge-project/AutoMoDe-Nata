@@ -1,0 +1,447 @@
+@startuml AutoMoDe
+
+package AutoMoDe {
+    package core {
+class AutoMoDeController{
+    +AutoMoDeController()
+    +virtual ~AutoMoDeController()
+	+virtual void Init(TConfigurationNode&)
+    +virtual void ControlStep()
+	+virtual void Reset()
+	+virtual void Destroy()
+	+void SetFiniteStateMachine(AutoMoDeFiniteStateMachine*)
+    +void SetHistoryFlag(bool)
+	-void InitializeActuation()
+	-AutoMoDeFiniteStateMachine* m_pcFiniteStateMachine
+    -EpuckDAO* m_pcRobotState
+	-UInt32 m_unTimeStep
+    -UInt32 m_unRobotID
+    -string m_strFsmConfiguration
+    -bool m_bMaintainHistory
+	-bool m_bPrintReadableFsm
+	-string m_strHistoryFolder
+	-AutoMoDeFsmBuilder* m_pcFsmBuilder
+	-CCI_EPuckWheelsActuator* m_pcWheelsActuator
+	-CCI_EPuckRangeAndBearingActuator* m_pcRabActuator
+	-CCI_EPuckRGBLEDsActuator* m_pcLEDsActuator
+	-CCI_EPuckProximitySensor* m_pcProximitySensor
+	-CCI_EPuckRangeAndBearingSensor* m_pcRabSensor
+	-CCI_EPuckLightSensor* m_pcLightSensor
+    -CCI_EPuckGroundSensor* m_pcGroundSensor
+    -CCI_EPuckOmnidirectionalCameraSensor* m_pcCameraSensor
+	-bool m_bFiniteStateMachineGiven
+}
+class AutoMoDeFiniteStateMachine{
+	+AutoMoDeFiniteStateMachine()
+	+virtual ~AutoMoDeFiniteStateMachine()
+    +AutoMoDeFiniteStateMachine(const AutoMoDeFiniteStateMachine*)
+    +void AddCondition(AutoMoDeCondition*)
+    +void AddBehaviour(AutoMoDeBehaviour*)
+    +void ControlStep()
+    +void Init()
+    +void Reset()
+    +const string GetReadableFormat()			
+    +void MaintainHistory()
+    +const UInt32& GetCurrentBehaviourIndex() const
+    +const UInt32& GetTimeStep() const
+    +vector<AutoMoDeBehaviour*> GetBehaviours() const
+    +vector<AutoMoDeCondition*> GetConditions() const
+    +void SetRobotDAO(EpuckDAO*)
+    +void SetHistoryFolder(const string&)
+    -vector<AutoMoDeBehaviour*> m_vecBehaviours
+    -vector<AutoMoDeCondition*> m_vecConditions
+    -AutoMoDeBehaviour* m_pcCurrentBehaviour
+    -vector<AutoMoDeCondition*> m_vecCurrentConditions
+    -AutoMoDeFsmHistory* m_pcHistory
+    -UInt32 m_unCurrentBehaviourIndex
+    -bool m_bMaintainHistory
+    -string m_strHistoryFolder
+    -bool m_bEnteringNewState
+    -UInt32 m_unTimeStep
+    -map<AutoMoDeCondition*, bool> m_mapConditionsChecked
+    -EpuckDAO* m_pcRobotDAO
+    -vector<AutoMoDeCondition*> GetOutgoingConditions()
+    -const string FillWithInitialState()
+    -const string FillWithNonInitialStates()
+    -const string FillWithConditions()
+    -AutoMoDeFsmHistory* GetHistory() const
+    -void ShareRobotDAO()
+    -const bool GetMaintainHistoryFlag() const
+    -const bool GetEnteringNewStateFlag() const
+}
+class AutoMoDeFsmBuilder {
+    +AutoMoDeFsmBuilder()
+    +AutoMoDeFiniteStateMachine* BuildFiniteStateMachine(vector<string>&)
+    +AutoMoDeFiniteStateMachine* BuildFiniteStateMachine(const string&)
+    +virtual ~AutoMoDeFsmBuilder()
+    -void HandleState(AutoMoDeFiniteStateMachine*, vector<string>&)
+    -void HandleTransition(vector<string>&, const UInt32&, const UInt32&)
+    -const vector<UInt32> GetPossibleDestinationBehaviour(const UInt32&)
+    -UInt32 m_unNumberStates
+    -AutoMoDeFiniteStateMachine* cFiniteStateMachine
+}
+
+class AutoMoDeFsmHistory {
+    +AutoMoDeFsmHistory(const string&)
+    +AutoMoDeFsmHistory(AutoMoDeFsmHistory*)
+    +virtual ~AutoMoDeFsmHistory()
+    +void AddTimeStep(UInt32, AutoMoDeBehaviour*, map<AutoMoDeCondition*, bool>)
+    +void AddTimeStep(UInt32, AutoMoDeBehaviour*)
+    +void OpenFile()
+    -string m_strPath
+    -ofstream m_ofHistoryFile
+    -const string& GetPath() const
+}
+    }
+
+    package modules {
+class AutoMoDeBehaviour{
+    #bool m_bLocked
+    #bool m_bOperational
+    #map<string, Real> m_mapParameters
+    #string m_parameterPath
+    #string m_strLabel
+    #UInt32 m_unIndex
+    #UInt32 m_unIdentifier
+    #EpuckDAO* m_pcRobotDAO
+    +virtual ~AutoMoDeBehaviour()
+    {abstract} +virtual void ControlStep()
+    {abstract} +virtual void Reset()
+    {abstract} +virtual void ResumeStep()
+    {abstract} +virtual void Init()
+    {abstract} +virtual AutoMoDeBehaviour* Clone()
+    +const string GetDOTDescription()
+    +void AddParameter(const string&, const Real&)
+    +void SetParameterPath(const string&)
+    +const Real& GetParameter(const string&)
+    +const string GetParameterPath()
+    +const map<string, Real> GetParameters()
+    +void SetIndex(const UInt32&)
+    +const UInt32& GetIndex() const
+    +void SetIdentifier(const UInt32&)
+    +const UInt32& GetIdentifier() const
+    +const string& GetLabel() const
+    +const bool IsLocked() const
+    +const bool IsOperational() const
+    +CVector2 ComputeWheelsVelocityFromVector(CVector2)
+    +CVector2 SumProximityReadings(CCI_EPuckProximitySensor::TReadings)
+    +virtual void SetRobotDAO(EpuckDAO*)
+}
+
+together {
+class AutoMoDeBehaviourAntiPhototaxis{
+    +AutoMoDeBehaviourAntiPhototaxis()
+    +AutoMoDeBehaviourAntiPhototaxis(AutoMoDeBehaviourAntiPhototaxis*)
+    +virtual ~AutoMoDeBehaviourAntiPhototaxis()
+    +virtual void ControlStep()
+    +virtual void Reset()
+    +virtual void ResumeStep()
+    +virtual void Init()
+    +virtual AutoMoDeBehaviourAntiPhototaxis* Clone()
+}
+
+class AutoMoDeBehaviourPhototaxis{
+    +AutoMoDeBehaviourPhototaxis()
+    +AutoMoDeBehaviourPhototaxis(AutoMoDeBehaviourPhototaxis*)
+    +virtual ~AutoMoDeBehaviourPhototaxis()
+    +virtual void ControlStep()
+    +virtual void Reset()
+    +virtual void ResumeStep()
+    +virtual void Init()
+    +virtual AutoMoDeBehaviourPhototaxis* Clone()
+}
+
+class AutoMoDeBehaviourStop{
+    +AutoMoDeBehaviourStop()
+    +AutoMoDeBehaviourStop(AutoMoDeBehaviourStop*)
+    +virtual ~AutoMoDeBehaviourStop()
+    +virtual void ControlStep()
+    +virtual void Reset()
+    +virtual void ResumeStep()
+    +virtual void Init()
+    +virtual AutoMoDeBehaviourStop* Clone()
+}
+
+class AutoMoDeBehaviourAttraction{
+    +AutoMoDeBehaviourAttraction()
+    +AutoMoDeBehaviourAttraction(AutoMoDeBehaviourAttraction*)
+    +virtual ~AutoMoDeBehaviourAttraction()
+    +virtual void ControlStep()
+    +virtual void Reset()
+    +virtual void ResumeStep()
+    +virtual void Init()
+    +virtual AutoMoDeBehaviourAttraction* Clone()
+    -UInt8 m_unAttractionParameter
+}
+
+class AutoMoDeBehaviourRepulsion{
+    +AutoMoDeBehaviourRepulsion()
+    +AutoMoDeBehaviourRepulsion(AutoMoDeBehaviourRepulsion*)
+    +virtual ~AutoMoDeBehaviourRepulsion()
+    +virtual void ControlStep()
+    +virtual void Reset()
+    +virtual void ResumeStep()
+    +virtual void Init()
+    +virtual AutoMoDeBehaviourRepulsion* Clone()
+    -UInt8 m_unRepulsionParameter
+}
+
+class AutoMoDeBehaviourExploration{
+    +AutoMoDeBehaviourExploration()
+    +AutoMoDeBehaviourExploration(AutoMoDeBehaviourExploration*)
+    +virtual ~AutoMoDeBehaviourExploration()
+    +virtual void ControlStep()
+    +virtual void Reset()
+    +virtual void ResumeStep()
+    +virtual void Init()
+    +virtual AutoMoDeBehaviourExploration* Clone()
+    -UInt8 m_unExplorationParameter
+}
+}
+
+class AutoMoDeCondition {
+    #map<string, Real> m_mapParameters
+    #UInt32 m_unFromBehaviourIndex
+    #UInt32 m_unToBehaviourIndex
+    #string m_strLabel
+    #UInt32 m_unIndex
+    #UInt32 m_unIdentifier
+    #EpuckDAO* m_pcRobotDAO
+    +virtual ~AutoMoDeCondition()
+    {abstract} +virtual bool Verify()
+    {abstract} +virtual void Reset()
+    {abstract} +virtual void Init()
+    +const string GetDOTDescription()
+    {abstract} +virtual AutoMoDeCondition* Clone()
+    +void SetOriginAndExtremity(const UInt32&, const UInt32&)
+    +void SetOrigin(const UInt32&)
+    +void SetExtremity(const UInt32&)
+    +void SetIndex(const UInt32&)
+    +const UInt32& GetIndex() const
+    +const UInt32& GetOrigin() const
+    +const UInt32& GetExtremity() const
+    +void SetIdentifier(const UInt32&)
+    +const UInt32& GetIdentifier() const
+    +void AddParameter(const string&, const Real&)
+    +Real GetParameter(const string&)
+    +map<string, Real> GetParameters() const
+    +const string& GetLabel() const
+    +void SetRobotDAO(EpuckDAO*)
+    +bool EvaluateBernoulliProbability(const Real&) const
+}
+
+together {
+class AutoMoDeConditionBlackFloor {
+    +AutoMoDeConditionBlackFloor()
+    +virtual ~AutoMoDeConditionBlackFloor()
+    +AutoMoDeConditionBlackFloor(AutoMoDeConditionBlackFloor*)
+    +virtual AutoMoDeConditionBlackFloor* Clone()
+    +virtual bool Verify()
+    +virtual void Reset()
+    +virtual void Init()
+    -Real m_fGroundThreshold
+    -Real m_fProbability
+}
+
+class AutoMoDeConditionFixedProbability {
+    +AutoMoDeConditionFixedProbability()
+    +virtual ~AutoMoDeConditionFixedProbability()
+    +AutoMoDeConditionFixedProbability(AutoMoDeConditionFixedProbability*)
+    +virtual AutoMoDeConditionFixedProbability* Clone()
+    +virtual bool Verify()
+    +virtual void Reset()
+    +virtual void Init()
+    -Real m_fProbability
+}
+
+class AutoMoDeConditionGrayFloor {
+    +AutoMoDeConditionGrayFloor()
+    +virtual ~AutoMoDeConditionGrayFloor()
+    +AutoMoDeConditionGrayFloor(AutoMoDeConditionGrayFloor*)
+    +virtual AutoMoDeConditionGrayFloor* Clone()
+    +virtual bool Verify()
+    +virtual void Reset()
+    +virtual void Init()
+    -CRange<Real> m_fGroundThresholdRange
+    -Real m_fProbability
+}
+
+class AutoMoDeConditionInvertedNeighborsCount {
+    +AutoMoDeConditionInvertedNeighborsCount()
+    +virtual ~AutoMoDeConditionInvertedNeighborsCount()
+    +AutoMoDeConditionInvertedNeighborsCount(AutoMoDeConditionInvertedNeighborsCount*)
+    +virtual AutoMoDeConditionInvertedNeighborsCount* Clone()
+    +virtual bool Verify()
+    +virtual void Reset()
+    +virtual void Init()
+    -Real m_fParameterEta
+    -UInt8 m_unParameterXi
+}
+
+class AutoMoDeConditionNeighborsCount {
+    +AutoMoDeConditionNeighborsCount()
+    +virtual ~AutoMoDeConditionNeighborsCount()
+    +AutoMoDeConditionNeighborsCount(AutoMoDeConditionNeighborsCount*)
+    +virtual AutoMoDeConditionNeighborsCount* Clone()
+    +virtual bool Verify()
+    +virtual void Reset()
+    +virtual void Init()
+    -Real m_fParameterEta
+    -UInt8 m_unParameterXi
+}
+
+class AutoMoDeConditionWhiteFloor {
+    +AutoMoDeConditionWhiteFloor()
+    +virtual ~AutoMoDeConditionWhiteFloor()
+    +AutoMoDeConditionWhiteFloor(AutoMoDeConditionWhiteFloor*)
+    +virtual AutoMoDeConditionWhiteFloor* Clone()
+    +virtual bool Verify()
+    +virtual void Reset()
+    +virtual void Init()
+    -Real m_fGroundThreshold
+    -Real m_fProbability
+}
+    }
+}
+
+class AutoMoDeMain {
+    const string ExplainParameters()
+    int main(int, char**)
+}
+
+class AutoMoDeVisualiseFSM{
+    const string ExplainParameters()
+    string EncodeURL(const string&)
+    int main(int, char**)
+}
+
+}
+
+package argos3 {
+    package argos3.core {
+    class CCI_Controller{
+        #CCI_Actuator::TMap m_mapActuators
+        #CCI_Sensor::TMap m_mapSensors
+    }
+    class TConfigurationNode
+    }
+
+    package argos3.epuck {
+    class CCI_EPuckWheelsActuator
+    class CCI_EPuckRangeAndBearingActuator
+    class CCI_EPuckRGBLEDsActuator
+    class CCI_EPuckProximitySensor
+    class CCI_EPuckRangeAndBearingSensor
+    class CCI_EPuckLightSensor
+    class CCI_EPuckGroundSensor
+    class CCI_EPuckOmnidirectionalCameraSensor
+    }
+
+    package argos3.simulator {
+    class Simulator
+    class Space
+    class Entity
+    class ControllableEntity
+    class CARGoSCommandLineArgParser
+    }
+
+    package argos3.utility {
+        class CDynamicLoading
+    }
+}
+
+package demiurge_epuck_dao {
+    class EpuckDAO
+    class ReferenceModel1Dot2
+}
+
+package demiurge_loop_functions {
+    class CoreLoopFunctions
+}
+
+hide AutoMoDeFsmHistory
+
+core -[hidden]--> modules
+AutoMoDeBehaviour -[hidden]--> AutoMoDeCondition
+
+CCI_Controller <|-- AutoMoDeController
+AutoMoDeBehaviour <|-- AutoMoDeBehaviourAntiPhototaxis
+AutoMoDeBehaviour <|-- AutoMoDeBehaviourPhototaxis
+AutoMoDeBehaviour <|-- AutoMoDeBehaviourStop
+AutoMoDeBehaviour <|-- AutoMoDeBehaviourExploration
+AutoMoDeBehaviour <|-- AutoMoDeBehaviourAttraction
+AutoMoDeBehaviour <|-- AutoMoDeBehaviourRepulsion
+AutoMoDeCondition <|-- AutoMoDeConditionBlackFloor
+AutoMoDeCondition <|-- AutoMoDeConditionFixedProbability
+AutoMoDeCondition <|-- AutoMoDeConditionGrayFloor
+AutoMoDeCondition <|-- AutoMoDeConditionInvertedNeighborsCount
+AutoMoDeCondition <|-- AutoMoDeConditionNeighborsCount
+AutoMoDeCondition <|-- AutoMoDeConditionWhiteFloor
+
+EpuckDAO <|-- ReferenceModel1Dot2
+
+AutoMoDeController --> AutoMoDeFiniteStateMachine
+AutoMoDeController --> EpuckDAO
+AutoMoDeController --> AutoMoDeFsmBuilder
+AutoMoDeController --> CCI_EPuckWheelsActuator
+AutoMoDeController --> CCI_EPuckRangeAndBearingActuator
+AutoMoDeController --> CCI_EPuckRGBLEDsActuator
+AutoMoDeController --> CCI_EPuckProximitySensor
+AutoMoDeController --> CCI_EPuckRangeAndBearingSensor
+AutoMoDeController --> CCI_EPuckLightSensor
+AutoMoDeController --> CCI_EPuckGroundSensor
+AutoMoDeController --> CCI_EPuckOmnidirectionalCameraSensor
+
+AutoMoDeFiniteStateMachine o--> AutoMoDeBehaviour
+AutoMoDeFiniteStateMachine o--> AutoMoDeCondition
+AutoMoDeFiniteStateMachine --> AutoMoDeFsmHistory
+
+AutoMoDeFsmBuilder --> AutoMoDeFiniteStateMachine
+
+AutoMoDeBehaviour --> EpuckDAO
+
+AutoMoDeCondition --> EpuckDAO
+
+AutoMoDeController ..> TConfigurationNode
+AutoMoDeController ..> ReferenceModel1Dot2
+
+AutoMoDeFsmBuilder ..> AutoMoDeBehaviour
+AutoMoDeFsmBuilder ..> AutoMoDeBehaviourAntiPhototaxis
+AutoMoDeFsmBuilder ..> AutoMoDeBehaviourPhototaxis
+AutoMoDeFsmBuilder ..> AutoMoDeBehaviourStop
+AutoMoDeFsmBuilder ..> AutoMoDeBehaviourExploration
+AutoMoDeFsmBuilder ..> AutoMoDeBehaviourAttraction
+AutoMoDeFsmBuilder ..> AutoMoDeBehaviourRepulsion
+AutoMoDeFsmBuilder ..> AutoMoDeCondition
+AutoMoDeFsmBuilder ..> AutoMoDeConditionBlackFloor
+AutoMoDeFsmBuilder ..> AutoMoDeConditionFixedProbability
+AutoMoDeFsmBuilder ..> AutoMoDeConditionGrayFloor
+AutoMoDeFsmBuilder ..> AutoMoDeConditionInvertedNeighborsCount
+AutoMoDeFsmBuilder ..> AutoMoDeConditionNeighborsCount
+AutoMoDeFsmBuilder ..> AutoMoDeConditionWhiteFloor
+
+AutoMoDeBehaviour ..> CCI_EPuckProximitySensor
+AutoMoDeBehaviour ..> CCI_EPuckRangeAndBearingSensor
+
+AutoMoDeMain ..> Simulator
+AutoMoDeMain ..> Space
+AutoMoDeMain ..> Entity
+AutoMoDeMain ..> ControllableEntity
+AutoMoDeMain ..> CARGoSCommandLineArgParser
+AutoMoDeMain ..> CoreLoopFunctions
+AutoMoDeMain ..> CDynamicLoading
+AutoMoDeMain ..> AutoMoDeFsmBuilder
+AutoMoDeMain ..> AutoMoDeFiniteStateMachine
+AutoMoDeMain ..> AutoMoDeController
+
+AutoMoDeVisualiseFSM ..> Simulator
+AutoMoDeVisualiseFSM ..> Space
+AutoMoDeVisualiseFSM ..> Entity
+AutoMoDeVisualiseFSM ..> ControllableEntity
+AutoMoDeVisualiseFSM ..> CARGoSCommandLineArgParser
+AutoMoDeVisualiseFSM ..> CoreLoopFunctions
+AutoMoDeVisualiseFSM ..> CDynamicLoading
+AutoMoDeVisualiseFSM ..> AutoMoDeFsmBuilder
+AutoMoDeVisualiseFSM ..> AutoMoDeFiniteStateMachine
+AutoMoDeVisualiseFSM ..> AutoMoDeController
+@enduml
