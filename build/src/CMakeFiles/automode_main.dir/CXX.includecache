@@ -157,6 +157,8 @@ string
 -
 sstream
 -
+unistd.h
+-
 iostream
 -
 iterator
@@ -171,7 +173,7 @@ argos3/core/control_interface/ci_controller.h
 -
 argos3/demiurge/epuck-dao/EpuckDAO.h
 -
-argos3/demiurge/epuck-dao/ReferenceModel1Dot2.h
+argos3/demiurge/epuck-dao/ReferenceModel1Dot1.h
 -
 ./AutoMoDeFiniteStateMachine.h
 /home/cedric/GitDir/NEAT-AutoMoDe/src/./core/./AutoMoDeFiniteStateMachine.h
@@ -246,6 +248,8 @@ algorithm
 string
 -
 sstream
+-
+unistd.h
 -
 iostream
 -
@@ -992,7 +996,7 @@ argos3/core/utility/datatypes/datatypes.h
 argos3/plugins/robots/e-puck/control_interface/ci_epuck_range_and_bearing_sensor.h
 -
 
-/usr/local/include/argos3/demiurge/epuck-dao/ReferenceModel1Dot2.h
+/usr/local/include/argos3/demiurge/epuck-dao/ReferenceModel1Dot1.h
 EpuckDAO.h
 /usr/local/include/argos3/demiurge/epuck-dao/EpuckDAO.h
 RabMessageBuffer.h

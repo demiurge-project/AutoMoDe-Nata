@@ -22,6 +22,8 @@
 #include <algorithm>
 #include <string>
 #include <sstream>
+#include <unistd.h>
+#define GetCurrentDir getcwd
 #include <iostream>
 #include <iterator>
 #include <stdlib.h>

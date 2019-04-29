@@ -88,7 +88,7 @@ src/CMakeFiles/visualize_fsm.dir/AutoMoDeVisualizeFSM.cpp.o: /usr/local/include/
 src/CMakeFiles/visualize_fsm.dir/AutoMoDeVisualizeFSM.cpp.o: /usr/local/include/argos3/core/utility/string_utilities.h
 src/CMakeFiles/visualize_fsm.dir/AutoMoDeVisualizeFSM.cpp.o: /usr/local/include/argos3/demiurge/epuck-dao/EpuckDAO.h
 src/CMakeFiles/visualize_fsm.dir/AutoMoDeVisualizeFSM.cpp.o: /usr/local/include/argos3/demiurge/epuck-dao/RabMessageBuffer.h
-src/CMakeFiles/visualize_fsm.dir/AutoMoDeVisualizeFSM.cpp.o: /usr/local/include/argos3/demiurge/epuck-dao/ReferenceModel1Dot2.h
+src/CMakeFiles/visualize_fsm.dir/AutoMoDeVisualizeFSM.cpp.o: /usr/local/include/argos3/demiurge/epuck-dao/ReferenceModel1Dot1.h
 src/CMakeFiles/visualize_fsm.dir/AutoMoDeVisualizeFSM.cpp.o: /usr/local/include/argos3/demiurge/loop-functions/CoreLoopFunctions.h
 src/CMakeFiles/visualize_fsm.dir/AutoMoDeVisualizeFSM.cpp.o: /usr/local/include/argos3/plugins/robots/e-puck/control_interface/ci_epuck_ground_sensor.h
 src/CMakeFiles/visualize_fsm.dir/AutoMoDeVisualizeFSM.cpp.o: /usr/local/include/argos3/plugins/robots/e-puck/control_interface/ci_epuck_light_sensor.h

@@ -40,7 +40,7 @@ namespace argos {
 
 	void AutoMoDeController::Init(TConfigurationNode& t_node) {
 		// Parsing parameters
-		std::cout << "Control init" << std::endl;
+		//std::cout << "Control init" << std::endl;
 		try {
 			GetNodeAttributeOrDefault(t_node, "fsm-config", m_strFsmConfiguration, m_strFsmConfiguration);
 			GetNodeAttributeOrDefault(t_node, "history", m_bMaintainHistory, m_bMaintainHistory);
@@ -58,7 +58,7 @@ namespace argos {
 		 */
 		if (m_strFsmConfiguration.compare("") != 0 && !m_bFiniteStateMachineGiven) {
 			m_pcFsmBuilder = new AutoMoDeFsmBuilder();
-			std::cout << "Called2?" << std::endl;
+			//std::cout << "Called2?" << std::endl;
 			SetFiniteStateMachine(m_pcFsmBuilder->BuildFiniteStateMachine(m_strFsmConfiguration));
 			if (m_bMaintainHistory) {
 				m_pcFiniteStateMachine->SetHistoryFolder(m_strHistoryFolder);
@@ -108,7 +108,7 @@ namespace argos {
 		/*
 		 * 1. Update RobotDAO
 		 */
-		std::cout << "ControlStep start" << std::endl;
+		//std::cout << "ControlStep start" << std::endl;
 		if(m_pcRabSensor != NULL){
 			const CCI_EPuckRangeAndBearingSensor::TPackets& packets = m_pcRabSensor->GetPackets();
 			//m_pcRobotState->SetNumberNeighbors(packets.size());
@@ -130,7 +130,7 @@ namespace argos {
 		/*
 		 * 2. Execute step of FSM
 		 */
-		std::cout << "FSM ControlStep" << std::endl;
+		//std::cout << "FSM ControlStep" << std::endl;
 		m_pcFiniteStateMachine->ControlStep();
 
 		/*
@@ -169,7 +169,7 @@ namespace argos {
 	/****************************************/
 
 	void AutoMoDeController::SetFiniteStateMachine(AutoMoDeFiniteStateMachine* pc_finite_state_machine) {
-		std::cout << "Control set fsm" << std::endl;
+		//std::cout << "Control set fsm" << std::endl;
 		m_pcFiniteStateMachine = pc_finite_state_machine;
 		m_pcFiniteStateMachine->SetRobotDAO(m_pcRobotState);
 		m_pcFiniteStateMachine->Init();

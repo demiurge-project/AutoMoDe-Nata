@@ -75,6 +75,9 @@ namespace argos {
 	/****************************************/
 
 	void AutoMoDeFsmBuilder::HandleState(AutoMoDeFiniteStateMachine* c_fsm, std::vector<std::string>& vec_fsm_state_config) {
+		char buffString[FILENAME_MAX];
+  		GetCurrentDir(buffString, FILENAME_MAX);
+		std::string genPath(buffString);
 		AutoMoDeBehaviour* cNewBehaviour;
 		std::vector<std::string>::iterator it;
 		// Extraction of the index of the behaviour in the FSM
@@ -103,29 +106,27 @@ namespace argos {
 				cNewBehaviour = new AutoMoDeBehaviourRepulsion();
 				break;
 			case 6:
-				cNewBehaviour = new AutoMoDeBehaviourGenome("../../gen/exploration");
+				genPath += "/gen/exploration";
 				break;
 			case 7:
-				cNewBehaviour = new AutoMoDeBehaviourGenome("/home/cedric/GitDir/NEAT-AutoMoDe/gen/stop");
+				genPath += "/gen/stop";
 				break;
 			case 8:
-				std::cout << "Case 8" << std::endl;
-				cNewBehaviour = new AutoMoDeBehaviourGenome("../gen/phototaxis");
-				std::cout << "Constructor" << std::endl;
+				genPath += "/gen/phototaxis";
 				break;
 			case 9:
-				cNewBehaviour = new AutoMoDeBehaviourGenome("/home/cedric/GitDir/NEAT-AutoMoDe/gen/antiphototaxis");
+				genPath += "/gen/antiphototaxis";
 				break;
 			case 10:
-				cNewBehaviour = new AutoMoDeBehaviourGenome("/home/cedric/GitDir/NEAT-AutoMoDe/gen/attraction");
+				genPath += "/gen/attraction";
 				break;
 			case 11:
-				cNewBehaviour = new AutoMoDeBehaviourGenome("/home/cedric/GitDir/NEAT-AutoMoDe/gen/repulsion");
+				genPath += "/gen/repulsion";
 				break;
 		}
+		cNewBehaviour = new AutoMoDeBehaviourGenome(genPath);
 		cNewBehaviour->SetIndex(unBehaviourIndex);
 		cNewBehaviour->SetIdentifier(unBehaviourIdentifier);
-		std::cout << "Id" << std::endl;
 
 		// Checking for parameters
 		std::string vecPossibleParameters[] = {"rwm", "att", "rep", "gen"};
@@ -143,12 +144,12 @@ namespace argos {
 				cNewBehaviour->SetParameterPath((*(it+1)).c_str());
 			}
 		}
-		std::cout << "Param" << std::endl;
+		//std::cout << "Param" << std::endl;
 		cNewBehaviour->Init();
-		std::cout << "Init done" << std::endl;
+		//std::cout << "Init done" << std::endl;
 		// Add the constructed Behaviour to the FSM
 		c_fsm->AddBehaviour(cNewBehaviour);
-		std::cout << "Add done" << std::endl;
+		//std::cout << "Add done" << std::endl;
 		/*
 		 * Extract the transitions starting from the state and
 		 * pass them to the transition handler, if they exist.

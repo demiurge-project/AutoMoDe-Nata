@@ -13,17 +13,17 @@ namespace argos {
 
 	AutoMoDeBehaviourGenome::AutoMoDeBehaviourGenome(std::string path) {
 		m_strFile = path;
-		std::cout << "H" << std::endl;
+		//std::cout << "H" << std::endl;
 		LoadGen(path);
 		m_net = NULL;
 		m_nId = -1;
 		m_unTimeStep = 0;
-		std::cout << "Clearing" << std::endl;
+		//std::cout << "Clearing" << std::endl;
 		m_mapMessages.clear();
-		std::cout << "Clear done" << std::endl;
+		//std::cout << "Clear done" << std::endl;
 		//m_pcRNG = argos::CRandom::CreateRNG("argos");
 		m_strLabel = "Genome_";
-		std::cout << "End creation of BehaviorGenome" << std::endl;
+		//std::cout << "End creation of BehaviorGenome" << std::endl;
 	}
 
 	/****************************************/
@@ -35,16 +35,16 @@ namespace argos {
 		m_unIndex = pc_behaviour->GetIndex();
 		m_unIdentifier = pc_behaviour->GetIdentifier();
 		m_mapParameters = pc_behaviour->GetParameters();
-		std::cout << "Pre-Init" << std::endl;
+		//std::cout << "Pre-Init" << std::endl;
 		Init();
-		std::cout << "Init" << std::endl;
+		//std::cout << "Init" << std::endl;
 	}
 
 	/****************************************/
 	/****************************************/
 
 	AutoMoDeBehaviourGenome::~AutoMoDeBehaviourGenome() {
-		std::cout << "Delete" << std::endl;
+		//std::cout << "Delete" << std::endl;
 		for (UInt8 i = 0; i < m_cNetworkVector.size(); i++) {
     		delete m_cNetworkVector.at(i);
   		}
@@ -61,27 +61,27 @@ namespace argos {
 	/****************************************/
 
 	void AutoMoDeBehaviourGenome::ControlStep() {
-		std::cout << "ControlStep Genome" << std::endl;
+		//std::cout << "ControlStep Genome" << std::endl;
 		for(size_t i=0; i<25; i++) {
 			m_inputs[i] = 0;
 		}
 
 		CCI_EPuckProximitySensor::TReadings cProcessedProxiReadings = m_pcRobotDAO->GetProximityInput();
-		std::cout << "DAO ok" << cProcessedProxiReadings.size() << std::endl;
+		//std::cout << "DAO ok" << cProcessedProxiReadings.size() << std::endl;
 
 
 		// Injecting processed readings as input of the NN
 		for(size_t i=0; i<8; i++) {
-			std::cout << cProcessedProxiReadings[i].Value << std::endl;
+			//std::cout << cProcessedProxiReadings[i].Value << std::endl;
 			m_inputs[i] = cProcessedProxiReadings[i].Value;
 		}
-		std::cout << "proxi ok" << std::endl;
+		//std::cout << "proxi ok" << std::endl;
 
 		CCI_EPuckLightSensor::TReadings cProcessedLightReadings = m_pcRobotDAO->GetLightInput();
 		for(size_t i=8; i<16; i++) {
 			m_inputs[i] = cProcessedLightReadings[i-8].Value;
 		}
-		std::cout << "light ok" << std::endl;
+		//std::cout << "light ok" << std::endl;
 
 
 		// Get Ground sensory data.
@@ -102,7 +102,7 @@ namespace argos {
 					m_inputs[i] = m_GraySamplesRight[index];
 			}
 		}
-		std::cout << "ground ok" << std::endl;
+		//std::cout << "ground ok" << std::endl;
 
 
 		// Get RAB sensory data.
@@ -135,7 +135,7 @@ namespace argos {
 		// Bias Unit
 		m_inputs[24] = 1;
 
-		std::cout << "Before loading" << std::endl;
+		//std::cout << "Before loading" << std::endl;
 
 		// Feed the network with those inputs
 		m_net->load_sensors((double*)m_inputs);
@@ -157,13 +157,13 @@ namespace argos {
 
 	void AutoMoDeBehaviourGenome::Init() {
 		LoadGen(m_strFile);
-		std::cout << "Gen" << std::endl;
+		//std::cout << "Gen" << std::endl;
 		m_cNeuralNetworkOutputRange.Set(0.0f, 1.0f);
-		std::cout << "Net" << std::endl;
+		//std::cout << "Net" << std::endl;
 	}
 
 	void AutoMoDeBehaviourGenome::Init(TConfigurationNode& t_node) {
-		std::cout << "Used?" << std::endl;
+		//std::cout << "Used?" << std::endl;
 		Init();
 	}
 	/****************************************/
@@ -177,7 +177,7 @@ namespace argos {
 	/****************************************/
 
 	void AutoMoDeBehaviourGenome::Reset() {
-		std::cout << "Reset" << std::endl;
+		//std::cout << "Reset" << std::endl;
 		// Reinit the network: Puts the network back into an inactive state
 		if (m_net != NULL) {
 			m_net->flush();
@@ -229,7 +229,7 @@ namespace argos {
 	}
 
 	UInt32 AutoMoDeBehaviourGenome::getRobotId() {
-		std::cout << "Robot id" << std::endl;
+		//std::cout << "Robot id" << std::endl;
 		if (m_nId < 0) {
 			std::string strId = GetId();
 			std::string::size_type pos = strId.find_first_of("0123456789");
@@ -243,9 +243,9 @@ namespace argos {
 
 	void AutoMoDeBehaviourGenome::SetRobotDAO(EpuckDAO* pc_robot_dao) {
 		AutoMoDeBehaviour::SetRobotDAO(pc_robot_dao);
-		std::cout << "WheelNull=" << (m_cWheelActuationRange.GetMax()) << std::endl;
-		std::cout << "RobotNull=" << (m_pcRobotDAO!=NULL) << std::endl;
+		//std::cout << "WheelNull=" << (m_cWheelActuationRange.GetMax()) << std::endl;
+		//std::cout << "RobotNull=" << (m_pcRobotDAO!=NULL) << std::endl;
 		m_cWheelActuationRange.Set(-m_pcRobotDAO->GetMaxVelocity(), m_pcRobotDAO->GetMaxVelocity());
-		std::cout << "WheelSet=" << (m_cWheelActuationRange.GetMax()) << std::endl;
+		//std::cout << "WheelSet=" << (m_cWheelActuationRange.GetMax()) << std::endl;
 	}
 }
