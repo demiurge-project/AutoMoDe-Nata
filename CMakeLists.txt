@@ -1,3 +1,5 @@
+FILE(WRITE "$ENV{HOME}/.config/NEAT_AutoMoDe.conf" "${CMAKE_SOURCE_DIR}")
+
 #
 # Set minimum required version
 #

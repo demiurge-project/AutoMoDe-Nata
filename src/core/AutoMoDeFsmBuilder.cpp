@@ -75,9 +75,15 @@ namespace argos {
 	/****************************************/
 
 	void AutoMoDeFsmBuilder::HandleState(AutoMoDeFiniteStateMachine* c_fsm, std::vector<std::string>& vec_fsm_state_config) {
-		char buffString[FILENAME_MAX];
-  		GetCurrentDir(buffString, FILENAME_MAX);
-		std::string genPath(buffString);
+		std::string genPath;
+		std::string config = "/.config/NEAT_AutoMoDe.conf";
+		std::ifstream myfile(std::getenv("HOME")+config);
+  		if (myfile.is_open()){
+			getline(myfile,genPath);
+		}
+		else{
+			throw "Config file not found : Impossible to locate genes directory";
+		}
 		AutoMoDeBehaviour* cNewBehaviour;
 		std::vector<std::string>::iterator it;
 		// Extraction of the index of the behaviour in the FSM
@@ -87,7 +93,7 @@ namespace argos {
 
 		// Creation of the Behaviour object
 		switch(unBehaviourIdentifier) {
-			case 0:
+			/*case 0:
 				cNewBehaviour = new AutoMoDeBehaviourExploration();
 				break;
 			case 1:
@@ -104,23 +110,23 @@ namespace argos {
 				break;
 			case 5:
 				cNewBehaviour = new AutoMoDeBehaviourRepulsion();
-				break;
-			case 6:
+				break;*/
+			case 0:
 				genPath += "/gen/exploration";
 				break;
-			case 7:
+			case 1:
 				genPath += "/gen/stop";
 				break;
-			case 8:
+			case 2:
 				genPath += "/gen/phototaxis";
 				break;
-			case 9:
+			case 3:
 				genPath += "/gen/antiphototaxis";
 				break;
-			case 10:
+			case 4:
 				genPath += "/gen/attraction";
 				break;
-			case 11:
+			case 5:
 				genPath += "/gen/repulsion";
 				break;
 		}
@@ -129,7 +135,7 @@ namespace argos {
 		cNewBehaviour->SetIdentifier(unBehaviourIdentifier);
 
 		// Checking for parameters
-		std::string vecPossibleParameters[] = {"rwm", "att", "rep", "gen"};
+		/*std::string vecPossibleParameters[] = {"rwm", "att", "rep", "gen"};
 		UInt8 unNumberPossibleParameters = sizeof(vecPossibleParameters) / sizeof(vecPossibleParameters[0]);
 		for (UInt8 i = 0; i < unNumberPossibleParameters; i++) {
 			std::string strCurrentParameter = vecPossibleParameters[i];
@@ -143,7 +149,7 @@ namespace argos {
 			if (unBehaviourIndex==6 && strCurrentParameter=="gen") {
 				cNewBehaviour->SetParameterPath((*(it+1)).c_str());
 			}
-		}
+		}*/
 		//std::cout << "Param" << std::endl;
 		cNewBehaviour->Init();
 		//std::cout << "Init done" << std::endl;

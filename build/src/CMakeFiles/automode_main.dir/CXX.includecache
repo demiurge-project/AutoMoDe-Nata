@@ -165,6 +165,8 @@ iterator
 -
 stdlib.h
 -
+fstream
+-
 
 /home/cedric/GitDir/NEAT-AutoMoDe/src/./core/AutoMoDeController.h
 argos3/core/utility/logging/argos_log.h
@@ -256,6 +258,8 @@ iostream
 iterator
 -
 stdlib.h
+-
+fstream
 -
 
 /home/cedric/GitDir/NEAT-AutoMoDe/src/./core/AutoMoDeFsmHistory.h

@@ -191,6 +191,8 @@ iterator
 -
 stdlib.h
 -
+fstream
+-
 
 /home/cedric/GitDir/NEAT-AutoMoDe/src/core/./AutoMoDeFsmHistory.h
 ../modules/AutoMoDeBehaviour.h
@@ -310,6 +312,8 @@ iostream
 iterator
 -
 stdlib.h
+-
+fstream
 -
 
 /home/cedric/GitDir/NEAT-AutoMoDe/src/core/AutoMoDeFsmHistory.cpp
