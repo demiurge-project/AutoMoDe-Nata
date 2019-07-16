@@ -14,10 +14,7 @@ function print_syntax() {
 function write_state() {
   INDEX=$1
   NB_TRANS=$2
-  echo "S$INDEX     \"--s$INDEX \"  c   (0,1,2,3,4,5,6,7,8,9,10,11) | as.numeric(NumStates)>$INDEX " >> ${TXT_FILE}
-  echo "RWM$INDEX   \"--rwm$INDEX \"  i (1,100) | as.numeric(S$INDEX)==0" >> ${TXT_FILE}
-  echo "ATT$INDEX   \"--att$INDEX \"  r (1,5) | as.numeric(S$INDEX)==4" >> ${TXT_FILE}
-  echo "REP$INDEX   \"--rep$INDEX \"  r (1,5) | as.numeric(S$INDEX)==5" >> ${TXT_FILE}
+  echo "S$INDEX     \"--s$INDEX \"  c   (0,1,2,3,4,5) | as.numeric(NumStates)>$INDEX " >> ${TXT_FILE}
   if [ ${INDEX} == 0 ]; then
     echo "NumConnections$INDEX \"--n$INDEX \" i (1,$NB_TRANS) | as.numeric(NumStates)>1" >> ${TXT_FILE}
   else
@@ -30,7 +27,7 @@ function write_connection() {
   CONNECTION=$2
   create_range STATE
   echo "N${STATE}x$CONNECTION  \"--n${STATE}x$CONNECTION \" i   (0,3) | as.numeric(NumConnections$STATE)>$CONNECTION " >> ${TXT_FILE}
-  echo "C${STATE}x$CONNECTION  \"--c${STATE}x$CONNECTION \" c   (0,1,2,3,4,5,6) | as.numeric(NumConnections$STATE)>$CONNECTION " >> ${TXT_FILE}
+  echo "C${STATE}x$CONNECTION  \"--c${STATE}x$CONNECTION \" c   (0,1,2,3,4,5) | as.numeric(NumConnections$STATE)>$CONNECTION " >> ${TXT_FILE}
   echo "P${STATE}x$CONNECTION  \"--p${STATE}x$CONNECTION \" r   (0,1) | as.numeric(C${STATE}x$CONNECTION) %in% c(0,1,2,5) " >> ${TXT_FILE}
   echo "B${STATE}x$CONNECTION  \"--p${STATE}x$CONNECTION \" i   (1,10) | as.numeric(C${STATE}x$CONNECTION)==3 " >> ${TXT_FILE}
   echo "W${STATE}x$CONNECTION  \"--w${STATE}x$CONNECTION \" r   (0,20) | as.numeric(C${STATE}x$CONNECTION)==3 " >> ${TXT_FILE}
