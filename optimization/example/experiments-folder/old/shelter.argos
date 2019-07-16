@@ -11,8 +11,8 @@
   <!-- ****************** -->
   <!-- * Loop functions * -->
   <!-- ****************** -->
-  <loop_functions library="/home/cedric/GitDir/experiments-loop-functions/build/loop-functions/vanilla/libforaging_loopfunc.so"
-   label="foraging_loop_functions">
+  <loop_functions library="/home/cedric/GitDir/experiments-loop-functions/build/loop-functions/gianduja/libgianduja_nesting_hide_loopfunc.so"
+   label="gianduja_nesting_hide_loopfunctions">
    <params dist_radius="1.2" number_robots="20"/>
   </loop_functions>
 

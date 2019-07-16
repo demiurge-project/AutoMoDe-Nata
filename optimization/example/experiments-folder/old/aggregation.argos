@@ -5,15 +5,15 @@
   <!-- ************* -->
   <framework>
     <experiment length="60"
-                ticks_per_second="10" random_seed="10"/>
+                ticks_per_second="10" random_seed="0"/>
   </framework>
 
   <!-- ****************** -->
   <!-- * Loop functions * -->
   <!-- ****************** -->
-  <loop_functions library="/home/cedric/GitDir/experiments-loop-functions/build/loop-functions/vanilla/libforaging_loopfunc.so"
-   label="foraging_loop_functions">
-   <params dist_radius="1.2" number_robots="20"/>
+  <loop_functions library="/home/cedric/GitDir/experiments-loop-functions/build/loop-functions/example/libaggregation_loopfunc.so"
+   label="aggregation_loop_functions">
+   <params dist_radius="1.2" number_robots="5"/>
   </loop_functions>
 
   <!-- *************** -->
@@ -22,11 +22,11 @@
   <controllers>
 	<!-- TRANSMITTER -->
     <automode_controller id="automode"
-                        library="/home/cedric/GitDir/AutoMoDe-private-master/build/src/libautomode.so">
+                        library="/home/cedric/GitDir/NEAT-AutoMoDe/build/src/libautomode.so">
       <actuators>
         <epuck_wheels implementation="default" noise_std_dev="0.05"/>
         <epuck_rgb_leds implementation="default" medium="leds"/>
-        <epuck_range_and_bearing implementation="medium" medium="rab" data_size="4" range="0.7"/>
+        <epuck_range_and_bearing implementation="medium" medium="rab" data_size="4" range="0.6"/>
       </actuators>
       <sensors>
         <epuck_proximity implementation="default" show_rays="false" noise_level="0.05" calibrated="true"/>
@@ -35,7 +35,7 @@
         <epuck_ground implementation="rot_z_only" noise_level="0.05" calibrated="true"/>
         <epuck_omnidirectional_camera implementation="rot_z_only" medium="leds" show_rays="false"/>
       </sensors>
-    <params readable='false' history='false' hist-folder='./fsm_history/' fsm-config="--nstates 1 --s0 4 --att0 2"/>
+    <params readable='false' history='false' hist-folder='./fsm_history/' fsm-config="--nstates 1 --s0 1"/>
     </automode_controller>
   </controllers>
 
@@ -123,8 +123,6 @@
   <!-- ***************** -->
   <!-- * Visualization * -->
   <!-- ***************** -->
-  <visualization>
-    <qt-opengl />
-  </visualization>
+  <visualization/>
 
 </argos-configuration>
