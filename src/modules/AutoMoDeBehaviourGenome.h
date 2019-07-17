@@ -52,7 +52,7 @@ namespace argos {
 			virtual void SetRobotDAO(EpuckDAO* pc_robot_dao);
 
 		protected:
-			CRange<Real> m_cWheelActuationRange = CRange<Real>(-m_pcRobotDAO->GetMaxVelocity(), m_pcRobotDAO->GetMaxVelocity());
+			CRange<Real> m_cWheelActuationRange;
 
 			// Network
 			NEAT::Network* m_net;

@@ -1,7 +1,4 @@
-file(REMOVE_RECURSE
-  "automode_automoc.cpp"
-  "automode_main_automoc.cpp"
-  "visualize_fsm_automoc.cpp"
+FILE(REMOVE_RECURSE
   "CMakeFiles/automode.dir/core/AutoMoDeController.cpp.o"
   "CMakeFiles/automode.dir/core/AutoMoDeFiniteStateMachine.cpp.o"
   "CMakeFiles/automode.dir/core/AutoMoDeFsmBuilder.cpp.o"
@@ -29,12 +26,11 @@ file(REMOVE_RECURSE
   "CMakeFiles/automode.dir/NEAT/network.cpp.o"
   "CMakeFiles/automode.dir/NEAT/nnode.cpp.o"
   "CMakeFiles/automode.dir/NEAT/trait.cpp.o"
-  "CMakeFiles/automode.dir/automode_automoc.cpp.o"
   "libautomode.pdb"
   "libautomode.so"
 )
 
 # Per-language clean rules from dependency scanning.
-foreach(lang CXX)
-  include(CMakeFiles/automode.dir/cmake_clean_${lang}.cmake OPTIONAL)
-endforeach()
+FOREACH(lang CXX)
+  INCLUDE(CMakeFiles/automode.dir/cmake_clean_${lang}.cmake OPTIONAL)
+ENDFOREACH(lang)

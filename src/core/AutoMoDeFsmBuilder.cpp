@@ -77,7 +77,7 @@ namespace argos {
 	void AutoMoDeFsmBuilder::HandleState(AutoMoDeFiniteStateMachine* c_fsm, std::vector<std::string>& vec_fsm_state_config) {
 		std::string genPath;
 		std::string config = "/.config/NEAT_AutoMoDe.conf";
-		std::ifstream myfile(std::getenv("HOME")+config);
+		std::ifstream myfile("/home/cstrebelle/.config/NEAT_AutoMoDe.conf");//std::getenv("HOME")+config);
   		if (myfile.is_open()){
 			getline(myfile,genPath);
 		}
