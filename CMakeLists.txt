@@ -1,4 +1,4 @@
-FILE(WRITE "$ENV{HOME}/.config/NEAT_AutoMoDe.conf" "${CMAKE_SOURCE_DIR}")
+FILE(WRITE "$ENV{HOME}/.config/AutoMoDe_Harlequin.conf" "${CMAKE_SOURCE_DIR}")
 
 #
 # Set minimum required version

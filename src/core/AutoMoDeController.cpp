@@ -108,7 +108,7 @@ namespace argos {
 		/*
 		 * 1. Update RobotDAO
 		 */
-		//std::cout << "ControlStep start" << std::endl;
+		std::cout << "ControlStep start" << std::endl;
 		if(m_pcRabSensor != NULL){
 			const CCI_EPuckRangeAndBearingSensor::TPackets& packets = m_pcRabSensor->GetPackets();
 			//m_pcRobotState->SetNumberNeighbors(packets.size());
