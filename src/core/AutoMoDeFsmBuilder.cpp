@@ -64,6 +64,7 @@ namespace argos {
 			}
 		}
 		catch (std::exception e) {
+			LOGERR << e.what() << std::endl;
 			THROW_ARGOSEXCEPTION("Could not create the Finite State Machine: Error while parsing.");
 		}
 
@@ -75,11 +76,11 @@ namespace argos {
 	/****************************************/
 
 	void AutoMoDeFsmBuilder::HandleState(AutoMoDeFiniteStateMachine* c_fsm, std::vector<std::string>& vec_fsm_state_config) {
-		std::string genPath;
-		std::string config = "/.config/NEAT_AutoMoDe.conf";
-		std::ifstream myfile(std::getenv("HOME")+config);
-  		if (myfile.is_open()){
-			getline(myfile,genPath);
+		std::string sPathToGenomeFile;
+		std::string sPathToConfigurationFile = std::string(std::getenv("HOME")) + std::string("/.config/AutoMoDe_Harlequin.conf");
+		std::ifstream cConfigurationFile(sPathToConfigurationFile);
+  	if (cConfigurationFile.is_open()){
+			std::getline(cConfigurationFile, sPathToGenomeFile);
 		}
 		else{
 			THROW_ARGOSEXCEPTION("Config file not found : Impossible to locate genes directory");
@@ -112,26 +113,26 @@ namespace argos {
 				cNewBehaviour = new AutoMoDeBehaviourRepulsion();
 				break;*/
 			case 0:
-				genPath += "/gen/exploration";
+				sPathToGenomeFile += "/gen/exploration";
 				break;
 			case 1:
-				genPath += "/gen/stop";
+				sPathToGenomeFile += "/gen/stop";
 				break;
 			case 2:
-				genPath += "/gen/phototaxis";
+				sPathToGenomeFile += "/gen/phototaxis";
 				break;
 			case 3:
-				genPath += "/gen/antiphototaxis";
+				sPathToGenomeFile += "/gen/antiphototaxis";
 				break;
 			case 4:
-				genPath += "/gen/attraction";
+				sPathToGenomeFile += "/gen/attraction";
 				break;
 			case 5:
-				genPath += "/gen/repulsion";
+				sPathToGenomeFile += "/gen/repulsion";
 				break;
 		}
-		std::cout << genPath << std::endl;
-		cNewBehaviour = new AutoMoDeBehaviourGenome(genPath);
+		std::cout << sPathToGenomeFile << std::endl;
+		cNewBehaviour = new AutoMoDeBehaviourGenome(sPathToGenomeFile);
 		cNewBehaviour->SetIndex(unBehaviourIndex);
 		cNewBehaviour->SetIdentifier(unBehaviourIdentifier);
 
