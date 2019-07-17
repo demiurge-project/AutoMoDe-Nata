@@ -78,8 +78,8 @@ namespace argos {
 	void AutoMoDeFsmBuilder::HandleState(AutoMoDeFiniteStateMachine* c_fsm, std::vector<std::string>& vec_fsm_state_config) {
 		std::string sPathToGenomeFile;
 		std::string sPathToConfigurationFile = std::string(std::getenv("HOME")) + std::string("/.config/AutoMoDe_Harlequin.conf");
-		std::ifstream cConfigurationFile(sPathToConfigurationFile);
-  	if (cConfigurationFile.is_open()){
+		std::ifstream cConfigurationFile(sPathToConfigurationFile.c_str());
+		if (cConfigurationFile.is_open()){
 			std::getline(cConfigurationFile, sPathToGenomeFile);
 		}
 		else{
