@@ -6,5 +6,5 @@ CXX_FLAGS = -Wall   -std=gnu++14
 
 CXX_DEFINES = -DARGOS_simulator_BUILD -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB
 
-CXX_INCLUDES = -I/home/cedric/GitDir/NEAT-AutoMoDe/build/src -I/home/cedric/GitDir/NEAT-AutoMoDe/src -I/home/cedric/GitDir/NEAT-AutoMoDe/build/src/visualize_fsm_autogen/include -I/usr/local/include -I/usr/include/lua5.2 -I/home/cedric/anaconda3/include/qt -I/home/cedric/anaconda3/include/qt/QtWidgets -I/home/cedric/anaconda3/include/qt/QtGui -I/home/cedric/anaconda3/include/qt/QtCore -I/home/cedric/anaconda3/./mkspecs/linux-g++ -I/home/cedric/GitDir/NEAT-AutoMoDe 
+CXX_INCLUDES = -I/home/cedric/GitDir/NEAT-AutoMoDe/build/src -I/home/cedric/GitDir/NEAT-AutoMoDe/src -I/home/cedric/GitDir/NEAT-AutoMoDe/build/src/visualize_fsm_autogen/include -I/usr/local/include -I/usr/include/lua5.2 -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/cedric/GitDir/NEAT-AutoMoDe 
 

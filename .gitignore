@@ -9,7 +9,7 @@
 *.pch
 
 # Compiled Dynamic libraries
-*.so
+#*.so
 *.dylib
 *.dll
 
@@ -31,4 +31,4 @@
 # Directories
 .vscode/*
 bin/*
-build/*
+#build/*

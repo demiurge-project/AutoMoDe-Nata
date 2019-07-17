@@ -50,11 +50,11 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "src/automode_autogen/include"
   "/usr/local/include"
   "/usr/include/lua5.2"
-  "/home/cedric/anaconda3/include/qt"
-  "/home/cedric/anaconda3/include/qt/QtWidgets"
-  "/home/cedric/anaconda3/include/qt/QtGui"
-  "/home/cedric/anaconda3/include/qt/QtCore"
-  "/home/cedric/anaconda3/./mkspecs/linux-g++"
+  "/usr/include/x86_64-linux-gnu/qt5"
+  "/usr/include/x86_64-linux-gnu/qt5/QtWidgets"
+  "/usr/include/x86_64-linux-gnu/qt5/QtGui"
+  "/usr/include/x86_64-linux-gnu/qt5/QtCore"
+  "/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++"
   "../"
   )
 
