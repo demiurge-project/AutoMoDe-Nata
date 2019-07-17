@@ -1,10 +1,7 @@
 file(REMOVE_RECURSE
-  "automode_main_autogen"
-  "CMakeFiles/automode_main_autogen.dir/AutogenOldSettings.cmake"
-  "automode_autogen"
-  "CMakeFiles/automode_autogen.dir/AutogenOldSettings.cmake"
-  "visualize_fsm_autogen"
-  "CMakeFiles/visualize_fsm_autogen.dir/AutogenOldSettings.cmake"
+  "automode_automoc.cpp"
+  "automode_main_automoc.cpp"
+  "visualize_fsm_automoc.cpp"
   "CMakeFiles/automode.dir/core/AutoMoDeController.cpp.o"
   "CMakeFiles/automode.dir/core/AutoMoDeFiniteStateMachine.cpp.o"
   "CMakeFiles/automode.dir/core/AutoMoDeFsmBuilder.cpp.o"
@@ -32,7 +29,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/automode.dir/NEAT/network.cpp.o"
   "CMakeFiles/automode.dir/NEAT/nnode.cpp.o"
   "CMakeFiles/automode.dir/NEAT/trait.cpp.o"
-  "CMakeFiles/automode.dir/automode_autogen/mocs_compilation.cpp.o"
+  "CMakeFiles/automode.dir/automode_automoc.cpp.o"
   "libautomode.pdb"
   "libautomode.so"
 )

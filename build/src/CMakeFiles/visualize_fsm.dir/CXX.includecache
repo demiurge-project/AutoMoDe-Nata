@@ -1,4 +1,4 @@
-#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
 
 #IncludeRegexScan: ^.*$
 
@@ -40,105 +40,105 @@ EpuckDAO.h
 RabMessageBuffer.h
 ../../demiurge-epuck-dao/src/RabMessageBuffer.h
 
-/home/cedric/GitDir/NEAT-AutoMoDe/build/src/visualize_fsm_autogen/mocs_compilation.cpp
+/home/aligot/Desktop/Arena/AutoMoDe-Harlequin/build/src/visualize_fsm_automoc.cpp
 
-/home/cedric/GitDir/NEAT-AutoMoDe/src/./NEAT/gene.h
+/home/aligot/Desktop/Arena/AutoMoDe-Harlequin/src/./NEAT/gene.h
 neat.h
-/home/cedric/GitDir/NEAT-AutoMoDe/src/./NEAT/neat.h
+/home/aligot/Desktop/Arena/AutoMoDe-Harlequin/src/./NEAT/neat.h
 trait.h
-/home/cedric/GitDir/NEAT-AutoMoDe/src/./NEAT/trait.h
+/home/aligot/Desktop/Arena/AutoMoDe-Harlequin/src/./NEAT/trait.h
 link.h
-/home/cedric/GitDir/NEAT-AutoMoDe/src/./NEAT/link.h
+/home/aligot/Desktop/Arena/AutoMoDe-Harlequin/src/./NEAT/link.h
 network.h
-/home/cedric/GitDir/NEAT-AutoMoDe/src/./NEAT/network.h
+/home/aligot/Desktop/Arena/AutoMoDe-Harlequin/src/./NEAT/network.h
 
-/home/cedric/GitDir/NEAT-AutoMoDe/src/./NEAT/genome.h
+/home/aligot/Desktop/Arena/AutoMoDe-Harlequin/src/./NEAT/genome.h
 vector
 -
 gene.h
-/home/cedric/GitDir/NEAT-AutoMoDe/src/./NEAT/gene.h
+/home/aligot/Desktop/Arena/AutoMoDe-Harlequin/src/./NEAT/gene.h
 innovation.h
-/home/cedric/GitDir/NEAT-AutoMoDe/src/./NEAT/innovation.h
+/home/aligot/Desktop/Arena/AutoMoDe-Harlequin/src/./NEAT/innovation.h
 
-/home/cedric/GitDir/NEAT-AutoMoDe/src/./NEAT/innovation.h
+/home/aligot/Desktop/Arena/AutoMoDe-Harlequin/src/./NEAT/innovation.h
 
-/home/cedric/GitDir/NEAT-AutoMoDe/src/./NEAT/link.h
+/home/aligot/Desktop/Arena/AutoMoDe-Harlequin/src/./NEAT/link.h
 neat.h
-/home/cedric/GitDir/NEAT-AutoMoDe/src/./NEAT/neat.h
+/home/aligot/Desktop/Arena/AutoMoDe-Harlequin/src/./NEAT/neat.h
 trait.h
-/home/cedric/GitDir/NEAT-AutoMoDe/src/./NEAT/trait.h
+/home/aligot/Desktop/Arena/AutoMoDe-Harlequin/src/./NEAT/trait.h
 nnode.h
-/home/cedric/GitDir/NEAT-AutoMoDe/src/./NEAT/nnode.h
+/home/aligot/Desktop/Arena/AutoMoDe-Harlequin/src/./NEAT/nnode.h
 
-/home/cedric/GitDir/NEAT-AutoMoDe/src/./NEAT/neat.h
+/home/aligot/Desktop/Arena/AutoMoDe-Harlequin/src/./NEAT/neat.h
 cstdlib
 -
 cstring
 -
 
-/home/cedric/GitDir/NEAT-AutoMoDe/src/./NEAT/network.h
+/home/aligot/Desktop/Arena/AutoMoDe-Harlequin/src/./NEAT/network.h
 algorithm
 -
 vector
 -
 neat.h
-/home/cedric/GitDir/NEAT-AutoMoDe/src/./NEAT/neat.h
+/home/aligot/Desktop/Arena/AutoMoDe-Harlequin/src/./NEAT/neat.h
 nnode.h
-/home/cedric/GitDir/NEAT-AutoMoDe/src/./NEAT/nnode.h
+/home/aligot/Desktop/Arena/AutoMoDe-Harlequin/src/./NEAT/nnode.h
 
-/home/cedric/GitDir/NEAT-AutoMoDe/src/./NEAT/nnode.h
+/home/aligot/Desktop/Arena/AutoMoDe-Harlequin/src/./NEAT/nnode.h
 algorithm
 -
 vector
 -
 neat.h
-/home/cedric/GitDir/NEAT-AutoMoDe/src/./NEAT/neat.h
+/home/aligot/Desktop/Arena/AutoMoDe-Harlequin/src/./NEAT/neat.h
 trait.h
-/home/cedric/GitDir/NEAT-AutoMoDe/src/./NEAT/trait.h
+/home/aligot/Desktop/Arena/AutoMoDe-Harlequin/src/./NEAT/trait.h
 link.h
-/home/cedric/GitDir/NEAT-AutoMoDe/src/./NEAT/link.h
+/home/aligot/Desktop/Arena/AutoMoDe-Harlequin/src/./NEAT/link.h
 
-/home/cedric/GitDir/NEAT-AutoMoDe/src/./NEAT/trait.h
+/home/aligot/Desktop/Arena/AutoMoDe-Harlequin/src/./NEAT/trait.h
 fstream
 -
 neat.h
-/home/cedric/GitDir/NEAT-AutoMoDe/src/./NEAT/neat.h
+/home/aligot/Desktop/Arena/AutoMoDe-Harlequin/src/./NEAT/neat.h
 
-/home/cedric/GitDir/NEAT-AutoMoDe/src/./core/./AutoMoDeFiniteStateMachine.h
+/home/aligot/Desktop/Arena/AutoMoDe-Harlequin/src/./core/./AutoMoDeFiniteStateMachine.h
 argos3/demiurge/epuck-dao/EpuckDAO.h
 -
 AutoMoDeFsmHistory.h
-/home/cedric/GitDir/NEAT-AutoMoDe/src/./core/./AutoMoDeFsmHistory.h
+/home/aligot/Desktop/Arena/AutoMoDe-Harlequin/src/./core/./AutoMoDeFsmHistory.h
 ../modules/AutoMoDeBehaviour.h
-/home/cedric/GitDir/NEAT-AutoMoDe/src/./core/modules/AutoMoDeBehaviour.h
+/home/aligot/Desktop/Arena/AutoMoDe-Harlequin/src/./core/modules/AutoMoDeBehaviour.h
 ../modules/AutoMoDeBehaviourAttraction.h
-/home/cedric/GitDir/NEAT-AutoMoDe/src/./core/modules/AutoMoDeBehaviourAttraction.h
+/home/aligot/Desktop/Arena/AutoMoDe-Harlequin/src/./core/modules/AutoMoDeBehaviourAttraction.h
 ../modules/AutoMoDeBehaviourAntiPhototaxis.h
-/home/cedric/GitDir/NEAT-AutoMoDe/src/./core/modules/AutoMoDeBehaviourAntiPhototaxis.h
+/home/aligot/Desktop/Arena/AutoMoDe-Harlequin/src/./core/modules/AutoMoDeBehaviourAntiPhototaxis.h
 ../modules/AutoMoDeBehaviourExploration.h
-/home/cedric/GitDir/NEAT-AutoMoDe/src/./core/modules/AutoMoDeBehaviourExploration.h
+/home/aligot/Desktop/Arena/AutoMoDe-Harlequin/src/./core/modules/AutoMoDeBehaviourExploration.h
 ../modules/AutoMoDeBehaviourPhototaxis.h
-/home/cedric/GitDir/NEAT-AutoMoDe/src/./core/modules/AutoMoDeBehaviourPhototaxis.h
+/home/aligot/Desktop/Arena/AutoMoDe-Harlequin/src/./core/modules/AutoMoDeBehaviourPhototaxis.h
 ../modules/AutoMoDeBehaviourRepulsion.h
-/home/cedric/GitDir/NEAT-AutoMoDe/src/./core/modules/AutoMoDeBehaviourRepulsion.h
+/home/aligot/Desktop/Arena/AutoMoDe-Harlequin/src/./core/modules/AutoMoDeBehaviourRepulsion.h
 ../modules/AutoMoDeBehaviourStop.h
-/home/cedric/GitDir/NEAT-AutoMoDe/src/./core/modules/AutoMoDeBehaviourStop.h
+/home/aligot/Desktop/Arena/AutoMoDe-Harlequin/src/./core/modules/AutoMoDeBehaviourStop.h
 ../modules/AutoMoDeBehaviourGenome.h
-/home/cedric/GitDir/NEAT-AutoMoDe/src/./core/modules/AutoMoDeBehaviourGenome.h
+/home/aligot/Desktop/Arena/AutoMoDe-Harlequin/src/./core/modules/AutoMoDeBehaviourGenome.h
 ../modules/AutoMoDeCondition.h
-/home/cedric/GitDir/NEAT-AutoMoDe/src/./core/modules/AutoMoDeCondition.h
+/home/aligot/Desktop/Arena/AutoMoDe-Harlequin/src/./core/modules/AutoMoDeCondition.h
 ../modules/AutoMoDeConditionBlackFloor.h
-/home/cedric/GitDir/NEAT-AutoMoDe/src/./core/modules/AutoMoDeConditionBlackFloor.h
+/home/aligot/Desktop/Arena/AutoMoDe-Harlequin/src/./core/modules/AutoMoDeConditionBlackFloor.h
 ../modules/AutoMoDeConditionGrayFloor.h
-/home/cedric/GitDir/NEAT-AutoMoDe/src/./core/modules/AutoMoDeConditionGrayFloor.h
+/home/aligot/Desktop/Arena/AutoMoDe-Harlequin/src/./core/modules/AutoMoDeConditionGrayFloor.h
 ../modules/AutoMoDeConditionWhiteFloor.h
-/home/cedric/GitDir/NEAT-AutoMoDe/src/./core/modules/AutoMoDeConditionWhiteFloor.h
+/home/aligot/Desktop/Arena/AutoMoDe-Harlequin/src/./core/modules/AutoMoDeConditionWhiteFloor.h
 ../modules/AutoMoDeConditionFixedProbability.h
-/home/cedric/GitDir/NEAT-AutoMoDe/src/./core/modules/AutoMoDeConditionFixedProbability.h
+/home/aligot/Desktop/Arena/AutoMoDe-Harlequin/src/./core/modules/AutoMoDeConditionFixedProbability.h
 ../modules/AutoMoDeConditionNeighborsCount.h
-/home/cedric/GitDir/NEAT-AutoMoDe/src/./core/modules/AutoMoDeConditionNeighborsCount.h
+/home/aligot/Desktop/Arena/AutoMoDe-Harlequin/src/./core/modules/AutoMoDeConditionNeighborsCount.h
 ../modules/AutoMoDeConditionInvertedNeighborsCount.h
-/home/cedric/GitDir/NEAT-AutoMoDe/src/./core/modules/AutoMoDeConditionInvertedNeighborsCount.h
+/home/aligot/Desktop/Arena/AutoMoDe-Harlequin/src/./core/modules/AutoMoDeConditionInvertedNeighborsCount.h
 string
 -
 ctime
@@ -146,9 +146,9 @@ ctime
 algorithm
 -
 
-/home/cedric/GitDir/NEAT-AutoMoDe/src/./core/./AutoMoDeFsmBuilder.h
+/home/aligot/Desktop/Arena/AutoMoDe-Harlequin/src/./core/./AutoMoDeFsmBuilder.h
 AutoMoDeFiniteStateMachine.h
-/home/cedric/GitDir/NEAT-AutoMoDe/src/./core/./AutoMoDeFiniteStateMachine.h
+/home/aligot/Desktop/Arena/AutoMoDe-Harlequin/src/./core/./AutoMoDeFiniteStateMachine.h
 argos3/core/utility/logging/argos_log.h
 -
 algorithm
@@ -168,7 +168,7 @@ stdlib.h
 fstream
 -
 
-/home/cedric/GitDir/NEAT-AutoMoDe/src/./core/AutoMoDeController.h
+/home/aligot/Desktop/Arena/AutoMoDe-Harlequin/src/./core/AutoMoDeController.h
 argos3/core/utility/logging/argos_log.h
 -
 argos3/core/control_interface/ci_controller.h
@@ -178,9 +178,9 @@ argos3/demiurge/epuck-dao/EpuckDAO.h
 argos3/demiurge/epuck-dao/ReferenceModel1Dot1.h
 -
 ./AutoMoDeFiniteStateMachine.h
-/home/cedric/GitDir/NEAT-AutoMoDe/src/./core/./AutoMoDeFiniteStateMachine.h
+/home/aligot/Desktop/Arena/AutoMoDe-Harlequin/src/./core/./AutoMoDeFiniteStateMachine.h
 ./AutoMoDeFsmBuilder.h
-/home/cedric/GitDir/NEAT-AutoMoDe/src/./core/./AutoMoDeFsmBuilder.h
+/home/aligot/Desktop/Arena/AutoMoDe-Harlequin/src/./core/./AutoMoDeFsmBuilder.h
 argos3/plugins/robots/e-puck/control_interface/ci_epuck_wheels_actuator.h
 -
 argos3/plugins/robots/e-puck/control_interface/ci_epuck_range_and_bearing_sensor.h
@@ -198,41 +198,41 @@ argos3/plugins/robots/e-puck/control_interface/ci_epuck_ground_sensor.h
 argos3/plugins/robots/e-puck/control_interface/ci_epuck_omnidirectional_camera_sensor.h
 -
 
-/home/cedric/GitDir/NEAT-AutoMoDe/src/./core/AutoMoDeFiniteStateMachine.h
+/home/aligot/Desktop/Arena/AutoMoDe-Harlequin/src/./core/AutoMoDeFiniteStateMachine.h
 argos3/demiurge/epuck-dao/EpuckDAO.h
 -
 AutoMoDeFsmHistory.h
-/home/cedric/GitDir/NEAT-AutoMoDe/src/./core/AutoMoDeFsmHistory.h
+/home/aligot/Desktop/Arena/AutoMoDe-Harlequin/src/./core/AutoMoDeFsmHistory.h
 ../modules/AutoMoDeBehaviour.h
-/home/cedric/GitDir/NEAT-AutoMoDe/src/./modules/AutoMoDeBehaviour.h
+/home/aligot/Desktop/Arena/AutoMoDe-Harlequin/src/./modules/AutoMoDeBehaviour.h
 ../modules/AutoMoDeBehaviourAttraction.h
-/home/cedric/GitDir/NEAT-AutoMoDe/src/./modules/AutoMoDeBehaviourAttraction.h
+/home/aligot/Desktop/Arena/AutoMoDe-Harlequin/src/./modules/AutoMoDeBehaviourAttraction.h
 ../modules/AutoMoDeBehaviourAntiPhototaxis.h
-/home/cedric/GitDir/NEAT-AutoMoDe/src/./modules/AutoMoDeBehaviourAntiPhototaxis.h
+/home/aligot/Desktop/Arena/AutoMoDe-Harlequin/src/./modules/AutoMoDeBehaviourAntiPhototaxis.h
 ../modules/AutoMoDeBehaviourExploration.h
-/home/cedric/GitDir/NEAT-AutoMoDe/src/./modules/AutoMoDeBehaviourExploration.h
+/home/aligot/Desktop/Arena/AutoMoDe-Harlequin/src/./modules/AutoMoDeBehaviourExploration.h
 ../modules/AutoMoDeBehaviourPhototaxis.h
-/home/cedric/GitDir/NEAT-AutoMoDe/src/./modules/AutoMoDeBehaviourPhototaxis.h
+/home/aligot/Desktop/Arena/AutoMoDe-Harlequin/src/./modules/AutoMoDeBehaviourPhototaxis.h
 ../modules/AutoMoDeBehaviourRepulsion.h
-/home/cedric/GitDir/NEAT-AutoMoDe/src/./modules/AutoMoDeBehaviourRepulsion.h
+/home/aligot/Desktop/Arena/AutoMoDe-Harlequin/src/./modules/AutoMoDeBehaviourRepulsion.h
 ../modules/AutoMoDeBehaviourStop.h
-/home/cedric/GitDir/NEAT-AutoMoDe/src/./modules/AutoMoDeBehaviourStop.h
+/home/aligot/Desktop/Arena/AutoMoDe-Harlequin/src/./modules/AutoMoDeBehaviourStop.h
 ../modules/AutoMoDeBehaviourGenome.h
-/home/cedric/GitDir/NEAT-AutoMoDe/src/./modules/AutoMoDeBehaviourGenome.h
+/home/aligot/Desktop/Arena/AutoMoDe-Harlequin/src/./modules/AutoMoDeBehaviourGenome.h
 ../modules/AutoMoDeCondition.h
-/home/cedric/GitDir/NEAT-AutoMoDe/src/./modules/AutoMoDeCondition.h
+/home/aligot/Desktop/Arena/AutoMoDe-Harlequin/src/./modules/AutoMoDeCondition.h
 ../modules/AutoMoDeConditionBlackFloor.h
-/home/cedric/GitDir/NEAT-AutoMoDe/src/./modules/AutoMoDeConditionBlackFloor.h
+/home/aligot/Desktop/Arena/AutoMoDe-Harlequin/src/./modules/AutoMoDeConditionBlackFloor.h
 ../modules/AutoMoDeConditionGrayFloor.h
-/home/cedric/GitDir/NEAT-AutoMoDe/src/./modules/AutoMoDeConditionGrayFloor.h
+/home/aligot/Desktop/Arena/AutoMoDe-Harlequin/src/./modules/AutoMoDeConditionGrayFloor.h
 ../modules/AutoMoDeConditionWhiteFloor.h
-/home/cedric/GitDir/NEAT-AutoMoDe/src/./modules/AutoMoDeConditionWhiteFloor.h
+/home/aligot/Desktop/Arena/AutoMoDe-Harlequin/src/./modules/AutoMoDeConditionWhiteFloor.h
 ../modules/AutoMoDeConditionFixedProbability.h
-/home/cedric/GitDir/NEAT-AutoMoDe/src/./modules/AutoMoDeConditionFixedProbability.h
+/home/aligot/Desktop/Arena/AutoMoDe-Harlequin/src/./modules/AutoMoDeConditionFixedProbability.h
 ../modules/AutoMoDeConditionNeighborsCount.h
-/home/cedric/GitDir/NEAT-AutoMoDe/src/./modules/AutoMoDeConditionNeighborsCount.h
+/home/aligot/Desktop/Arena/AutoMoDe-Harlequin/src/./modules/AutoMoDeConditionNeighborsCount.h
 ../modules/AutoMoDeConditionInvertedNeighborsCount.h
-/home/cedric/GitDir/NEAT-AutoMoDe/src/./modules/AutoMoDeConditionInvertedNeighborsCount.h
+/home/aligot/Desktop/Arena/AutoMoDe-Harlequin/src/./modules/AutoMoDeConditionInvertedNeighborsCount.h
 string
 -
 ctime
@@ -240,9 +240,9 @@ ctime
 algorithm
 -
 
-/home/cedric/GitDir/NEAT-AutoMoDe/src/./core/AutoMoDeFsmBuilder.h
+/home/aligot/Desktop/Arena/AutoMoDe-Harlequin/src/./core/AutoMoDeFsmBuilder.h
 AutoMoDeFiniteStateMachine.h
-/home/cedric/GitDir/NEAT-AutoMoDe/src/./core/AutoMoDeFiniteStateMachine.h
+/home/aligot/Desktop/Arena/AutoMoDe-Harlequin/src/./core/AutoMoDeFiniteStateMachine.h
 argos3/core/utility/logging/argos_log.h
 -
 algorithm
@@ -262,11 +262,11 @@ stdlib.h
 fstream
 -
 
-/home/cedric/GitDir/NEAT-AutoMoDe/src/./core/AutoMoDeFsmHistory.h
+/home/aligot/Desktop/Arena/AutoMoDe-Harlequin/src/./core/AutoMoDeFsmHistory.h
 ../modules/AutoMoDeBehaviour.h
-/home/cedric/GitDir/NEAT-AutoMoDe/src/./modules/AutoMoDeBehaviour.h
+/home/aligot/Desktop/Arena/AutoMoDe-Harlequin/src/./modules/AutoMoDeBehaviour.h
 ../modules/AutoMoDeCondition.h
-/home/cedric/GitDir/NEAT-AutoMoDe/src/./modules/AutoMoDeCondition.h
+/home/aligot/Desktop/Arena/AutoMoDe-Harlequin/src/./modules/AutoMoDeCondition.h
 argos3/core/utility/logging/argos_log.h
 -
 fstream
@@ -278,7 +278,7 @@ string
 map
 -
 
-/home/cedric/GitDir/NEAT-AutoMoDe/src/./modules/AutoMoDeBehaviour.h
+/home/aligot/Desktop/Arena/AutoMoDe-Harlequin/src/./modules/AutoMoDeBehaviour.h
 argos3/core/utility/math/vector2.h
 -
 argos3/core/utility/logging/argos_log.h
@@ -294,21 +294,21 @@ argos3/demiurge/epuck-dao/EpuckDAO.h
 map
 -
 
-/home/cedric/GitDir/NEAT-AutoMoDe/src/./modules/AutoMoDeBehaviourAntiPhototaxis.h
+/home/aligot/Desktop/Arena/AutoMoDe-Harlequin/src/./modules/AutoMoDeBehaviourAntiPhototaxis.h
 AutoMoDeBehaviour.h
-/home/cedric/GitDir/NEAT-AutoMoDe/src/./modules/AutoMoDeBehaviour.h
+/home/aligot/Desktop/Arena/AutoMoDe-Harlequin/src/./modules/AutoMoDeBehaviour.h
 
-/home/cedric/GitDir/NEAT-AutoMoDe/src/./modules/AutoMoDeBehaviourAttraction.h
+/home/aligot/Desktop/Arena/AutoMoDe-Harlequin/src/./modules/AutoMoDeBehaviourAttraction.h
 AutoMoDeBehaviour.h
-/home/cedric/GitDir/NEAT-AutoMoDe/src/./modules/AutoMoDeBehaviour.h
+/home/aligot/Desktop/Arena/AutoMoDe-Harlequin/src/./modules/AutoMoDeBehaviour.h
 
-/home/cedric/GitDir/NEAT-AutoMoDe/src/./modules/AutoMoDeBehaviourExploration.h
+/home/aligot/Desktop/Arena/AutoMoDe-Harlequin/src/./modules/AutoMoDeBehaviourExploration.h
 AutoMoDeBehaviour.h
-/home/cedric/GitDir/NEAT-AutoMoDe/src/./modules/AutoMoDeBehaviour.h
+/home/aligot/Desktop/Arena/AutoMoDe-Harlequin/src/./modules/AutoMoDeBehaviour.h
 
-/home/cedric/GitDir/NEAT-AutoMoDe/src/./modules/AutoMoDeBehaviourGenome.h
+/home/aligot/Desktop/Arena/AutoMoDe-Harlequin/src/./modules/AutoMoDeBehaviourGenome.h
 AutoMoDeBehaviour.h
-/home/cedric/GitDir/NEAT-AutoMoDe/src/./modules/AutoMoDeBehaviour.h
+/home/aligot/Desktop/Arena/AutoMoDe-Harlequin/src/./modules/AutoMoDeBehaviour.h
 argos3/core/control_interface/ci_controller.h
 -
 argos3/core/utility/math/range.h
@@ -318,29 +318,29 @@ argos3/core/utility/math/vector2.h
 argos3/core/utility/math/rng.h
 -
 ../../../demiurge-epuck-dao/src/EpuckDAO.h
-/home/cedric/GitDir/NEAT-AutoMoDe/demiurge-epuck-dao/src/EpuckDAO.h
+/home/aligot/Desktop/Arena/AutoMoDe-Harlequin/demiurge-epuck-dao/src/EpuckDAO.h
 ../../../demiurge-epuck-dao/src/ReferenceModel1Dot1.h
-/home/cedric/GitDir/NEAT-AutoMoDe/demiurge-epuck-dao/src/ReferenceModel1Dot1.h
+/home/aligot/Desktop/Arena/AutoMoDe-Harlequin/demiurge-epuck-dao/src/ReferenceModel1Dot1.h
 ../NEAT/network.h
-/home/cedric/GitDir/NEAT-AutoMoDe/src/./NEAT/network.h
+/home/aligot/Desktop/Arena/AutoMoDe-Harlequin/src/./NEAT/network.h
 ../NEAT/genome.h
-/home/cedric/GitDir/NEAT-AutoMoDe/src/./NEAT/genome.h
+/home/aligot/Desktop/Arena/AutoMoDe-Harlequin/src/./NEAT/genome.h
 map
 -
 
-/home/cedric/GitDir/NEAT-AutoMoDe/src/./modules/AutoMoDeBehaviourPhototaxis.h
+/home/aligot/Desktop/Arena/AutoMoDe-Harlequin/src/./modules/AutoMoDeBehaviourPhototaxis.h
 AutoMoDeBehaviour.h
-/home/cedric/GitDir/NEAT-AutoMoDe/src/./modules/AutoMoDeBehaviour.h
+/home/aligot/Desktop/Arena/AutoMoDe-Harlequin/src/./modules/AutoMoDeBehaviour.h
 
-/home/cedric/GitDir/NEAT-AutoMoDe/src/./modules/AutoMoDeBehaviourRepulsion.h
+/home/aligot/Desktop/Arena/AutoMoDe-Harlequin/src/./modules/AutoMoDeBehaviourRepulsion.h
 AutoMoDeBehaviour.h
-/home/cedric/GitDir/NEAT-AutoMoDe/src/./modules/AutoMoDeBehaviour.h
+/home/aligot/Desktop/Arena/AutoMoDe-Harlequin/src/./modules/AutoMoDeBehaviour.h
 
-/home/cedric/GitDir/NEAT-AutoMoDe/src/./modules/AutoMoDeBehaviourStop.h
+/home/aligot/Desktop/Arena/AutoMoDe-Harlequin/src/./modules/AutoMoDeBehaviourStop.h
 AutoMoDeBehaviour.h
-/home/cedric/GitDir/NEAT-AutoMoDe/src/./modules/AutoMoDeBehaviour.h
+/home/aligot/Desktop/Arena/AutoMoDe-Harlequin/src/./modules/AutoMoDeBehaviour.h
 
-/home/cedric/GitDir/NEAT-AutoMoDe/src/./modules/AutoMoDeCondition.h
+/home/aligot/Desktop/Arena/AutoMoDe-Harlequin/src/./modules/AutoMoDeCondition.h
 argos3/core/utility/math/vector2.h
 -
 argos3/core/utility/logging/argos_log.h
@@ -350,31 +350,31 @@ argos3/demiurge/epuck-dao/EpuckDAO.h
 map
 -
 
-/home/cedric/GitDir/NEAT-AutoMoDe/src/./modules/AutoMoDeConditionBlackFloor.h
+/home/aligot/Desktop/Arena/AutoMoDe-Harlequin/src/./modules/AutoMoDeConditionBlackFloor.h
 AutoMoDeCondition.h
-/home/cedric/GitDir/NEAT-AutoMoDe/src/./modules/AutoMoDeCondition.h
+/home/aligot/Desktop/Arena/AutoMoDe-Harlequin/src/./modules/AutoMoDeCondition.h
 
-/home/cedric/GitDir/NEAT-AutoMoDe/src/./modules/AutoMoDeConditionFixedProbability.h
+/home/aligot/Desktop/Arena/AutoMoDe-Harlequin/src/./modules/AutoMoDeConditionFixedProbability.h
 AutoMoDeCondition.h
-/home/cedric/GitDir/NEAT-AutoMoDe/src/./modules/AutoMoDeCondition.h
+/home/aligot/Desktop/Arena/AutoMoDe-Harlequin/src/./modules/AutoMoDeCondition.h
 
-/home/cedric/GitDir/NEAT-AutoMoDe/src/./modules/AutoMoDeConditionGrayFloor.h
+/home/aligot/Desktop/Arena/AutoMoDe-Harlequin/src/./modules/AutoMoDeConditionGrayFloor.h
 AutoMoDeCondition.h
-/home/cedric/GitDir/NEAT-AutoMoDe/src/./modules/AutoMoDeCondition.h
+/home/aligot/Desktop/Arena/AutoMoDe-Harlequin/src/./modules/AutoMoDeCondition.h
 
-/home/cedric/GitDir/NEAT-AutoMoDe/src/./modules/AutoMoDeConditionInvertedNeighborsCount.h
+/home/aligot/Desktop/Arena/AutoMoDe-Harlequin/src/./modules/AutoMoDeConditionInvertedNeighborsCount.h
 AutoMoDeCondition.h
-/home/cedric/GitDir/NEAT-AutoMoDe/src/./modules/AutoMoDeCondition.h
+/home/aligot/Desktop/Arena/AutoMoDe-Harlequin/src/./modules/AutoMoDeCondition.h
 
-/home/cedric/GitDir/NEAT-AutoMoDe/src/./modules/AutoMoDeConditionNeighborsCount.h
+/home/aligot/Desktop/Arena/AutoMoDe-Harlequin/src/./modules/AutoMoDeConditionNeighborsCount.h
 AutoMoDeCondition.h
-/home/cedric/GitDir/NEAT-AutoMoDe/src/./modules/AutoMoDeCondition.h
+/home/aligot/Desktop/Arena/AutoMoDe-Harlequin/src/./modules/AutoMoDeCondition.h
 
-/home/cedric/GitDir/NEAT-AutoMoDe/src/./modules/AutoMoDeConditionWhiteFloor.h
+/home/aligot/Desktop/Arena/AutoMoDe-Harlequin/src/./modules/AutoMoDeConditionWhiteFloor.h
 AutoMoDeCondition.h
-/home/cedric/GitDir/NEAT-AutoMoDe/src/./modules/AutoMoDeCondition.h
+/home/aligot/Desktop/Arena/AutoMoDe-Harlequin/src/./modules/AutoMoDeCondition.h
 
-/home/cedric/GitDir/NEAT-AutoMoDe/src/AutoMoDeVisualizeFSM.cpp
+/home/aligot/Desktop/Arena/AutoMoDe-Harlequin/src/AutoMoDeVisualizeFSM.cpp
 cctype
 -
 iomanip
@@ -404,11 +404,11 @@ argos3/core/simulator/argos_command_line_arg_parser.h
 argos3/demiurge/loop-functions/CoreLoopFunctions.h
 -
 ./core/AutoMoDeFiniteStateMachine.h
-/home/cedric/GitDir/NEAT-AutoMoDe/src/./core/AutoMoDeFiniteStateMachine.h
+/home/aligot/Desktop/Arena/AutoMoDe-Harlequin/src/./core/AutoMoDeFiniteStateMachine.h
 ./core/AutoMoDeFsmBuilder.h
-/home/cedric/GitDir/NEAT-AutoMoDe/src/./core/AutoMoDeFsmBuilder.h
+/home/aligot/Desktop/Arena/AutoMoDe-Harlequin/src/./core/AutoMoDeFsmBuilder.h
 ./core/AutoMoDeController.h
-/home/cedric/GitDir/NEAT-AutoMoDe/src/./core/AutoMoDeController.h
+/home/aligot/Desktop/Arena/AutoMoDe-Harlequin/src/./core/AutoMoDeController.h
 
 /usr/include/lua5.2/lauxlib.h
 stddef.h
@@ -669,6 +669,8 @@ argos3/core/utility/math/vector2.h
 -
 argos3/core/utility/math/vector3.h
 -
+argos3/core/simulator/entity/entity.h
+-
 string
 -
 
@@ -684,8 +686,6 @@ argos3/core/simulator/space/positional_indices/positional_index.h
 argos3/core/utility/datatypes/any.h
 -
 argos3/core/simulator/medium/medium.h
--
-argos3/core/simulator/space/positional_indices/positional_index.h
 -
 argos3/core/simulator/entity/embodied_entity.h
 -
@@ -868,8 +868,28 @@ utility
 cmath
 -
 
+/usr/local/include/argos3/core/utility/math/matrix/matrix.h
+argos3/core/utility/math/general.h
+-
+argos3/core/utility/math/angles.h
+-
+cmath
+-
+iomanip
+-
+
+/usr/local/include/argos3/core/utility/math/matrix/rotationmatrix3.h
+argos3/core/utility/math/matrix/squarematrix.h
+-
+
+/usr/local/include/argos3/core/utility/math/matrix/squarematrix.h
+argos3/core/utility/math/matrix/matrix.h
+-
+
 /usr/local/include/argos3/core/utility/math/quaternion.h
 argos3/core/utility/math/vector3.h
+-
+argos3/core/utility/math/matrix/rotationmatrix3.h
 -
 
 /usr/local/include/argos3/core/utility/math/range.h

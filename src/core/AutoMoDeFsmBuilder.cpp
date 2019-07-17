@@ -82,7 +82,7 @@ namespace argos {
 			getline(myfile,genPath);
 		}
 		else{
-			throw "Config file not found : Impossible to locate genes directory";
+			THROW_ARGOSEXCEPTION("Config file not found : Impossible to locate genes directory");
 		}
 		AutoMoDeBehaviour* cNewBehaviour;
 		std::vector<std::string>::iterator it;
@@ -130,6 +130,7 @@ namespace argos {
 				genPath += "/gen/repulsion";
 				break;
 		}
+		std::cout << genPath << std::endl;
 		cNewBehaviour = new AutoMoDeBehaviourGenome(genPath);
 		cNewBehaviour->SetIndex(unBehaviourIndex);
 		cNewBehaviour->SetIdentifier(unBehaviourIdentifier);
