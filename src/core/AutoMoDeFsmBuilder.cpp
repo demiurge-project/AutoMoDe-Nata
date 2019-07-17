@@ -76,11 +76,19 @@ namespace argos {
 	/****************************************/
 
 	void AutoMoDeFsmBuilder::HandleState(AutoMoDeFiniteStateMachine* c_fsm, std::vector<std::string>& vec_fsm_state_config) {
+<<<<<<< HEAD
 		std::string sPathToGenomeFile;
 		std::string sPathToConfigurationFile = std::string(std::getenv("HOME")) + std::string("/.config/AutoMoDe_Harlequin.conf");
 		std::ifstream cConfigurationFile(sPathToConfigurationFile);
   	if (cConfigurationFile.is_open()){
 			std::getline(cConfigurationFile, sPathToGenomeFile);
+=======
+		std::string genPath;
+		std::string config = "/.config/NEAT_AutoMoDe.conf";
+		std::ifstream myfile("/home/cstrebelle/.config/NEAT_AutoMoDe.conf");//std::getenv("HOME")+config);
+  		if (myfile.is_open()){
+			getline(myfile,genPath);
+>>>>>>> f3ebf968eef199f48eef9ff4fc26a1923e21d629
 		}
 		else{
 			THROW_ARGOSEXCEPTION("Config file not found : Impossible to locate genes directory");
