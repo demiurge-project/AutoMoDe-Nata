@@ -11,7 +11,7 @@
   <!-- ****************** -->
   <!-- * Loop functions * -->
   <!-- ****************** -->
-  <loop_functions library="/home/cedric/GitDir/experiments-loop-functions/build/loop-functions/new/libphototaxis_loopfunc.so"
+  <loop_functions library="/home/cedric/GitDir/experiments-loop-functions/build/loop-functions/AutoMoDe-Modules/libphototaxis_loopfunc.so"
    label="phototaxis_loop_functions">
    <params dist_radius="1.2" number_robots="20"/>
   </loop_functions>

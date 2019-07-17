@@ -11,8 +11,8 @@
   <!-- ****************** -->
   <!-- * Loop functions * -->
   <!-- ****************** -->
-  <loop_functions library="/home/cedric/GitDir/experiments-loop-functions/build/loop-functions/new/libexploration_loopfunc.so"
-   label="exploration_loop_functions">
+  <loop_functions library="/home/cedric/GitDir/experiments-loop-functions/build/loop-functions/AutoMoDe-Modules/libphototaxis_loopfunc.so"
+   label="phototaxis_loop_functions">
    <params dist_radius="1.2" number_robots="20"/>
   </loop_functions>
 
@@ -35,7 +35,7 @@
         <epuck_ground implementation="rot_z_only" noise_level="0.05" calibrated="true"/>
         <epuck_omnidirectional_camera implementation="rot_z_only" medium="leds" show_rays="false"/>
       </sensors>
-    <params readable='false' history='false' hist-folder='./fsm_history/' fsm-config="--nstates 1 --s0 0"/>
+    <params readable='false' history='false' hist-folder='./fsm_history/' fsm-config="--nstates 1 --s0 2"/>
     </automode_controller>
   </controllers>
 
@@ -124,7 +124,7 @@
   <!-- * Visualization * -->
   <!-- ***************** -->
   <visualization>
-    <qt-opengl />
+	<qt-opengl />
   </visualization>
 
 </argos-configuration>
