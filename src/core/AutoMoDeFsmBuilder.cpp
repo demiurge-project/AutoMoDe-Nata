@@ -131,7 +131,7 @@ namespace argos {
 				sPathToGenomeFile += "/gen/repulsion";
 				break;
 		}
-		std::cout << sPathToGenomeFile << std::endl;
+		
 		cNewBehaviour = new AutoMoDeBehaviourGenome(sPathToGenomeFile);
 		cNewBehaviour->SetIndex(unBehaviourIndex);
 		cNewBehaviour->SetIdentifier(unBehaviourIdentifier);
