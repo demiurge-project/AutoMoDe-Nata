@@ -11,10 +11,10 @@
 
 namespace argos {
 
-	AutoMoDeBehaviourGenome::AutoMoDeBehaviourGenome(std::string path) {
-		m_strFile = path;
+	AutoMoDeBehaviourGenome::AutoMoDeBehaviourGenome(std::string path_to_genome) {
+		m_strPathToGenome = path_to_genome;
 		//std::cout << "H" << std::endl;
-		LoadGen(path);
+		LoadGen(path_to_genome);
 		m_net = NULL;
 		m_nId = -1;
 		m_unTimeStep = 0;
@@ -29,7 +29,8 @@ namespace argos {
 	/****************************************/
 	/****************************************/
 
-	AutoMoDeBehaviourGenome::AutoMoDeBehaviourGenome(AutoMoDeBehaviourGenome* pc_behaviour) : AutoMoDeBehaviourGenome(pc_behaviour->m_strFile) {
+	AutoMoDeBehaviourGenome::AutoMoDeBehaviourGenome(AutoMoDeBehaviourGenome* pc_behaviour) {
+		m_strPathToGenome = pc_behaviour->GetPathToGenome();
 		m_bLocked = pc_behaviour->IsLocked();
 		m_bOperational = pc_behaviour->IsOperational();
 		m_unIndex = pc_behaviour->GetIndex();
@@ -156,7 +157,7 @@ namespace argos {
 	/****************************************/
 
 	void AutoMoDeBehaviourGenome::Init() {
-		LoadGen(m_strFile);
+		LoadGen(m_strPathToGenome);
 		//std::cout << "Gen" << std::endl;
 		m_cNeuralNetworkOutputRange.Set(0.0f, 1.0f);
 		//std::cout << "Net" << std::endl;
@@ -228,6 +229,9 @@ namespace argos {
 		iFile.close();
 	}
 
+	/****************************************/
+	/****************************************/
+
 	UInt32 AutoMoDeBehaviourGenome::getRobotId() {
 		//std::cout << "Robot id" << std::endl;
 		if (m_nId < 0) {
@@ -241,6 +245,9 @@ namespace argos {
 		return m_nId;
 	}
 
+	/****************************************/
+	/****************************************/
+
 	void AutoMoDeBehaviourGenome::SetRobotDAO(EpuckDAO* pc_robot_dao) {
 		AutoMoDeBehaviour::SetRobotDAO(pc_robot_dao);
 		//std::cout << "WheelNull=" << (m_cWheelActuationRange.GetMax()) << std::endl;
@@ -248,4 +255,12 @@ namespace argos {
 		m_cWheelActuationRange.Set(-m_pcRobotDAO->GetMaxVelocity(), m_pcRobotDAO->GetMaxVelocity());
 		//std::cout << "WheelSet=" << (m_cWheelActuationRange.GetMax()) << std::endl;
 	}
+
+	/****************************************/
+	/****************************************/
+
+	std::string AutoMoDeBehaviourGenome::GetPathToGenome() {
+		return m_strPathToGenome;
+	}
+
 }

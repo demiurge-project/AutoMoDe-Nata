@@ -60,7 +60,8 @@ namespace argos {
 			std::vector<NEAT::Network*> m_cNetworkVector;
 
 			// Path to the genome
-			std::string m_strFile;
+			std::string m_strPathToGenome;
+			std::string GetPathToGenome();
 
 			// Range And Bearing Packet (which contains the id, timestamp, and the real packet which contains the range, bearing and the data)
 			struct RBPacket {
@@ -84,6 +85,7 @@ namespace argos {
 			Real m_fLeftSpeed, m_fRightSpeed;
 
 			argos::CRandom::CRNG* m_pcRNG;
+
 		private:
 			virtual void LoadGen(std::string file);
 			Real m_inputs[25];
