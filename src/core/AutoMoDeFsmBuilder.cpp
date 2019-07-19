@@ -131,7 +131,7 @@ namespace argos {
 				sPathToGenomeFile += "/gen/repulsion";
 				break;
 		}
-		
+
 		cNewBehaviour = new AutoMoDeBehaviourGenome(sPathToGenomeFile);
 		cNewBehaviour->SetIndex(unBehaviourIndex);
 		cNewBehaviour->SetIdentifier(unBehaviourIdentifier);
@@ -192,8 +192,6 @@ namespace argos {
 	/****************************************/
 
 	void AutoMoDeFsmBuilder::HandleTransition(std::vector<std::string>& vec_fsm_transition_config, const UInt32& un_initial_state_index, const UInt32& un_condition_index) {
-		AutoMoDeCondition* cNewCondition;
-
 		std::stringstream ss;
 		ss << "--n" << un_initial_state_index << "x" << un_condition_index;
 		std::vector<UInt32> vecPossibleDestinationIndex = GetPossibleDestinationBehaviour(un_initial_state_index);
@@ -209,6 +207,7 @@ namespace argos {
 			it = std::find(vec_fsm_transition_config.begin(), vec_fsm_transition_config.end(), ss.str());
 
 			UInt8 unConditionIdentifier = atoi((*(it+1)).c_str());
+			AutoMoDeCondition* cNewCondition = NULL;
 
 			switch(unConditionIdentifier) {
 				case 0:

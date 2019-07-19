@@ -69,5 +69,5 @@ set(AUTOMODE_SOURCES
 	NEAT/trait.cpp)
 
 
-add_executable(automode ${AUTOMODE_HEADERS} ${AUTOMODE_SOURCES})
-target_link_libraries(automode argos3plugin_${ARGOS_BUILD_FOR}_epuck)
+add_executable(harlequin ${AUTOMODE_HEADERS} ${AUTOMODE_SOURCES})
+target_link_libraries(harlequin argos3plugin_${ARGOS_BUILD_FOR}_epuck argos3_demiurge_epuck_dao) 
