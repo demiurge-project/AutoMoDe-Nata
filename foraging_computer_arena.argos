@@ -50,7 +50,7 @@
     <position method="uniform" min="-1,-1,0" max="1,1,0" />
     <orientation method="gaussian" mean="0,0,0" std_dev="360,0,0" />
     <entity quantity="20" max_trials="100">
-      <e-puck id="epuck_">
+      <e-puck id="epuck">
        <controller config="harlequin" />
       </e-puck>
     </entity>
@@ -126,7 +126,6 @@
   <!-- ***************** -->
   <visualization>
     <qt-opengl>
-
       <camera>
 	       <placement idx="0" position="0,0,4.5" look_at="0,0,0" lens_focal_length="43" />
 	       <placement idx="1" position="-1.066,-1.231,2.5" look_at="-1,-1.2,0" lens_focal_length="43" />

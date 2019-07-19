@@ -48,7 +48,8 @@
   /****************************************/
 
 	bool AutoMoDeConditionGrayFloor::Verify() {
-    if (m_fGroundThresholdRange.WithinMinBoundExcludedMaxBoundExcluded(m_pcRobotDAO->GetGroundReading())) {
+    CCI_EPuckGroundSensor::SReadings readings = m_pcRobotDAO->GetGroundInput();
+  	if (m_fGroundThresholdRange.WithinMinBoundExcludedMaxBoundExcluded(readings.Left) || m_fGroundThresholdRange.WithinMinBoundExcludedMaxBoundExcluded(readings.Center) || m_fGroundThresholdRange.WithinMinBoundExcludedMaxBoundExcluded(readings.Right)) {
       return EvaluateBernoulliProbability(m_fProbability);
     }
     else {
