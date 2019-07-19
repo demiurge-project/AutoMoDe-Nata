@@ -32,3 +32,10 @@
 .vscode/*
 bin/*
 build/*
+
+# Others
+*.Rdata
+*.stdout
+*.stderr
+*.py
+*.sh
