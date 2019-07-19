@@ -201,5 +201,5 @@ namespace argos {
 		}
 	}
 
-	REGISTER_CONTROLLER(AutoMoDeController, "automode_controller");
+	REGISTER_CONTROLLER(AutoMoDeController, "harlequin");
 }

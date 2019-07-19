@@ -11,19 +11,15 @@
 
 namespace argos {
 
-	AutoMoDeBehaviourGenome::AutoMoDeBehaviourGenome(std::string path_to_genome) {
+	AutoMoDeBehaviourGenome::AutoMoDeBehaviourGenome(std::string str_label, std::string path_to_genome) {
 		m_strPathToGenome = path_to_genome;
-		//std::cout << "H" << std::endl;
 		LoadGen(path_to_genome);
 		m_net = NULL;
 		m_nId = -1;
 		m_unTimeStep = 0;
-		//std::cout << "Clearing" << std::endl;
 		m_mapMessages.clear();
-		//std::cout << "Clear done" << std::endl;
 		//m_pcRNG = argos::CRandom::CreateRNG("argos");
-		m_strLabel = "Genome_";
-		//std::cout << "End creation of BehaviorGenome" << std::endl;
+		m_strLabel = str_label;
 	}
 
 	/****************************************/

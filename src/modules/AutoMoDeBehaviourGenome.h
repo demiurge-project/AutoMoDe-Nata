@@ -16,11 +16,11 @@
 #include <argos3/core/utility/math/vector2.h>
 #include <argos3/core/utility/math/rng.h>
 
-// ++ modified to relative path (<argos3/demiurge/epuck-dao/EpuckDAO.h>)
-#include "../../../demiurge-epuck-dao/src/EpuckDAO.h"
-// epuckDAO and NEAT-private must be at same level of directory
+// // ++ modified to relative path (<argos3/demiurge/epuck-dao/EpuckDAO.h>)
+// #include "../../../demiurge-epuck-dao/src/EpuckDAO.h"
+// // epuckDAO and NEAT-private must be at same level of directory
 
-#include "../../../demiurge-epuck-dao/src/ReferenceModel1Dot1.h"
+// #include "../../../demiurge-epuck-dao/src/ReferenceModel1Dot1.h"
 
 #include "../NEAT/network.h"
 #include "../NEAT/genome.h"
@@ -31,7 +31,7 @@ namespace argos {
 	class AutoMoDeBehaviourGenome: public AutoMoDeBehaviour, public CCI_Controller {
 		public:
 
-			AutoMoDeBehaviourGenome(std::string path);
+			AutoMoDeBehaviourGenome(std::string label, std::string path);
 			AutoMoDeBehaviourGenome(AutoMoDeBehaviourGenome* pc_behaviour);
 			virtual ~AutoMoDeBehaviourGenome();
 

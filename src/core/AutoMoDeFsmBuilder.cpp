@@ -85,7 +85,6 @@ namespace argos {
 		else{
 			THROW_ARGOSEXCEPTION("Config file not found : Impossible to locate genes directory");
 		}
-		AutoMoDeBehaviour* cNewBehaviour;
 		std::vector<std::string>::iterator it;
 		// Extraction of the index of the behaviour in the FSM
 		UInt8 unBehaviourIndex =  atoi((*vec_fsm_state_config.begin()).substr(3,4).c_str());
@@ -93,53 +92,42 @@ namespace argos {
 		UInt8 unBehaviourIdentifier =  atoi((*(vec_fsm_state_config.begin()+1)).c_str());
 
 		// Creation of the Behaviour object
+		AutoMoDeBehaviour* cNewBehaviour = NULL;
 		switch(unBehaviourIdentifier) {
 			case 0:
 				sPathToGenomeFile += "/gen/exploration";
+				cNewBehaviour = new AutoMoDeBehaviourGenome("Exploration", sPathToGenomeFile);
 				break;
 			case 1:
 				sPathToGenomeFile += "/gen/stop";
+				cNewBehaviour = new AutoMoDeBehaviourGenome("Stop", sPathToGenomeFile);
 				break;
 			case 2:
 				sPathToGenomeFile += "/gen/phototaxis";
+				cNewBehaviour = new AutoMoDeBehaviourGenome("Phototaxis", sPathToGenomeFile);
 				break;
 			case 3:
 				sPathToGenomeFile += "/gen/antiphototaxis";
+				cNewBehaviour = new AutoMoDeBehaviourGenome("Antiphototaxis", sPathToGenomeFile);
 				break;
 			case 4:
 				sPathToGenomeFile += "/gen/attraction";
+				cNewBehaviour = new AutoMoDeBehaviourGenome("Attraction", sPathToGenomeFile);
 				break;
 			case 5:
 				sPathToGenomeFile += "/gen/repulsion";
+				cNewBehaviour = new AutoMoDeBehaviourGenome("Repulsion", sPathToGenomeFile);
 				break;
 		}
 
-		cNewBehaviour = new AutoMoDeBehaviourGenome(sPathToGenomeFile);
 		cNewBehaviour->SetIndex(unBehaviourIndex);
 		cNewBehaviour->SetIdentifier(unBehaviourIdentifier);
 
-		// Checking for parameters
-		/*std::string vecPossibleParameters[] = {"rwm", "att", "rep", "gen"};
-		UInt8 unNumberPossibleParameters = sizeof(vecPossibleParameters) / sizeof(vecPossibleParameters[0]);
-		for (UInt8 i = 0; i < unNumberPossibleParameters; i++) {
-			std::string strCurrentParameter = vecPossibleParameters[i];
-			std::ostringstream oss;
-			oss << "--" <<strCurrentParameter << unBehaviourIndex;
-			it = std::find(vec_fsm_state_config.begin(), vec_fsm_state_config.end(), oss.str());
-			if (it != vec_fsm_state_config.end() && strCurrentParameter!="gen") {
-				Real fCurrentParameterValue = strtod((*(it+1)).c_str(), NULL);
-				cNewBehaviour->AddParameter(strCurrentParameter, fCurrentParameterValue);
-			}
-			if (unBehaviourIndex==6 && strCurrentParameter=="gen") {
-				cNewBehaviour->SetParameterPath((*(it+1)).c_str());
-			}
-		}*/
-		//std::cout << "Param" << std::endl;
 		cNewBehaviour->Init();
-		//std::cout << "Init done" << std::endl;
+
 		// Add the constructed Behaviour to the FSM
 		c_fsm->AddBehaviour(cNewBehaviour);
-		//std::cout << "Add done" << std::endl;
+
 		/*
 		 * Extract the transitions starting from the state and
 		 * pass them to the transition handler, if they exist.

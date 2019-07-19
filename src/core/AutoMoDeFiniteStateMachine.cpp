@@ -71,7 +71,6 @@ namespace argos {
 	/****************************************/
 
 	void AutoMoDeFiniteStateMachine::ControlStep(){
-		//std::cout << m_pcCurrentBehaviour->GetLabel() << std::endl;
 		/*
 		 * 1. Dealing with behaviours
 		 */
