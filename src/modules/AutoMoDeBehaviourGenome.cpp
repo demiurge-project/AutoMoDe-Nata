@@ -32,16 +32,13 @@ namespace argos {
 		m_unIndex = pc_behaviour->GetIndex();
 		m_unIdentifier = pc_behaviour->GetIdentifier();
 		m_mapParameters = pc_behaviour->GetParameters();
-		//std::cout << "Pre-Init" << std::endl;
 		Init();
-		//std::cout << "Init" << std::endl;
 	}
 
 	/****************************************/
 	/****************************************/
 
 	AutoMoDeBehaviourGenome::~AutoMoDeBehaviourGenome() {
-		//std::cout << "Delete" << std::endl;
 		for (UInt8 i = 0; i < m_cNetworkVector.size(); i++) {
     		delete m_cNetworkVector.at(i);
   		}
@@ -58,30 +55,26 @@ namespace argos {
 	/****************************************/
 
 	void AutoMoDeBehaviourGenome::ControlStep() {
-		//std::cout << "ControlStep Genome" << std::endl;
 		for(size_t i=0; i<25; i++) {
 			m_inputs[i] = 0;
 		}
 
 		CCI_EPuckProximitySensor::TReadings cProcessedProxiReadings = m_pcRobotDAO->GetProximityInput();
-		//std::cout << "DAO ok" << cProcessedProxiReadings.size() << std::endl;
 
 
 		// Injecting processed readings as input of the NN
+		// Proximity
 		for(size_t i=0; i<8; i++) {
-			//std::cout << cProcessedProxiReadings[i].Value << std::endl;
 			m_inputs[i] = cProcessedProxiReadings[i].Value;
 		}
-		//std::cout << "proxi ok" << std::endl;
 
+		// Light
 		CCI_EPuckLightSensor::TReadings cProcessedLightReadings = m_pcRobotDAO->GetLightInput();
 		for(size_t i=8; i<16; i++) {
 			m_inputs[i] = cProcessedLightReadings[i-8].Value;
 		}
-		//std::cout << "light ok" << std::endl;
 
-
-		// Get Ground sensory data.
+		// Ground
 		CCI_EPuckGroundSensor::SReadings cProcessedGroundReadings = m_pcRobotDAO->GetGroundInput();
 		for(size_t i=16; i<19; i++) {
 			m_inputs[i] = cProcessedGroundReadings[i-16];
@@ -99,8 +92,6 @@ namespace argos {
 					m_inputs[i] = m_GraySamplesRight[index];
 			}
 		}
-		//std::cout << "ground ok" << std::endl;
-
 
 		// Get RAB sensory data.
 		CCI_EPuckRangeAndBearingSensor::TPackets sLastPackets = m_pcRobotDAO->GetRangeAndBearingMessages();
@@ -154,27 +145,25 @@ namespace argos {
 
 	void AutoMoDeBehaviourGenome::Init() {
 		LoadGen(m_strPathToGenome);
-		//std::cout << "Gen" << std::endl;
 		m_cNeuralNetworkOutputRange.Set(0.0f, 1.0f);
-		//std::cout << "Net" << std::endl;
 	}
 
+	/****************************************/
+	/****************************************/
+
 	void AutoMoDeBehaviourGenome::Init(TConfigurationNode& t_node) {
-		//std::cout << "Used?" << std::endl;
 		Init();
 	}
 	/****************************************/
 	/****************************************/
 
 	void AutoMoDeBehaviourGenome::Destroy() {
-		//std::cout << GetParameterPath() << std::endl;
 	}
 
 	/****************************************/
 	/****************************************/
 
 	void AutoMoDeBehaviourGenome::Reset() {
-		//std::cout << "Reset" << std::endl;
 		// Reinit the network: Puts the network back into an inactive state
 		if (m_net != NULL) {
 			m_net->flush();
@@ -229,7 +218,6 @@ namespace argos {
 	/****************************************/
 
 	UInt32 AutoMoDeBehaviourGenome::getRobotId() {
-		//std::cout << "Robot id" << std::endl;
 		if (m_nId < 0) {
 			std::string strId = GetId();
 			std::string::size_type pos = strId.find_first_of("0123456789");

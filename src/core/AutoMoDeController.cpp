@@ -40,7 +40,6 @@ namespace argos {
 
 	void AutoMoDeController::Init(TConfigurationNode& t_node) {
 		// Parsing parameters
-		//std::cout << "Control init" << std::endl;
 		try {
 			GetNodeAttributeOrDefault(t_node, "fsm-config", m_strFsmConfiguration, m_strFsmConfiguration);
 			GetNodeAttributeOrDefault(t_node, "history", m_bMaintainHistory, m_bMaintainHistory);

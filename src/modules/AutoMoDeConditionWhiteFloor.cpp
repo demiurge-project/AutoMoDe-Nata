@@ -28,7 +28,8 @@
 	/****************************************/
 
 	bool AutoMoDeConditionWhiteFloor::Verify() {
-    if (m_pcRobotDAO->GetGroundReading() >= m_fGroundThreshold) {
+    CCI_EPuckGroundSensor::SReadings readings = m_pcRobotDAO->GetGroundInput();
+		if (readings.Left >= m_fGroundThreshold || readings.Center >= m_fGroundThreshold || readings.Right >= m_fGroundThreshold) {
       return EvaluateBernoulliProbability(m_fProbability);
     }
     else {
