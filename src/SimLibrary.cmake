@@ -10,13 +10,7 @@ set(AUTOMODE_HEADERS
 	core/AutoMoDeFsmHistory.h
 	# Behaviours
 	modules/AutoMoDeBehaviour.h
-	modules/AutoMoDeBehaviourAntiPhototaxis.h
-	modules/AutoMoDeBehaviourPhototaxis.h
-	modules/AutoMoDeBehaviourAttraction.h
-	modules/AutoMoDeBehaviourRepulsion.h
-	modules/AutoMoDeBehaviourStop.h
 	modules/AutoMoDeBehaviourGenome.h
-	modules/AutoMoDeBehaviourExploration.h
 	# Conditions
 	modules/AutoMoDeCondition.h
 	modules/AutoMoDeConditionBlackFloor.h
@@ -43,13 +37,7 @@ set(AUTOMODE_SOURCES
 	core/AutoMoDeFsmHistory.cpp
 	# Behaviours
 	modules/AutoMoDeBehaviour.cpp
-	modules/AutoMoDeBehaviourAntiPhototaxis.cpp
-	modules/AutoMoDeBehaviourPhototaxis.cpp
-	modules/AutoMoDeBehaviourAttraction.cpp
-	modules/AutoMoDeBehaviourRepulsion.cpp
-	modules/AutoMoDeBehaviourStop.cpp
 	modules/AutoMoDeBehaviourGenome.cpp
-	modules/AutoMoDeBehaviourExploration.cpp
 	# Conditions
 	modules/AutoMoDeCondition.cpp
 	modules/AutoMoDeConditionBlackFloor.cpp

@@ -94,24 +94,6 @@ namespace argos {
 
 		// Creation of the Behaviour object
 		switch(unBehaviourIdentifier) {
-			/*case 0:
-				cNewBehaviour = new AutoMoDeBehaviourExploration();
-				break;
-			case 1:
-				cNewBehaviour = new AutoMoDeBehaviourStop();
-				break;
-			case 2:
-				cNewBehaviour = new AutoMoDeBehaviourPhototaxis();
-				break;
-			case 3:
-				cNewBehaviour = new AutoMoDeBehaviourAntiPhototaxis();
-				break;
-			case 4:
-				cNewBehaviour = new AutoMoDeBehaviourAttraction();
-				break;
-			case 5:
-				cNewBehaviour = new AutoMoDeBehaviourRepulsion();
-				break;*/
 			case 0:
 				sPathToGenomeFile += "/gen/exploration";
 				break;

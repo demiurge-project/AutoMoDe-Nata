@@ -20,12 +20,6 @@
 
 #include "AutoMoDeFsmHistory.h"
 #include "../modules/AutoMoDeBehaviour.h"
-#include "../modules/AutoMoDeBehaviourAttraction.h"
-#include "../modules/AutoMoDeBehaviourAntiPhototaxis.h"
-#include "../modules/AutoMoDeBehaviourExploration.h"
-#include "../modules/AutoMoDeBehaviourPhototaxis.h"
-#include "../modules/AutoMoDeBehaviourRepulsion.h"
-#include "../modules/AutoMoDeBehaviourStop.h"
 #include "../modules/AutoMoDeBehaviourGenome.h"
 #include "../modules/AutoMoDeCondition.h"
 #include "../modules/AutoMoDeConditionBlackFloor.h"
