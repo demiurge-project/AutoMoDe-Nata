@@ -20,7 +20,7 @@
   <!-- * Controllers * -->
   <!-- *************** -->
   <controllers>
-    <automode_controller id="automode"
+    <harlequin id="harlequin"
       library="/home/cstrebelle/AutoMoDe-Harlequin/build/src/libautomode.so">
         <actuators>
           <epuck_wheels implementation="default" noise_std_dev="0.05"/>
@@ -35,7 +35,7 @@
           <epuck_omnidirectional_camera implementation="rot_z_only" medium="leds" show_rays="false"/>
         </sensors>
         <params history="false" fsm-config="--nstates 1 --s0 1" />
-    </automode_controller>
+    </harlequin>
   </controllers>
 
   <!-- ********* -->
@@ -50,8 +50,8 @@
     <position method="uniform" min="-1,-1,0" max="1,1,0" />
     <orientation method="gaussian" mean="0,0,0" std_dev="360,0,0" />
     <entity quantity="20" max_trials="100">
-      <e-puck id="epuck_">
-       <controller config="automode" />
+      <e-puck id="epuck">
+       <controller config="harlequin" />
       </e-puck>
     </entity>
   </distribute>
