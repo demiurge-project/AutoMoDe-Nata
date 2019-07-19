@@ -11,7 +11,7 @@
   <!-- ****************** -->
   <!-- * Loop functions * -->
   <!-- ****************** -->
-  <loop_functions library="/home/cstrebelle/experiments-loop-functions/build/loop-functions/vanilla/libforaging_loopfunc.so"
+  <loop_functions library="/home/cedric/GitDir/experiments-loop-functions/build/loop-functions/vanilla/libforaging_loopfunc.so"
    label="foraging_loop_functions">
    <params dist_radius="1.2" number_robots="20"/>
   </loop_functions>
@@ -21,7 +21,7 @@
   <!-- *************** -->
   <controllers>
     <harlequin id="harlequin"
-      library="/home/cstrebelle/AutoMoDe-Harlequin/build/src/libautomode.so">
+	    library="/home/cedric/GitDir/AutoMoDe-Harlequin/build/src/libautomode.so">
         <actuators>
           <epuck_wheels implementation="default" noise_std_dev="0.05"/>
           <epuck_rgb_leds implementation="default" medium="leds"/>
@@ -50,7 +50,7 @@
     <position method="uniform" min="-1,-1,0" max="1,1,0" />
     <orientation method="gaussian" mean="0,0,0" std_dev="360,0,0" />
     <entity quantity="20" max_trials="100">
-      <e-puck id="epuck_">
+      <e-puck id="epuck">
        <controller config="harlequin" />
       </e-puck>
     </entity>

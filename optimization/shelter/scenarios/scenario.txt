@@ -25,7 +25,5 @@ maxExperiments = 200000
 ## real parameters.
 digits = 2
 
-nbIterations = 2
-
 ## END of scenario file
 ############################################################################

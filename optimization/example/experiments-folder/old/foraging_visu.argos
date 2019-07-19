@@ -24,7 +24,7 @@
   <controllers>
 	<!-- TRANSMITTER -->
   <automode_controller id="automode"
-                      library="/home/cedric/GitDir/NEAT-AutoMoDe/build/src/libautomode.so">
+                      library="/home/cedric/GitDir/AutoMoDe-Harlequin/build/src/libautomode.so">
       <actuators>
         <epuck_wheels implementation="default" noise_std_dev="0.05"/>
         <epuck_rgb_leds implementation="default" medium="leds"/>
