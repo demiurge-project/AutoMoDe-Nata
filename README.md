@@ -1,4 +1,4 @@
-# NEAT-AutoMoDe
+# AutoMoDe-Harlequin
 
 Integration of NEAT generated gens as modules for AutoMoDe
 

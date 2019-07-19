@@ -21,8 +21,8 @@
   <!-- *************** -->
   <controllers>
 	<!-- TRANSMITTER -->
-    <automode_controller id="automode"
-                        library="/home/cedric/GitDir/NEAT-AutoMoDe/build/src/libautomode.so">
+    <harlequin id="harlequin"
+                        library="/home/cedric/GitDir/AutoMoDe-Harlequin/build/src/libautomode.so">
       <actuators>
         <epuck_wheels implementation="default" noise_std_dev="0.05"/>
         <epuck_rgb_leds implementation="default" medium="leds"/>
@@ -36,7 +36,7 @@
         <epuck_omnidirectional_camera implementation="rot_z_only" medium="leds" show_rays="false"/>
       </sensors>
     <params readable='false' history='false' hist-folder='./fsm_history/' fsm-config="--nstates 1 --s0 0"/>
-    </automode_controller>
+    </harlequin>
   </controllers>
 
   <!-- ********* -->
@@ -52,7 +52,7 @@
 	    <orientation method="gaussian" mean="0,0,0" std_dev="360,0,0" />
 	    <entity quantity="20" max_trials="100">
 	      <e-puck id="epuck">
-	        <controller config="automode" />
+	        <controller config="harlequin" />
 	      </e-puck>
 	    </entity>
 	  </distribute>
