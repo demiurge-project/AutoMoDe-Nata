@@ -62,6 +62,6 @@ fi
 #echo " score $SCORE" >> $FSM_LOG
 
 # Print score!
-echo "$SCORE"
+echo "-$SCORE"
 
 exit 0
