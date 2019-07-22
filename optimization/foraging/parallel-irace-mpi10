@@ -78,9 +78,9 @@ EOF
 test $# -ge 1 || usage
 
 # Number of repetitions of iRace
-REPETITIONS=$1
+REPETITIONS=$(( $1 + 10 ))
 shift
-START=1
+START=11
 
 if [[ "$REPETITIONS" =~ ^([0-9]+)-([0-9]+)$ ]] ; then
     START=${BASH_REMATCH[1]}

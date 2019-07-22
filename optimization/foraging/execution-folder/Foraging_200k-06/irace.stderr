@@ -1,0 +1,8 @@
+/usr/lib64/R/library/Rmpi/Rslaves.sh: line 20: 31528 Segmentation fault      $R_HOME/bin/R --no-init-file --slave --no-save -f $1 > /dev/null 2>&1
+--------------------------------------------------------------------------
+mpirun has exited due to process rank 22 with PID 31504 on
+node compute-3-1.local exiting without calling "finalize". This may
+have caused other processes in the application to be
+terminated by signals sent by mpirun (as reported here).
+--------------------------------------------------------------------------
+/usr/lib64/R/library/Rmpi/Rslaves.sh: line 20: 31523 Segmentation fault      $R_HOME/bin/R --no-init-file --slave --no-save -f $1 > /dev/null 2>&1

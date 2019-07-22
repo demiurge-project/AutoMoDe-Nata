@@ -1,0 +1,8 @@
+/usr/lib64/R/library/Rmpi/Rslaves.sh: line 20:  6039 Segmentation fault      $R_HOME/bin/R --no-init-file --slave --no-save -f $1 > /dev/null 2>&1
+--------------------------------------------------------------------------
+mpirun has exited due to process rank 19 with PID 6011 on
+node compute-3-0.local exiting without calling "finalize". This may
+have caused other processes in the application to be
+terminated by signals sent by mpirun (as reported here).
+--------------------------------------------------------------------------
+/usr/lib64/R/library/Rmpi/Rslaves.sh: line 20:  6034 Segmentation fault      $R_HOME/bin/R --no-init-file --slave --no-save -f $1 > /dev/null 2>&1
