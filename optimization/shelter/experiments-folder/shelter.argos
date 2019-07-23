@@ -20,7 +20,7 @@
   <!-- * Controllers * -->
   <!-- *************** -->
   <controllers>
-    <harlequin id="rlequin"
+    <harlequin id="harlequin"
       library="/home/cstrebelle/AutoMoDe-Harlequin/build/src/libautomode.so">
         <actuators>
           <epuck_wheels implementation="default" noise_std_dev="0.05"/>
