@@ -47,6 +47,8 @@ irace_main() {
 #  for MPI jobs. It is probably not useful for other clusters.
 #
 export OMPI_MCA_plm_rsh_disable_qrsh=1
+export PATH                                                                                                                 
+export LD_LIBRARY_PATH=/lustre/home/fpagnozzi/gcc71/lib64/:/home/aligot/argos3-dist/lib/argos3:/opt/gridengine/lib/lx-amd64:/opt/openmpi/lib
 $MPIRUN -x OMPI_MCA_plm_rsh_disable_qrsh -np 1 \
         $IRACE --exec-dir=$EXECDIR --parallel $NB_SLAVES --seed $RUNSEED --mpi 1 $PARAMS
 EOF

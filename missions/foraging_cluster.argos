@@ -11,7 +11,7 @@
   <!-- ****************** -->
   <!-- * Loop functions * -->
   <!-- ****************** -->
-  <loop_functions library="/home/cedric/GitDir/experiments-loop-functions/build/loop-functions/vanilla/libforaging_loopfunc.so"
+  <loop_functions library="/home/aligot/demiurge-loop-functions/build/loop-functions/vanilla/libforaging_loopfunc.so"
    label="foraging_loop_functions">
    <params dist_radius="1.2" number_robots="20"/>
   </loop_functions>
@@ -21,7 +21,7 @@
   <!-- *************** -->
   <controllers>
     <harlequin id="harlequin"
-	    library="/home/cedric/GitDir/AutoMoDe-Harlequin/build/src/libautomode.so">
+	    library="/home/aligot/AutoMoDe-Harlequin/build/src/libautomode.so">
         <actuators>
           <epuck_wheels implementation="default" noise_std_dev="0.05"/>
           <epuck_rgb_leds implementation="default" medium="leds"/>
@@ -125,13 +125,13 @@
   <!-- * Visualization * -->
   <!-- ***************** -->
   <visualization>
-    <qt-opengl>
+<!--    <qt-opengl>
 
       <camera>
 	       <placement idx="0" position="0,0,4.5" look_at="0,0,0" lens_focal_length="43" />
 	       <placement idx="1" position="-1.066,-1.231,2.5" look_at="-1,-1.2,0" lens_focal_length="43" />
       </camera>
-    </qt-opengl>
+    </qt-opengl> -->
   </visualization>
 
 </argos-configuration>

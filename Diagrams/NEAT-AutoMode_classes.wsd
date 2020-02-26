@@ -1,3 +1,0 @@
-@startuml NEATAutoMoDe
-AutoModeController -- Lol : test
-@enduml

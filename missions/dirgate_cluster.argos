@@ -11,8 +11,8 @@
   <!-- ****************** -->
   <!-- * Loop functions * -->
   <!-- ****************** -->
-  <loop_functions library="/home/cstrebelle/experiments-loop-functions/build/loop-functions/complexity/libaggregation_xor2.so"
-   label="aggregation_xor2">
+  <loop_functions library="/home/aligot/demiurge-loop-functions/build/loop-functions/NEATvsEvo/libNEATvsEvo_loopfunc.so"
+   label="directional_gate">
    <params dist_radius="1.2" number_robots="20"/>
   </loop_functions>
 
@@ -21,7 +21,7 @@
   <!-- *************** -->
   <controllers>
     <harlequin id="harlequin"
-        library="/home/cstrebelle/AutoMoDe-Harlequin/build/src/libautomode.so">
+	    library="/home/aligot/AutoMoDe-Harlequin/build/src/libautomode.so">
         <actuators>
           <epuck_wheels implementation="default" noise_std_dev="0.05"/>
           <epuck_rgb_leds implementation="default" medium="leds"/>
@@ -34,14 +34,14 @@
           <epuck_ground implementation="rot_z_only" noise_level="0.05" calibrated="true"/>
           <epuck_omnidirectional_camera implementation="rot_z_only" medium="leds" show_rays="false"/>
         </sensors>
-        <params history="false" fsm-config="--nstates 1 --s0 1"  />
+        <params history="false" fsm-config="--nstates 1 --s0 1" />
     </harlequin>
   </controllers>
 
   <!-- ********* -->
   <!-- * Arena * -->
   <!-- ********* -->
-  <arena size="10, 10, 1" center="0,0,0">
+  <arena size="10, 10, 2" center="0,0,0">
 
   <!-- ********** -->
   <!-- * E-Puck * -->
@@ -63,7 +63,7 @@
   <!-- Please note that this light has an intensity equal to 0 -->
   <!-- and therefore does not affect the experiment. -->
   <!-- ARGoS requires at least one light when using the light sensor -->
-	<light id="light" position="0,-1.5,0.4" orientation="0,0,0" color="yellow" intensity="0.0" medium="leds"/>
+	<light id="light" position="0,-1.25,0.75" orientation="0,0,0" color="yellow" intensity="5.0" medium="leds"/>
 
   <!--Dodecagonal arena with side of length .66-->
   <box id="wall_1" size="0.01,.66,0.08" movable="false">
@@ -125,6 +125,13 @@
   <!-- * Visualization * -->
   <!-- ***************** -->
   <visualization>
+<!--    <qt-opengl>
+
+      <camera>
+	       <placement idx="0" position="0,0,4.5" look_at="0,0,0" lens_focal_length="43" />
+	       <placement idx="1" position="-1.066,-1.231,2.5" look_at="-1,-1.2,0" lens_focal_length="43" />
+      </camera>
+    </qt-opengl> -->
   </visualization>
 
 </argos-configuration>
