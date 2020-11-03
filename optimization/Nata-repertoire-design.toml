@@ -4,5 +4,5 @@ title = "AutoNata Experiments"
 exec = "./parallel-irace-mpi"
 
 [irace.foraging]
-args = "5 foraging_50k --parallel 39 --max-experiments 50000 --scenario scenario_foraging.txt"
+args = "5 foraging_200kcat --parallel 39 --max-experiments 200000 --scenario scenario_foraging.txt"
 

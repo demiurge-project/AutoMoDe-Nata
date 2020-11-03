@@ -14,7 +14,12 @@ function print_syntax() {
 function write_state() {
   INDEX=$1
   NB_TRANS=$2
-  echo "S$INDEX     \"--s$INDEX \"  i (0,$SIZE_REP) | as.numeric(NumStates)>$INDEX " >> ${TXT_FILE}
+  REPERTOIRE_CAT="("
+  for i in `seq 0 $((SIZE_REP-1))`
+    do REPERTOIRE_CAT+=$i","
+  done
+  REPERTOIRE_CAT+=$SIZE_REP")"
+  echo "S$INDEX     \"--s$INDEX \"  c $REPERTOIRE_CAT | as.numeric(NumStates)>$INDEX " >> ${TXT_FILE}
   if [ ${INDEX} == 0 ]; then
     echo "NumConnections$INDEX \"--n$INDEX \" i (1,$NB_TRANS) | as.numeric(NumStates)>1" >> ${TXT_FILE}
   else

@@ -6,7 +6,7 @@
 ## value on the command line).
 
 ## File that contains the description of the parameters.
-parameterFile = "./example/grammar_rep500g_1860.txt"
+parameterFile = "./example/grammar_rep500g_1860_cat.txt"
 
 #File that contains the options for parameter dependencies
 dependencyFile = "./example/depend_config.txt"
