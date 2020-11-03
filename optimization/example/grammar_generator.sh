@@ -5,7 +5,7 @@ function print_syntax() {
     echo
     echo "To generate the txt with the descrition of the possible grammar for the finite state machine"
     echo "specify MAX_NBR_STATES, MAX_NBR_CONNECTIONS, and the txt file name in which the description will be saved:"
-    echo "$0 <MAX_NBR_STATES> <MAX_NBR_CONNECTIONS> <TXT_FILE>"
+    echo "$0 <MAX_NBR_STATES> <MAX_NBR_CONNECTIONS> <TXT_FILE> <SIZE_REP>"
     echo
     exit 1
 }
@@ -14,7 +14,7 @@ function print_syntax() {
 function write_state() {
   INDEX=$1
   NB_TRANS=$2
-  echo "S$INDEX     \"--s$INDEX \"  c   (0,1,2,3,4,5) | as.numeric(NumStates)>$INDEX " >> ${TXT_FILE}
+  echo "S$INDEX     \"--s$INDEX \"  i (0,$SIZE_REP) | as.numeric(NumStates)>$INDEX " >> ${TXT_FILE}
   if [ ${INDEX} == 0 ]; then
     echo "NumConnections$INDEX \"--n$INDEX \" i (1,$NB_TRANS) | as.numeric(NumStates)>1" >> ${TXT_FILE}
   else
@@ -49,13 +49,14 @@ function create_range() {
 }
 
 
-if [ $# -lt 3 ]; then
+if [ $# -lt 4 ]; then
     print_syntax
 fi
 
 MAX_NBR_STATES=$(echo "$1-1" | bc)
 MAX_NBR_CONNECTIONS=$(echo "$2-1" | bc)
 TXT_FILE=$3
+SIZE_REP=$(echo "$4-1" | bc)
 
 # Clear content of file
 truncate -s 0 $TXT_FILE

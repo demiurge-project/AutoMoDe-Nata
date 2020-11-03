@@ -9,16 +9,17 @@ set -o pipefail
 # Find our own location.
 #BINDIR=$(dirname "$(readlink -f "$(type -P $0 || echo $0)")")
 #IRACE="$BINDIR/irace"
-IRACE="$IRACE_HOME/bin/irace"
+IRACE="irace"
 
 # You may need to customize this part according to the setup of your own
 # cluster.
-QUEUE=short #long
+QUEUE=long
 #MACHINE=opteron2216 #rack 1
 #MACHINE=xeon5410 #rack 2
 #MACHINE=opteron6128 #rack 3
-MACHINE=opteron6272 #rack 4
+#MACHINE=opteron6272 #rack 4
 #MACHINE=xeon2680 #rack 5
+MACHINE=xeon6138 #rack6
 
 MPIRUN=/opt/openmpi/bin/mpirun
 PARALLEL_ENV=mpich_fu
@@ -32,8 +33,10 @@ irace_main() {
     exec qsub -v PATH <<EOF
 #!/bin/bash
 #$ -N $JOBNAME
+#$ -l $MACHINE 
+#$ -l $QUEUE
 #$ -pe $PARALLEL_ENV $NB_PARALLEL_PROCESS 
-#$ -m as
+#$ -m base
 #      b     Mail is sent at the beginning of the job.
 #      e     Mail is sent at the end of the job.
 #      a     Mail is sent when the job is aborted or rescheduled.
@@ -47,8 +50,9 @@ irace_main() {
 #  for MPI jobs. It is probably not useful for other clusters.
 #
 export OMPI_MCA_plm_rsh_disable_qrsh=1
-export PATH                                                                                                                 
-export LD_LIBRARY_PATH=/lustre/home/fpagnozzi/gcc71/lib64/:/home/aligot/argos3-dist/lib/argos3:/opt/gridengine/lib/lx-amd64:/opt/openmpi/lib
+export PATH
+export LD_LIBRARY_PATH=/home/khasselmann/toolchain/chain/lib64:/home/khasselmann/toolchain/chain/lib:/home/khasselmann/argos3-dist/lib/argos3:$LD_LIBRARY_PATH
+
 $MPIRUN -x OMPI_MCA_plm_rsh_disable_qrsh -np 1 \
         $IRACE --exec-dir=$EXECDIR --parallel $NB_SLAVES --seed $RUNSEED --mpi 1 $PARAMS
 EOF

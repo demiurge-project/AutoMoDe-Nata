@@ -17,7 +17,7 @@
 # Path to the AutoMoDe software:
 # Note that this script is ran from the execution directory
 
-EXE=/home/aligot/AutoMoDe-Harlequin/bin/automode_main
+EXE=/home/khasselmann/AutoMoDe-Harlequin/bin/automode_main
 
 CONFIG_ID="$1"
 INSTANCE_ID="$2"
@@ -40,8 +40,8 @@ fi
 
 
 # Saving the FSM configuration
-#FSM_LOG="fsm_log.txt"
-#echo ${CONFIG_PARAMS} >> $FSM_LOG
+FSM_LOG="fsm_log.txt"
+echo ${CONFIG_PARAMS} >> $FSM_LOG
 
 start=`date +%s`
 
@@ -57,9 +57,10 @@ if ! [[ "$SCORE" =~ ^[-+0-9.e]+$ ]] ; then
     error "Output is not a number"
 fi
 
+#echo $OUTPUT >> /home/khasselmann/output.log
 #TIME=$(echo "$end - $start" | bc -l)
 
-#echo " score $SCORE" >> $FSM_LOG
+echo " score $SCORE" >> $FSM_LOG
 
 # Print score!
 echo "-$SCORE"

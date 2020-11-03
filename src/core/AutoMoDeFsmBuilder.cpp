@@ -93,32 +93,8 @@ namespace argos {
 
 		// Creation of the Behaviour object
 		AutoMoDeBehaviour* cNewBehaviour = NULL;
-		switch(unBehaviourIdentifier) {
-			case 0:
-				sPathToGenomeFile += "/gen/exploration";
-				cNewBehaviour = new AutoMoDeBehaviourGenome("Exploration", sPathToGenomeFile);
-				break;
-			case 1:
-				sPathToGenomeFile += "/gen/stop";
-				cNewBehaviour = new AutoMoDeBehaviourGenome("Stop", sPathToGenomeFile);
-				break;
-			case 2:
-				sPathToGenomeFile += "/gen/phototaxis";
-				cNewBehaviour = new AutoMoDeBehaviourGenome("Phototaxis", sPathToGenomeFile);
-				break;
-			case 3:
-				sPathToGenomeFile += "/gen/antiphototaxis";
-				cNewBehaviour = new AutoMoDeBehaviourGenome("Antiphototaxis", sPathToGenomeFile);
-				break;
-			case 4:
-				sPathToGenomeFile += "/gen/attraction";
-				cNewBehaviour = new AutoMoDeBehaviourGenome("Attraction", sPathToGenomeFile);
-				break;
-			case 5:
-				sPathToGenomeFile += "/gen/repulsion";
-				cNewBehaviour = new AutoMoDeBehaviourGenome("Repulsion", sPathToGenomeFile);
-				break;
-		}
+		sPathToGenomeFile += "/genome_"+std::to_string(unBehaviourIdentifier);
+		cNewBehaviour = new AutoMoDeBehaviourGenome("genome_"+std::to_string(unBehaviourIdentifier), sPathToGenomeFile);
 
 		cNewBehaviour->SetIndex(unBehaviourIndex);
 		cNewBehaviour->SetIdentifier(unBehaviourIdentifier);

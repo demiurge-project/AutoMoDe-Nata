@@ -11,8 +11,8 @@
   <!-- ****************** -->
   <!-- * Loop functions * -->
   <!-- ****************** -->
-  <loop_functions library="/home/aligot/demiurge-loop-functions/build/loop-functions/vanilla/libforaging_loopfunc.so"
-   label="foraging_loop_functions">
+  <loop_functions library="/home/khasselmann/experiments-loop-functions/build/loop-functions/NEATvsEvo/libNEATvsEvo_loopfunc.so"
+   label="directional_gate">
    <params dist_radius="1.2" number_robots="20"/>
   </loop_functions>
 
@@ -21,7 +21,7 @@
   <!-- *************** -->
   <controllers>
     <harlequin id="harlequin"
-	    library="/home/aligot/AutoMoDe-Harlequin/build/src/libautomode.so">
+	    library="/home/khasselmann/AutoMoDe-Harlequin/build/src/libautomode.so">
         <actuators>
           <epuck_wheels implementation="default" noise_std_dev="0.05"/>
           <epuck_rgb_leds implementation="default" medium="leds"/>
