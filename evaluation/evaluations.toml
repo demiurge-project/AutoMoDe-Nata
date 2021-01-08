@@ -1,0 +1,20 @@
+ititle = "Launcher to get results of experiments"
+
+machine = "xeon6138"
+queue = "short"
+seeds = "seeds.txt"
+
+[launchers]
+[launchers.autoNata]
+exe = "/home/khasselmann/AutoMoDe-Harlequin/bin/automode_main"
+regex = 'Score (\d+)'
+type = "auto"
+
+[experiments]
+[experiments.forag]
+launcher = "autoNata"
+xml = "/home/khasselmann/AutoMoDe-Harlequin/optimization/foraging/foraging_cluster.argos"
+controllers = "/home/khasselmann/Auto"
+mission = "Foraging"
+options = "200kcat_500g"
+
