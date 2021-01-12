@@ -8,8 +8,8 @@
   * @license MIT License
   */
 
-#ifndef NATA_CONDITION_FLOOR_H
-#define NATA_CONDITION_FLOOR_H
+#ifndef NATA_CONDITION_LIGHT_H
+#define NATA_CONDITION_LIGHT_H
 
 #include "AutoMoDeCondition.h"
 
@@ -29,6 +29,7 @@ namespace argos {
 		private:
             Real m_fThreshold;
 			Real m_fProbability;
+			UInt32 m_unSide;
 	};
 }
 

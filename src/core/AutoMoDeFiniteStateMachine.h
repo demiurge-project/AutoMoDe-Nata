@@ -28,6 +28,11 @@
 #include "../modules/AutoMoDeConditionFixedProbability.h"
 #include "../modules/AutoMoDeConditionNeighborsCount.h"
 #include "../modules/AutoMoDeConditionInvertedNeighborsCount.h"
+#include "../modules/NataConditionProx.h"
+#include "../modules/NataConditionLight.h"
+#include "../modules/NataConditionFloor.h"
+#include "../modules/NataConditionNeighborsCount.h"
+#include "../modules/NataConditionNeighborsVector.h"
 
 #include <string>
 #include <ctime>

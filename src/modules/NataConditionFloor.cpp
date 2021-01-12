@@ -42,7 +42,7 @@
 
   void NataConditionFloor::Init() {
 	std::map<std::string, Real>::iterator it = m_mapParameters.find("p");
-	std::map<std::string, Real>::iterator it2 = m_mapParameters.find("c");
+	std::map<std::string, Real>::iterator it2 = m_mapParameters.find("t");
 	m_fGroundThresholdRange.Set(0.1, 0.95);
     if (it != m_mapParameters.end() && it2 != m_mapParameters.end() ) {
       m_fProbability = it->second;
@@ -66,6 +66,7 @@
 
 	bool NataConditionFloor::Verify() {
         CCI_EPuckGroundSensor::SReadings readings = m_pcRobotDAO->GetGroundInput();
+
         if (m_fGroundColor == 0 && (readings.Left <= 0.1 || readings.Center <= 0.1 || readings.Right <= 0.1)) {
           return EvaluateBernoulliProbability(m_fProbability);
         } else if (m_fGroundColor == 1 && (readings.Left >= 0.95 || readings.Center >= 0.95 || readings.Right >= 0.95)) {

@@ -32,6 +32,7 @@ namespace argos {
 		m_unIndex = pc_behaviour->GetIndex();
 		m_unIdentifier = pc_behaviour->GetIdentifier();
 		m_mapParameters = pc_behaviour->GetParameters();
+		m_strLabel = pc_behaviour->GetLabel();
 		Init();
 	}
 

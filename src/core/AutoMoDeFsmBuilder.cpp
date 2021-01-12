@@ -174,6 +174,21 @@ namespace argos {
 				case 5:
 					cNewCondition = new AutoMoDeConditionFixedProbability();
 					break;
+                case 6:
+                    cNewCondition = new NataConditionFloor();
+                    break;
+                case 7:
+                    cNewCondition = new NataConditionProx();
+                    break;
+                case 8:
+                    cNewCondition = new NataConditionLight();
+                    break;
+                case 9:
+                    cNewCondition = new NataConditionNeighborsVector();
+                    break;
+                case 10:
+                    cNewCondition = new NataConditionNeighborsCount();
+                    break;
 			}
 
 			cNewCondition->SetOriginAndExtremity(un_initial_state_index, unToBehaviour);
@@ -182,7 +197,7 @@ namespace argos {
 
 
 			// Checking for parameters
-			std::string vecPossibleParameters[] = {"p", "w"};
+			std::string vecPossibleParameters[] = {"p", "w", "t", "b"};
 			UInt8 unNumberPossibleParameters = sizeof(vecPossibleParameters) / sizeof(vecPossibleParameters[0]);
 			for (UInt8 i = 0; i < unNumberPossibleParameters; i++) {
 				std::string strCurrentParameter = vecPossibleParameters[i];

@@ -19,6 +19,11 @@ set(AUTOMODE_HEADERS
 	modules/AutoMoDeConditionNeighborsCount.h
 	modules/AutoMoDeConditionInvertedNeighborsCount.h
 	modules/AutoMoDeConditionFixedProbability.h
+    modules/NataConditionProx.h
+    modules/NataConditionFloor.h
+    modules/NataConditionLight.h
+    modules/NataConditionNeighborsCount.h
+    modules/NataConditionNeighborsVector.h
 	# NEAT
 	NEAT/gene.h
 	NEAT/genome.h
@@ -46,6 +51,11 @@ set(AUTOMODE_SOURCES
 	modules/AutoMoDeConditionNeighborsCount.cpp
 	modules/AutoMoDeConditionInvertedNeighborsCount.cpp
 	modules/AutoMoDeConditionFixedProbability.cpp
+    modules/NataConditionProx.cpp
+    modules/NataConditionFloor.cpp
+    modules/NataConditionLight.cpp
+    modules/NataConditionNeighborsCount.cpp
+    modules/NataConditionNeighborsVector.cpp
 	# NEAT
 	NEAT/gene.cpp
 	NEAT/genome.cpp

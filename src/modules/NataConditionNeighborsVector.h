@@ -29,7 +29,6 @@ namespace argos {
 			Real m_fParameterEta;
 			UInt8 m_unParameterXi;
             Real m_fProbability;
-            Real m_fThreshold;
 	};
 }
 

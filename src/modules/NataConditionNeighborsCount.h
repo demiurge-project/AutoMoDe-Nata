@@ -28,7 +28,8 @@ namespace argos {
 
 		private:
 			Real m_fParameterEta;
-			UInt8 m_fProbability;
+			Real m_fProbability;
+            UInt8 m_unSide;
 	};
 }
 

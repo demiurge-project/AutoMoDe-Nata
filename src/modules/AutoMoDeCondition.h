@@ -17,6 +17,7 @@
 #include <argos3/demiurge/epuck-dao/EpuckDAO.h>
 
 #include <map>
+#include <numeric>
 
 namespace argos {
 	class AutoMoDeCondition {
