@@ -49,7 +49,7 @@
 
 	bool NataConditionNeighborsVector::Verify() {
  
-        auto readings = m_pcRobotDAO->GetAttractionVectorToNeighbors(m_fParameterEta);
+        auto readings = m_pcRobotDAO->GetAttractionVectorToNeighbors(1); //m_fParameterEta);
         //process readings
         
         /* LOG<< "r:" << readings << std::endl; */
@@ -76,11 +76,12 @@
 	/****************************************/
 
 	void NataConditionNeighborsVector::Init() {
-		std::map<std::string, Real>::iterator itEta = m_mapParameters.find("w");
+		/* std::map<std::string, Real>::iterator itEta = m_mapParameters.find("w"); */
 		std::map<std::string, Real>::iterator itXi = m_mapParameters.find("t");
 		std::map<std::string, Real>::iterator it3 = m_mapParameters.find("p");
-		if ((itEta != m_mapParameters.end()) && (itXi != m_mapParameters.end()) && (it3 != m_mapParameters.end())) {
-			m_fParameterEta = itEta->second;
+		/* if ((itEta != m_mapParameters.end()) && (itXi != m_mapParameters.end()) && (it3 != m_mapParameters.end())) { */
+		if ((itXi != m_mapParameters.end()) && (it3 != m_mapParameters.end())) {
+			/* m_fParameterEta = itEta->second; */
 			m_unParameterXi = itXi->second;
             m_fProbability = it3->second;
 		} else {

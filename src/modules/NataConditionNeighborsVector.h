@@ -26,7 +26,7 @@ namespace argos {
 			virtual void Init();
 
 		private:
-			Real m_fParameterEta;
+			/* Real m_fParameterEta; */
 			UInt8 m_unParameterXi;
             Real m_fProbability;
 	};
