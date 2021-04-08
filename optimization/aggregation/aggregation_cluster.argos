@@ -21,7 +21,7 @@
   <!-- *************** -->
   <controllers>
     <harlequin id="harlequin"
-	    library="/home/khasselmann/AutoMoDe-Harlequin/build/src/libautomode.so">
+	    library="/home/khasselmann/AutoMoDe-Nata/build/src/libautomode.so">
         <actuators>
           <epuck_wheels implementation="default" noise_std_dev="0.05"/>
           <epuck_rgb_leds implementation="default" medium="leds"/>

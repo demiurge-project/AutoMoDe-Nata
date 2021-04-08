@@ -4,14 +4,14 @@
   <!-- * Framework * -->
   <!-- ************* -->
   <framework>
-    <experiment length="180"
+    <experiment length="120"
                 ticks_per_second="10" random_seed="427557"/>
   </framework>
 
   <!-- ****************** -->
   <!-- * Loop functions * -->
   <!-- ****************** -->
-  <loop_functions library="/home/khasselmann/experiments-loop-functions/build/loop-functions/NEATvsEvo/libNEATvsEvo_loopfunc.so"
+  <loop_functions library="/home/khasselmann/experiments-loop-functions/build/loop-functions/NEATvsEvo/libsca_loopfunc.so"
    label="directional_gate">
    <params dist_radius="1.2" number_robots="20"/>
   </loop_functions>
@@ -21,7 +21,7 @@
   <!-- *************** -->
   <controllers>
     <harlequin id="harlequin"
-	    library="/home/khasselmann/AutoMoDe-Harlequin/build/src/libautomode.so">
+	    library="/home/khasselmann/AutoMoDe-Nata/build/src/libautomode.so">
         <actuators>
           <epuck_wheels implementation="default" noise_std_dev="0.05"/>
           <epuck_rgb_leds implementation="default" medium="leds"/>
@@ -41,7 +41,7 @@
   <!-- ********* -->
   <!-- * Arena * -->
   <!-- ********* -->
-  <arena size="10, 10, 2" center="0,0,0">
+  <arena size="4, 4, 2" center="0,0,0">
 
   <!-- ********** -->
   <!-- * E-Puck * -->

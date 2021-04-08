@@ -18,8 +18,8 @@ QUEUE=long
 #MACHINE=xeon5410 #rack 2
 #MACHINE=opteron6128 #rack 3
 #MACHINE=opteron6272 #rack 4
-#MACHINE=xeon2680 #rack 5
-MACHINE=xeon6138 #rack6
+MACHINE=xeon2680 #rack 5
+#MACHINE=xeon6138 #rack6
 
 MPIRUN=/opt/openmpi/bin/mpirun
 PARALLEL_ENV=mpich_fu
@@ -50,8 +50,8 @@ irace_main() {
 #  for MPI jobs. It is probably not useful for other clusters.
 #
 export OMPI_MCA_plm_rsh_disable_qrsh=1
-export PATH
-export LD_LIBRARY_PATH=/home/khasselmann/toolchain/chain/lib64:/home/khasselmann/toolchain/chain/lib:/home/khasselmann/argos3-dist/lib/argos3:$LD_LIBRARY_PATH
+export PATH=/lustre/home/fpagnozzi/gcc91/bin/:$PATH
+export LD_LIBRARY_PATH=/lustre/home/fpagnozzi/gcc91/lib64/:/home/khasselmann/pagmo_build/lib/:$LD_LIBRARY_PATH
 
 $MPIRUN -x OMPI_MCA_plm_rsh_disable_qrsh -np 1 \
         $IRACE --exec-dir=$EXECDIR --parallel $NB_SLAVES --seed $RUNSEED --mpi 1 $PARAMS
