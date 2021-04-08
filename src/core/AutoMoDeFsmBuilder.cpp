@@ -87,9 +87,9 @@ namespace argos {
 		}
 		std::vector<std::string>::iterator it;
 		// Extraction of the index of the behaviour in the FSM
-		UInt8 unBehaviourIndex =  atoi((*vec_fsm_state_config.begin()).substr(3,4).c_str());
+		UInt32 unBehaviourIndex =  atoi((*vec_fsm_state_config.begin()).substr(3,4).c_str());
 		// Extraction of the identifier of the behaviour
-		UInt8 unBehaviourIdentifier =  atoi((*(vec_fsm_state_config.begin()+1)).c_str());
+		UInt32 unBehaviourIdentifier =  atoi((*(vec_fsm_state_config.begin()+1)).c_str());
 
 		// Creation of the Behaviour object
 		AutoMoDeBehaviour* cNewBehaviour = NULL;
