@@ -112,12 +112,12 @@ namespace argos {
 		oss << "--n" << unBehaviourIndex;
 		it = std::find(vec_fsm_state_config.begin(), vec_fsm_state_config.end(), oss.str());
 		if (it != vec_fsm_state_config.end()) {
-			UInt8 unNumberTransitions = atoi((*(it+1)).c_str());
+			UInt32 unNumberTransitions = atoi((*(it+1)).c_str());
 
 			std::vector<std::string>::iterator first_transition;
 			std::vector<std::string>::iterator second_transition;
 
-			for (UInt8 i = 0; i < unNumberTransitions; i++) {
+			for (UInt32 i = 0; i < unNumberTransitions; i++) {
 				std::ostringstream oss;
 				oss << "--n" << unBehaviourIndex << "x" << i;
 				first_transition = std::find(vec_fsm_state_config.begin(), vec_fsm_state_config.end(), oss.str());
@@ -152,7 +152,7 @@ namespace argos {
 			ss << "--c" << un_initial_state_index << "x" << un_condition_index;
 			it = std::find(vec_fsm_transition_config.begin(), vec_fsm_transition_config.end(), ss.str());
 
-			UInt8 unConditionIdentifier = atoi((*(it+1)).c_str());
+			UInt32 unConditionIdentifier = atoi((*(it+1)).c_str());
 			AutoMoDeCondition* cNewCondition = NULL;
 
 			switch(unConditionIdentifier) {
@@ -198,8 +198,8 @@ namespace argos {
 
 			// Checking for parameters
 			std::string vecPossibleParameters[] = {"p", "w", "t", "b"};
-			UInt8 unNumberPossibleParameters = sizeof(vecPossibleParameters) / sizeof(vecPossibleParameters[0]);
-			for (UInt8 i = 0; i < unNumberPossibleParameters; i++) {
+			UInt32 unNumberPossibleParameters = sizeof(vecPossibleParameters) / sizeof(vecPossibleParameters[0]);
+			for (UInt32 i = 0; i < unNumberPossibleParameters; i++) {
 				std::string strCurrentParameter = vecPossibleParameters[i];
 				ss.str(std::string());
 				ss << "--" << strCurrentParameter << un_initial_state_index << "x" << un_condition_index;
