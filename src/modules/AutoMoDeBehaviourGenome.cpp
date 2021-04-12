@@ -96,20 +96,14 @@ namespace argos {
 
 		// Get RAB sensory data.
 		CCI_EPuckRangeAndBearingSensor::TPackets sLastPackets = m_pcRobotDAO->GetRangeAndBearingMessages();
-		CCI_EPuckRangeAndBearingSensor::TPackets::iterator it;
-		CVector2 cVectorCenterOfMass(0,CRadians::ZERO);
+        CCI_EPuckRangeAndBearingSensor::SReceivedPacket cProcessedRabReading = m_pcRobotDAO->GetAttractionVectorToNeighbors(1.0);
 
-		// Center of mass
-		UInt32 unNbrSamples = 0;
-		for (it = sLastPackets.begin(); it != sLastPackets.end(); it++) {
-			if ((*it)->Data[0] != (UInt8) m_pcRobotDAO->GetRobotIdentifier()) {
-			cVectorCenterOfMass += CVector2((*it)->Range,(*it)->Bearing.SignedNormalize());
-			unNbrSamples += 1;
-			}
-		}
-		if (unNbrSamples > 0) {
-			cVectorCenterOfMass = cVectorCenterOfMass / unNbrSamples;
-		}
+        CVector2 cRabReading = CVector2(cProcessedRabReading.Range, cProcessedRabReading.Bearing);
+        Real len = cRabReading.Length();
+        if(len != 0) {
+           cRabReading.Normalize(); // now, sRabVectorSum.Length = 1
+           cRabReading *= (2/(1+exp(-len)) - 1);
+        }
 
 		UInt8 unNumberNeighbors = m_pcRobotDAO->GetNumberNeighbors();
 
@@ -117,7 +111,7 @@ namespace argos {
 		m_inputs[19] = 1 - (2 / (1 + exp(unNumberNeighbors))); // Saturate at 5, and is in [0,1]
 		for(int i = 20; i < 24; i++) {
 			CRadians cDirection = CRadians::PI*(2*(i-20) + 1)/4;
-			Real value = cVectorCenterOfMass.DotProduct(CVector2(1.0, cDirection));
+            Real value = cRabReading.DotProduct(CVector2(1.0, cDirection));
 			m_inputs[i] = (value > 0 ? value : 0); // only 2 inputs (rarely 3) will be different from 0.
 		}
 
@@ -139,6 +133,7 @@ namespace argos {
 
 		m_unTimeStep++;
 		m_bLocked = false;
+
 	}
 
 	/****************************************/
