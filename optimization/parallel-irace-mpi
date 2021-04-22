@@ -17,8 +17,8 @@ QUEUE=long
 #MACHINE=opteron2216 #rack 1
 #MACHINE=xeon5410 #rack 2
 #MACHINE=opteron6128 #rack 3
-#MACHINE=opteron6272 #rack 4
-MACHINE=xeon2680 #rack 5
+MACHINE=opteron6272 #rack 4
+# MACHINE=xeon2680 #rack 5
 #MACHINE=xeon6138 #rack6
 
 MPIRUN=/opt/openmpi/bin/mpirun
@@ -52,6 +52,7 @@ irace_main() {
 export OMPI_MCA_plm_rsh_disable_qrsh=1
 export PATH=/lustre/home/fpagnozzi/gcc91/bin/:$PATH
 export LD_LIBRARY_PATH=/lustre/home/fpagnozzi/gcc91/lib64/:/home/khasselmann/pagmo_build/lib/:$LD_LIBRARY_PATH
+export NATA_REPERTOIRE=$REP
 
 $MPIRUN -x OMPI_MCA_plm_rsh_disable_qrsh -np 1 \
         $IRACE --exec-dir=$EXECDIR --parallel $NB_SLAVES --seed $RUNSEED --mpi 1 $PARAMS
@@ -75,6 +76,7 @@ Parameters:
                    as the execDir (--exec-dir) parameter of irace.
  --parallel <NUM>  number of parallel jobs
  --machine MACHINE qsub queue type, e.g., opteron6272
+ --rep <path>      the path of the repertoire
  IRACE PARAMS      additional parameters for irace.
 EOF
     exit 1
@@ -106,6 +108,7 @@ while [ $# -gt 0 ]; do
         --parallel) shift; NB_SLAVES="$1"; shift;;
         --seed) shift; SEED="$1"; shift;;
         --machine) shift; MACHINE="$1"; shift;;
+        --rep) shift; REP="$1"; shift;;
         *) PARAMS="$PARAMS $1"; shift;;# terminate case
 
     esac

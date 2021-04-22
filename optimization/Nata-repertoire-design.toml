@@ -5,19 +5,39 @@ exec = "./parallel-irace-mpi"
 
 #[irace.foraging_nata1]
 #args = "10 foraging_200kcat_nata1 --parallel 39 --max-experiments 200000 --scenario scenario_foraging.txt"
-
+#
 #[irace.foraging_nata2]
 #args = "10 foraging_200kcat_nata2 --parallel 39 --max-experiments 200000 --scenario scenario_foraging_nata2.txt"
+#
+#[irace.dirgate_nata1]
+#args = "10 dirgate_200kcat_nata1 --parallel 39 --max-experiments 200000 --scenario scenario_dirgate.txt"
+#
+#[irace.dirgate_nata2]
+#args = "10 dirgate_200kcat_nata2 --parallel 39 --max-experiments 200000 --scenario scenario_dirgate_nata2.txt"
+#
+#[irace.xor2_nata1]
+#args = "10 xor2_200kcat_nata1 --parallel 39 --max-experiments 200000 --scenario scenario_xor2.txt"
+#
+#[irace.xor2_nata2]
+#args = "10 xor2_200kcat_nata2 --parallel 39 --max-experiments 200000 --scenario scenario_xor2_nata2.txt"
 
-[irace.dirgate_nata1]
-args = "10 dirgate_200kcat_nata1 --parallel 39 --max-experiments 200000 --scenario scenario_dirgate.txt"
+# pruned rep
 
-[irace.dirgate_nata2]
-args = "10 dirgate_200kcat_nata2 --parallel 39 --max-experiments 200000 --scenario scenario_dirgate_nata2.txt"
+[irace.foraging_nata1]
+args = "10 foraging_200kcat_nata1_pru --parallel 39 --max-experiments 200000 --scenario scenario_foraging.txt -p ./example/grammar_rep500g_pruned_1070_cat_nata1.txt"
 
-[irace.xor2_nata1]
-args = "10 xor2_200kcat_nata1 --parallel 39 --max-experiments 200000 --scenario scenario_xor2.txt"
+[irace.foraging_nata2]
+args = "10 foraging_200kcat_nata2_pru --parallel 39 --max-experiments 200000 --scenario scenario_foraging_nata2.txt -p ./example/grammar_rep500g_pruned_1070_cat_nata2.txt"
 
-[irace.xor2_nata2]
-args = "10 xor2_200kcat_nata2 --parallel 39 --max-experiments 200000 --scenario scenario_xor2_nata2.txt"
+#[irace.dirgate_nata1]
+#args = "10 dirgate_200kcat_nata1_pru --parallel 39 --max-experiments 200000 --scenario scenario_dirgate.txt -p ./example/grammar_rep500g_pruned_1070_cat_nata1.txt"
+
+#[irace.dirgate_nata2]
+#args = "10 dirgate_200kcat_nata2_pru --parallel 39 --max-experiments 200000 --scenario scenario_dirgate_nata2.txt -p ./example/grammar_rep500g_pruned_1070_cat_nata2.txt"
+
+#[irace.xor2_nata1]
+#args = "10 xor2_200kcat_nata1_pru --parallel 39 --max-experiments 200000 --scenario scenario_xor2.txt -p ./example/grammar_rep500g_pruned_1070_cat_nata1.txt"
+
+#[irace.xor2_nata2]
+#args = "10 xor2_200kcat_nata2_pru --parallel 39 --max-experiments 200000 --scenario scenario_xor2_nata2.txt -p ./example/grammar_rep500g_pruned_1070_cat_nata2.txt"
 
