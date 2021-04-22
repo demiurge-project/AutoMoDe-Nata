@@ -76,14 +76,17 @@ namespace argos {
 	/****************************************/
 
 	void AutoMoDeFsmBuilder::HandleState(AutoMoDeFiniteStateMachine* c_fsm, std::vector<std::string>& vec_fsm_state_config) {
-		std::string sPathToGenomeFile;
-		std::string sPathToConfigurationFile = std::string(std::getenv("HOME")) + std::string("/.config/AutoMoDe_Harlequin.conf");
-		std::ifstream cConfigurationFile(sPathToConfigurationFile.c_str());
-		if (cConfigurationFile.is_open()){
-			std::getline(cConfigurationFile, sPathToGenomeFile);
-		}
-		else{
-			THROW_ARGOSEXCEPTION("Config file not found : Impossible to locate genes directory");
+		std::string sPathToGenomeFile = std::string(std::getenv("NATA_REPERTOIRE"));
+		/* std::string sPathToConfigurationFile = std::string(std::getenv("HOME")) + std::string("/.config/AutoMoDe_Harlequin.conf"); */
+		/* std::ifstream cConfigurationFile(sPathToConfigurationFile.c_str()); */
+		/* if (cConfigurationFile.is_open()){ */
+		/* 	std::getline(cConfigurationFile, sPathToGenomeFile); */
+		/* } */
+		/* else{ */
+		/* 	THROW_ARGOSEXCEPTION("Config file not found : Impossible to locate genes directory"); */
+		/* } */
+    	if (sPathToGenomeFile == ""){
+		    THROW_ARGOSEXCEPTION("Env var $NATA_REPERTOIRE not set: Impossible to locate genes directory");
 		}
 		std::vector<std::string>::iterator it;
 		// Extraction of the index of the behaviour in the FSM
