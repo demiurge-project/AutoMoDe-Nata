@@ -52,7 +52,8 @@ irace_main() {
 export OMPI_MCA_plm_rsh_disable_qrsh=1
 export PATH=/lustre/home/fpagnozzi/gcc91/bin/:$PATH
 export LD_LIBRARY_PATH=/lustre/home/fpagnozzi/gcc91/lib64/:/home/khasselmann/pagmo_build/lib/:$LD_LIBRARY_PATH
-export NATA_REPERTOIRE=$REP
+
+echo "$REP" > $EXECDIR/env_rep.path
 
 $MPIRUN -x OMPI_MCA_plm_rsh_disable_qrsh -np 1 \
         $IRACE --exec-dir=$EXECDIR --parallel $NB_SLAVES --seed $RUNSEED --mpi 1 $PARAMS
