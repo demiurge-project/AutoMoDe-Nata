@@ -9,7 +9,8 @@ set -o pipefail
 # Find our own location.
 #BINDIR=$(dirname "$(readlink -f "$(type -P $0 || echo $0)")")
 #IRACE="$BINDIR/irace"
-IRACE="irace"
+# IRACE="irace"
+IRACE="/home/khasselmann/irace_nomax/R/irace/bin/irace"
 
 # You may need to customize this part according to the setup of your own
 # cluster.

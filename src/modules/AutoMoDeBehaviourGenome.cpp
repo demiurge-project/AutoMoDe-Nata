@@ -97,7 +97,8 @@ namespace argos {
 		// Get RAB sensory data.
 		CCI_EPuckRangeAndBearingSensor::TPackets sLastPackets = m_pcRobotDAO->GetRangeAndBearingMessages();
         CCI_EPuckRangeAndBearingSensor::SReceivedPacket cProcessedRabReading = m_pcRobotDAO->GetAttractionVectorToNeighbors(1.0);
-
+        /* CCI_EPuckRangeAndBearingSensor::SReceivedPacket cProcessedRabReading = m_pcRobotDAO->GetNeighborsCenterOfMass(); */
+        
         CVector2 cRabReading = CVector2(cProcessedRabReading.Range, cProcessedRabReading.Bearing);
         Real len = cRabReading.Length();
         if(len != 0) {

@@ -38,3 +38,9 @@ build/*
 *.stdout
 *.stderr
 
+# opti dir
+optimization/xor2_*
+optimization/foraging_*
+optimization/dirgate_*
+
+
