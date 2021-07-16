@@ -65,10 +65,16 @@
   /****************************************/
 
 	bool NataConditionProx::Verify() {
-        auto readings = m_pcRobotDAO->GetProximityInput();
+        //auto readings = m_pcRobotDAO->GetProximityInput();
+	CCI_EPuckProximitySensor::TReadings cProcessedProxiReadings = m_pcRobotDAO->GetProximityInput();
         // process readings
-        auto addReadings = [](Real acc, const auto& obj) { return acc + obj.Value; };
-        Real sum = std::accumulate(readings.begin(), readings.end(), 0.0, addReadings);
+        //auto addReadings = [](Real acc, const auto& obj) { return acc + obj.Value; };
+        //Real sum = std::accumulate(readings.begin(), readings.end(), 0.0, addReadings);
+	Real sum = 0.0;
+	for (int i = 0; i < cProcessedProxiReadings.size(); i++ ) {
+	  sum += cProcessedProxiReadings[i].Value;
+	}
+	
 
         if (sum >= m_fThreshold and m_unSide == 0) {
           return EvaluateBernoulliProbability(m_fProbability);

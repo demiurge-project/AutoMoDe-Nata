@@ -88,7 +88,7 @@ namespace argos {
 
 		private:
 			virtual void LoadGen(std::string file);
-			Real m_inputs[25];
+			double m_inputs[25];
 			// Ground sensor samples obtained without using a light spot
 
 	};

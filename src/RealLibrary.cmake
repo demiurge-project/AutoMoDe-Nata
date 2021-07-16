@@ -67,5 +67,13 @@ set(AUTOMODE_SOURCES
 	NEAT/trait.cpp)
 
 
-add_executable(harlequin ${AUTOMODE_HEADERS} ${AUTOMODE_SOURCES})
-target_link_libraries(harlequin argos3plugin_${ARGOS_BUILD_FOR}_epuck argos3_demiurge_epuck_dao) 
+#add_executable(harlequin ${AUTOMODE_HEADERS} ${AUTOMODE_SOURCES})
+#target_link_libraries(harlequin argos3plugin_${ARGOS_BUILD_FOR}_epuck argos3_demiurge_epuck_dao) 
+
+add_executable(harlequin /home/aligot/Desktop/Arena/iridia-tracking-system/src/plugins/robots/e-puck/real_robot/real_epuck_its.h
+		        /home/aligot/Desktop/Arena/iridia-tracking-system/src/plugins/robots/e-puck/real_robot/real_epuck_its_main.cpp
+							${AUTOMODE_HEADERS} ${AUTOMODE_SOURCES})
+target_link_libraries(harlequin argos3plugin_${ARGOS_BUILD_FOR}_epuck argos3_demiurge_epuck_dao
+											argos3plugin_${ARGOS_BUILD_FOR}_genericvirtualsensorsandactuators)
+
+

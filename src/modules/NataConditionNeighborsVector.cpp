@@ -49,7 +49,8 @@
 
 	bool NataConditionNeighborsVector::Verify() {
  
-        auto readings = m_pcRobotDAO->GetAttractionVectorToNeighbors(1); //m_fParameterEta);
+        //auto readings = m_pcRobotDAO->GetAttractionVectorToNeighbors(1); //m_fParameterEta);
+	CCI_EPuckRangeAndBearingSensor::SReceivedPacket readings = m_pcRobotDAO->GetAttractionVectorToNeighbors(1);
         //process readings
         
         /* LOG<< "r:" << readings << std::endl; */

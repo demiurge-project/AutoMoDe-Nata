@@ -10,6 +10,17 @@
 
 #include "AutoMoDeFsmBuilder.h"
 
+namespace patch
+{
+    template < typename T > std::string to_string( const T& n )
+    {
+        std::ostringstream stm ;
+        stm << n ;
+        return stm.str() ;
+    }
+}
+
+
 namespace argos {
 
 	/****************************************/
@@ -99,8 +110,8 @@ namespace argos {
 
 		// Creation of the Behaviour object
 		AutoMoDeBehaviour* cNewBehaviour = NULL;
-		sPathToGenomeFile += "/genome_"+std::to_string(unBehaviourIdentifier);
-		cNewBehaviour = new AutoMoDeBehaviourGenome("genome_"+std::to_string(unBehaviourIdentifier), sPathToGenomeFile);
+		sPathToGenomeFile += "/genome_"+patch::to_string(unBehaviourIdentifier);
+		cNewBehaviour = new AutoMoDeBehaviourGenome("genome_"+patch::to_string(unBehaviourIdentifier), sPathToGenomeFile);
 
 		cNewBehaviour->SetIndex(unBehaviourIndex);
 		cNewBehaviour->SetIdentifier(unBehaviourIdentifier);
