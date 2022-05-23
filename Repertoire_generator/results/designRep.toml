@@ -1,0 +1,40 @@
+title = "Arlequin experiments"
+
+[repertoires]
+exec = "python /home/khasselmann/Arlequin/src/misc/paralell_run_mpi_local_rep.py"
+
+#[repertoires.test]
+#args = "-d repertoire -j rep7_1000g_diff -n 40 -e ../src/experiments/repertoireTrainingCluster.argos -p ../src/params/EvostickRepertoireParams.ne -s ../src/startgen/evostickstartgenesRM11 -pr ../src/params/repertoiresParams2.rep -r 1"
+
+#[repertoires.test2]
+#args = "-d repertoire -j rep7_1000g -n 40 -e ../src/experiments/repertoireTrainingCluster.argos -p ../src/params/EvostickRepertoireParams.ne -s ../src/startgen/evostickstartgenesRM11 -pr ../src/params/repertoiresParams.rep -r 1"
+
+#[repertoires.test3]
+#args = "-d repertoire -j rep7_3000g -n 40 -e ../src/experiments/repertoireTrainingCluster.argos -p ../src/params/EvostickRepertoireParams3.ne -s ../src/startgen/evostickstartgenesRM11 -pr ../src/params/repertoiresParams.rep -r 1"
+
+#[repertoires.test4]
+#args = "-d repertoire -j rep7_500g_ng -n 40 -e ../src/experiments/repertoireTrainingCluster.argos -p ../src/params/EvostickRepertoireParams500.ne -s ../src/startgen/evostickstartgenesRM11 -pr ../src/params/repertoiresParams.rep -r 1"
+
+#[repertoires.test5]
+#args = "-d repertoire -j rep7_500g_diff -n 40 -e ../src/experiments/repertoireTrainingCluster.argos -p ../src/params/EvostickRepertoireParams500.ne -s ../src/startgen/evostickstartgenesRM11 -pr ../src/params/repertoiresParams2.rep -r 1"
+
+#[repertoires.test6]
+#args = "-d repertoire -j rep7_500g_diff3 -n 40 -e ../src/experiments/repertoireTrainingCluster.argos -p ../src/params/EvostickRepertoireParams500.ne -s ../src/startgen/evostickstartgenesRM11 -pr ../src/params/repertoiresParams3.rep -r 1"
+
+#[repertoires.test7]
+#args = "-d repertoire -j rep7_500g_diff4 -n 40 -e ../src/experiments/repertoireTrainingCluster.argos -p ../src/params/EvostickRepertoireParams500.ne -s ../src/startgen/evostickstartgenesRM11 -pr ../src/params/repertoiresParams4.rep -r 1"
+
+#[repertoires.test4]
+#args = "-d repertoire -j rep7_500g_d5 -n 48 -e ../src/experiments/repertoireTrainingCluster.argos -p ../src/params/EvostickRepertoireParams500.ne -s ../src/startgen/evostickstartgenesRM11 -pr ../src/params/repertoiresParams5.rep -r 1"
+
+#[repertoires.test7]
+#args = "-d repertoire -j rep7_500g_d6 -n 48 -e ../src/experiments/repertoireTrainingCluster.argos -p ../src/params/EvostickRepertoireParams500.ne -s ../src/startgen/evostickstartgenesRM11 -pr ../src/params/repertoiresParams6.rep -r 1"
+
+#[repertoires.test7]
+#args = "-d repertoire -j rep7_500g_d7 -n 48 -e ../src/experiments/repertoireTrainingCluster.argos -p ../src/params/EvostickRepertoireParams500.ne -s ../src/startgen/evostickstartgenesRM11 -pr ../src/params/repertoiresParams7.rep -r 1"
+
+[repertoires.test8]
+args = "-d repertoire -j rep7_500g_mass7 -n 48 -e ../src/experiments/repertoireTrainingCluster.argos -p ../src/params/EvostickRepertoireParams500.ne -s ../src/startgen/evostickstartgenesRM11 -pr ../src/params/repertoiresParams7.rep -r 1"
+
+[repertoires.test4]
+args = "-d repertoire -j rep7_500g_mass1 -n 40 -e ../src/experiments/repertoireTrainingCluster.argos -p ../src/params/EvostickRepertoireParams500.ne -s ../src/startgen/evostickstartgenesRM11 -pr ../src/params/repertoiresParams.rep -r 1"

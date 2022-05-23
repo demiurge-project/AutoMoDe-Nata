@@ -1,0 +1,5 @@
+nb_neighbors_k 30
+dist_threshold_l 2.0
+dist_constant_eps 1.50
+gen_growth_s 25
+max_archive_size_S 2000
