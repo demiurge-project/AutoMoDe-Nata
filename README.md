@@ -9,7 +9,7 @@ finite-state machines. Note that the repertoire can be automatically generated
 or not, this makes this code compatible with `AutoMoDe-Arlequin`.
 
 ## Package content
-
+```
 ├── `Nata` this folder contains all sources corresponding to `AutoMoDe-Nata`
 │   ├── `bin` this empty folder will contain the executable files.
 │   ├── `env_rep.path` example file that contains the full path for the repertoire to use
@@ -31,7 +31,7 @@ or not, this makes this code compatible with `AutoMoDe-Arlequin`.
 │       ├── `designRep.toml`
 │       └── `repertoire`
 └── `scripts`
-
+```
 
 ## Dependencies:
 - [ARGoS3](https://github.com/ilpincy/argos3) (3.0.0-beta48)
