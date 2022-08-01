@@ -7,6 +7,7 @@ import os
 import re
 import time
 import random
+
 ###############################################################################
 # This script launches several runs in parallel in a SGE Cluster, and
 # each run is parallelized using MPI.  Execute without parameters to see usage.
@@ -14,43 +15,49 @@ import random
 
 ########################### CONFIGURATION POINTS ##############################
 
-NEAT_DIR = "/home/khasselmann/Arlequin/src"
+# NEAT_DIR = "/home/khasselmann/Arlequin/src"
+NEAT_DIR = ""
 
-QUEUE='long' #or 'short'
-#MACHINE='opteron2216' #rack 1
+QUEUE = "long"  # or 'short'
+# MACHINE='opteron2216' #rack 1
 # MACHINE='xeon5410' #rack 2
 # MACHINE='opteron6128' #rack 3
 # MACHINE='opteron6272' #rack 4
-MACHINE='xeon2680' #rack 5
+MACHINE = "xeon2680"  # rack 5
 # MACHINE='xeon6138' #rack 6
 
 ###############################################################################
 
-p = argparse.ArgumentParser(description='runs a run multiple times in paralell using mpi, python paralell_run_mpi.py')
-p.add_argument('-d', '--dir', help='the execdir', required=True)
-p.add_argument('-j', '--jobname', help='the name of the job', required=True)
-p.add_argument('-n', '--nbcores', help='number of parallel processes', type=int, required=True)
-p.add_argument('-e', '--exp', help='the experiment xml', required=True)
-p.add_argument('-p', '--params', help='the file for the parameters of the evolution', required=True)
-p.add_argument('-pr', '--paramsRep', help='the file for the parameters for the repertoires', required=True)
-p.add_argument('-s', '--startgenes', help='the file for the starting genome', required=True)
-p.add_argument('-r', '--runs', help='number of runs to do (number of sequential jobs) (default=1)', type=int, default=1)
-p.add_argument('-m', '--machine', help='the machine to run to (default TBD in script)', default=MACHINE)
-p.add_argument('-q', '--queue', help='the queue to run to (default TBD in script)', default=QUEUE)
+p = argparse.ArgumentParser(
+    description="runs a run multiple times in paralell using mpi, python paralell_run_mpi.py"
+)
+p.add_argument("-d", "--dir", help="the execdir", required=True)
+p.add_argument("-j", "--jobname", help="the name of the job", required=True)
+p.add_argument("-n", "--nbcores", help="number of parallel processes", type=int, required=True)
+p.add_argument("-e", "--exp", help="the experiment xml", required=True)
+p.add_argument("-p", "--params", help="the file for the parameters of the evolution", required=True)
+p.add_argument("-pr", "--paramsRep", help="the file for the parameters for the repertoires", required=True)
+p.add_argument("-s", "--startgenes", help="the file for the starting genome", required=True)
+p.add_argument(
+    "-r", "--runs", help="number of runs to do (number of sequential jobs) (default=1)", type=int, default=1
+)
+p.add_argument("-m", "--machine", help="the machine to run to (default TBD in script)", default=MACHINE)
+p.add_argument("-q", "--queue", help="the queue to run to (default TBD in script)", default=QUEUE)
 
 
-def run_neat(args,run):
-    data = {"jobname": "neatevo-%i-%i" % (os.getpid(),run),
-            "machine": args.machine,
-            "queue": args.queue,
-            "execdir": (os.path.abspath(args.dir)+ ("/%s-%i" % (args.jobname, run))),
-            "nbcores": args.nbcores,
-            "neatdir": NEAT_DIR,
-            "experiment": os.path.abspath(args.exp),
-            "params": os.path.abspath(args.params),
-            "paramsRep": os.path.abspath(args.paramsRep),
-            "startgenes": os.path.abspath(args.startgenes),
-            "seed": random.randrange(2, 2147483647), # 2147483647 is the maximum of a signed int
+def run_neat(args, run):
+    data = {
+        "jobname": "neatevo-%i-%i" % (os.getpid(), run),
+        "machine": args.machine,
+        "queue": args.queue,
+        "execdir": (os.path.abspath(args.dir) + ("/%s-%i" % (args.jobname, run))),
+        "nbcores": args.nbcores,
+        "neatdir": NEAT_DIR,
+        "experiment": os.path.abspath(args.exp),
+        "params": os.path.abspath(args.params),
+        "paramsRep": os.path.abspath(args.paramsRep),
+        "startgenes": os.path.abspath(args.startgenes),
+        "seed": random.randrange(2, 2147483647),  # 2147483647 is the maximum of a signed int
     }
     script = """#!/bin/bash
 #$ -N %(jobname)s
@@ -70,7 +77,7 @@ def run_neat(args,run):
 export OMPI_MCA_plm_rsh_disable_qrsh=1
 export PATH
 #export LD_LIBRARY_PATH=/home/khasselmann/toolchain/chain/lib64:/home/khasselmann/toolchain/chain/lib:/home/khasselmann/argos3-dist/lib/argos3:$LD_LIBRARY_PATH
-export LD_LIBRARY_PATH=/lustre/home/fpagnozzi/gcc91/lib64/:/home/khasselmann/argos3-dist/lib/argos3:$LD_LIBRARY_PATH
+# export LD_LIBRARY_PATH=/lustre/home/fpagnozzi/gcc91/lib64/:/home/khasselmann/argos3-dist/lib/argos3:$LD_LIBRARY_PATH
 
 USERNAME=`whoami`
 NEATDIR=%(neatdir)s
@@ -91,10 +98,11 @@ fi
     p = Popen("qsub -v PATH", shell=True, stdin=PIPE, stdout=PIPE, close_fds=True)
     (child_stdout, child_stdin) = (p.stdout, p.stdin)
     child_stdin.write(script % data)
-    #print(script % data)
+    # print(script % data)
     child_stdin.close()
-    print('Job sended')
+    print("Job sended")
     print(child_stdout.read())
+
 
 if __name__ == "__main__":
     args = p.parse_args()
@@ -102,5 +110,5 @@ if __name__ == "__main__":
     for run in range(args.runs):
         os.makedirs(os.path.abspath(args.dir) + ("/%s-%i" % (args.jobname, run)))
         os.makedirs(os.path.abspath(args.dir) + ("/%s-%i" % (args.jobname, run)) + "/gen")
-        run_neat(args,run)
+        run_neat(args, run)
         time.sleep(1)

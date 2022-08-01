@@ -73,6 +73,17 @@ This command should be run after each login on the computer, you can add it to y
 
 This command will also create the `config.py` file that contains informations about the path where ARGoS will find for the librairies and tools used for this experiment.
 
+### Creating the `env.rep` repertoire identification file
+
+In order for the simulator to locate the repertoire in use, a file named
+`env.rep` should be created in the current working directory where the 
+simulator is launched.
+
+This file should contain the absolute path to the repertoire to be used.
+
+For example for Nata:
+`<path_to_this_repo>/Repertoire_generator/results/repertoire/rep7_500g_d7-0/`
+
 ### Using an existing repertoire and an already generated finite-state machine.
 
 After installation, (given config.py is correctly setup),
@@ -91,16 +102,23 @@ optional arguments:
   --seed SEED, -s SEED
 ```
 
+
+
 Example for  `Nata`:
 
 ```
-python3 launchArgos.py -c Missions/aggregation_xor2_auto.argos -s 1 --fsm-config " "
+python3 scripts/launchArgos.py -s 98128 -c Nata/missions/foraging.argos --fsm-config " "
 ```
 
 Example for `Evostick`:
 ```
-python3 launchArgos.py -c Missions/homing.argos -g Design/Homing/EvoStick/champ_run_0 -s 1
+python3 scripts/launchArgos.py -s 98128 -c Nata/missions/foraging.argos -g " " 
 ```
+
+Examples of genomes and PFSM that can be used with those scripts can be found
+in the `Controllers.zip` file associated with the research paper and published
+as [IEEE Dataport](https://ieee-dataport.org/documents/towards-automatic-design-automatic-methods-design-robot-swarms-results-and-controllers)
+
 
 ### Automatic design of finite-state machine
 Using an existing repertoire to generate finite-state machines for a mission.
@@ -126,15 +144,25 @@ cd AutoMoDe-Nata/Nata/optimization
 irace --exec-dir=execdir --parallel 10 --max-experiments 50000 --scenario scenario.txt
 ```
 
+This will launch a design phase in the current folder.
+For the algorithm to be able to locate the repertoire of behaviors to be used,
+you should create a `env.rep` file containing the path of the repertoire.
+
 ### Creation of a repertoire
 How to create a new repertoire of behaviors to be used to generate finite-state
 machines with the previous procedure.
+
+/!\ This process requires a CPU cluster to be run in a acceptable amount of
+time. The scripts provided require modification according to the specific
+cluster computing engine that is used.
 
 ```
 python misc/paralell_run_mpi_local_rep.py -d repertoire -j rep_500g -n 48 -e ../src/experiments/repertoireTrainingCluster.argos -p ../src/params/EvostickRepertoireParams500.ne -s ../src/startgen/evostickstartgenesRM11 -pr ../src/params/repertoiresParams7.rep -r 1
 ```
 
 ## Manuel installation
+All the software prerequisite have to be installed before hand.
+
 Clone this repository
 
 Navigate to the repository and build the package AutoMoDe-Nata

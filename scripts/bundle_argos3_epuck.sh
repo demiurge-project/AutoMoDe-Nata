@@ -192,7 +192,7 @@ function do_create_setup_script() {
 }
 
 function do_create_config(){
-    local CONFIGFILE=../config.py
+    local CONFIGFILE=./config.py
     echo "#!/usr/bin/python3" >> $CONFIGFILE
     echo "ARGOS_PREFIX = \"$INSTALL_DIR\"" >> $CONFIGFILE
     echo "CONTROLLERS = {" >> $CONFIGFILE
